@@ -11,15 +11,15 @@
 <link rel="apple-touch-icon" href="./icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Comfortaa:wght@500;700&family=Nunito:wght@400;600;700&family=PT+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Nunito:wght@400;600;700;800&family=PT+Mono&display=swap" rel="stylesheet">
 <style>
 :root{
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
   --bg:#e4eee1; --panel:#d8e6d3;
-  --ink:#1b7a3d; --ink-bright:#0d4a23; --ink-dim:#86b493; --ink-dark:#b3cfb9;
-  --text:#163d24; --text-dim:#4d785a; --amber:#a86a00; --red:#a02a20; --glow:transparent;
+  --ink:#166a34; --ink-bright:#0d4a23; --ink-dim:#86b493; --ink-dark:#b3cfb9;
+  --text:#163d24; --text-dim:#3a6547; --amber:#7d4d00; --red:#a02a20; --glow:transparent;
   --display:'JetBrains Mono','PT Mono','Courier New',monospace;
   --mono:'PT Mono','Courier New',Courier,monospace;
   color-scheme:light;
@@ -28,19 +28,19 @@
   :root:not([data-theme="light"]){
     --bg:#050a05; --panel:#091309;
     --ink:#3ef07a; --ink-bright:#9dffbb; --ink-dim:#1f6b3a; --ink-dark:#133a20;
-    --text:#bdf7cf; --text-dim:#5fa876; --amber:#ffb000; --red:#ff5a4e; --glow:rgba(62,240,122,.45);
+    --text:#bdf7cf; --text-dim:#5fa876; --amber:#ffb000; --red:#ff5a4e; --glow:rgba(62,240,122,.28);
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
   --bg:#050a05; --panel:#091309;
   --ink:#3ef07a; --ink-bright:#9dffbb; --ink-dim:#1f6b3a; --ink-dark:#133a20;
-  --text:#bdf7cf; --text-dim:#5fa876; --amber:#ffb000; --red:#ff5a4e; --glow:rgba(62,240,122,.45);
+  --text:#bdf7cf; --text-dim:#5fa876; --amber:#ffb000; --red:#ff5a4e; --glow:rgba(62,240,122,.28);
   color-scheme:dark;
 }
 *,*::before,*::after{box-sizing:border-box;}
 html{height:100%; scroll-padding-top:env(safe-area-inset-top,0px);}
-body{margin:0; min-height:100%; background:var(--bg); color:var(--text); font-family:var(--mono); font-size:14px; line-height:1.45;
+body{margin:0; min-height:100%; background:var(--bg); color:var(--text); font-family:var(--mono); font-size:0.875rem; line-height:1.45;
   -webkit-font-smoothing:antialiased; -webkit-tap-highlight-color:transparent;}
 body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px); z-index:30; background:var(--bg);}
 .scan{pointer-events:none; position:fixed; inset:0; z-index:40; background:repeating-linear-gradient(0deg, rgba(0,0,0,.07) 0 1px, transparent 1px 3px);}
@@ -54,23 +54,23 @@ svg.ic{width:1em; height:1em; fill:currentColor; display:block;}
 /* header */
 header{display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:12px; align-items:center; border:2px solid var(--ink-dim); background:var(--panel); border-radius:6px; padding:12px;}
 .avatar{width:58px; height:58px; border:2px solid var(--ink); border-radius:6px; color:var(--ink); background:var(--panel); padding:0; cursor:pointer;
-  display:flex; align-items:center; justify-content:center; font-size:42px; position:relative; filter:drop-shadow(0 0 6px var(--glow));}
+  display:flex; align-items:center; justify-content:center; font-size:2.625rem; position:relative; filter:drop-shadow(0 0 6px var(--glow));}
 .avatar img{width:100%; height:100%; object-fit:cover; border-radius:4px; display:block;}
 .avatar.tint img{filter:grayscale(1) sepia(1) hue-rotate(75deg) saturate(2.4) brightness(.95) contrast(1.15);}
 .avatar.tint::after{content:""; position:absolute; inset:0; border-radius:4px; pointer-events:none; background:repeating-linear-gradient(0deg, rgba(0,0,0,.18) 0 1px, transparent 1px 3px);}
-.avatar .lv{position:absolute; right:-9px; bottom:-9px; z-index:2; background:var(--ink); color:var(--bg); font-family:var(--display); font-weight:700; font-size:15px;
+.avatar .lv{position:absolute; right:-9px; bottom:-9px; z-index:2; background:var(--ink); color:var(--bg); font-family:var(--display); font-weight:700; font-size:0.9375rem;
   min-width:26px; height:26px; line-height:26px; text-align:center; border-radius:5px; padding:0 4px;}
-.who h1{font-family:var(--display); font-weight:700; font-size:22px; margin:0; color:var(--ink-bright); letter-spacing:.5px; text-shadow:0 0 8px var(--glow);}
+.who h1{font-family:var(--display); font-weight:700; font-size:1.375rem; margin:0; color:var(--ink-bright); letter-spacing:.5px; text-shadow:0 0 8px var(--glow);}
 .xpbar{height:12px; border:2px solid var(--ink-dim); border-radius:3px; margin-top:6px; overflow:hidden; background:var(--bg);}
 .xpbar i{display:block; height:100%; width:0; background:repeating-linear-gradient(90deg,var(--ink) 0 6px, transparent 6px 8px); transition:width .5s ease;}
-.xpnum{font-size:11px; color:var(--text-dim); margin-top:3px;}
-.sound{background:none; border:2px solid var(--ink-dim); border-radius:6px; padding:8px; cursor:pointer; color:var(--ink); font-size:20px; display:flex; flex-direction:column; align-items:center; gap:2px;}
-.sound span{font-size:9px; color:var(--text-dim);}
+.xpnum{font-size:0.75rem; color:var(--text-dim); margin-top:3px;}
+.sound{background:none; border:2px solid var(--ink-dim); border-radius:6px; padding:8px; cursor:pointer; color:var(--ink); font-size:1.25rem; display:flex; flex-direction:column; align-items:center; gap:2px;}
+.sound span{font-size:0.75rem; color:var(--text-dim);}
 .sound.off{color:var(--text-dim); opacity:.6;}
 
 /* tabs */
 nav.tabs{position:sticky; top:env(safe-area-inset-top,0px); z-index:20; background:var(--bg); display:grid; grid-template-columns:repeat(4,1fr); margin:12px 0; border-bottom:2px solid var(--ink-dim);}
-nav.tabs button{background:none; border:0; padding:12px 2px 10px; cursor:pointer; font-family:var(--display); font-weight:700; font-size:16px; color:var(--text-dim); letter-spacing:1px; position:relative;}
+nav.tabs button{background:none; border:0; padding:12px 2px 10px; cursor:pointer; font-family:var(--display); font-weight:700; font-size:1rem; color:var(--text-dim); letter-spacing:1px; position:relative;}
 nav.tabs button[aria-selected="true"]{color:var(--ink-bright); text-shadow:0 0 8px var(--glow);}
 nav.tabs button[aria-selected="true"]::after{content:""; position:absolute; left:10%; right:10%; bottom:-2px; height:4px; background:var(--ink);}
 section.tab{display:none;}
@@ -79,50 +79,54 @@ section.tab.active{display:block; animation:tabin .18s steps(3);}
 
 /* panels */
 .panel{border:2px solid var(--ink-dim); background:var(--panel); border-radius:6px; padding:12px; margin-bottom:12px;}
-.panel h2{font-family:var(--display); font-weight:700; font-size:17px; color:var(--ink-bright); margin:0 0 10px; letter-spacing:.5px;}
-.hint{margin:-4px 0 10px; font-size:12px; color:var(--text-dim);}
-.btn{background:var(--ink); color:var(--bg); border:0; border-radius:5px; padding:9px 14px; font-family:var(--display); font-weight:700; font-size:14px; cursor:pointer;}
+.panel h2{font-family:var(--display); font-weight:700; font-size:1.0625rem; color:var(--ink-bright); margin:0 0 10px; letter-spacing:.5px;}
+.hint{margin:-4px 0 10px; font-size:0.75rem; color:var(--text-dim);}
+.btn{background:var(--ink); color:var(--bg); border:0; border-radius:5px; padding:9px 14px; font-family:var(--display); font-weight:700; font-size:0.875rem; cursor:pointer;}
 .btn.ghost{background:none; color:var(--ink); border:2px solid var(--ink-dim);}
 .btn:disabled{opacity:.4; cursor:default;}
-input[type=text]{background:var(--bg); border:2px solid var(--ink-dark); color:var(--text); font-family:var(--mono); font-size:14px; padding:9px; border-radius:5px; width:100%; min-width:0;}
+input[type=text]{background:var(--bg); border:2px solid var(--ink-dark); color:var(--text); font-family:var(--mono); font-size:0.875rem; padding:9px; border-radius:5px; width:100%; min-width:0;}
 input[type=text]:focus{outline:none; border-color:var(--ink);}
 .inrow{display:flex; gap:6px; margin-top:8px;}
 
 /* stats + bonuses */
 .stats{display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:5px;}
 .stat{border:2px solid var(--ink-dark); border-radius:4px; padding:6px 2px; text-align:center;}
-.stat b{display:block; font-family:var(--display); font-size:22px; color:var(--ink-bright); line-height:1.1;}
-.stat small{display:block; font-size:9.5px; color:var(--text-dim); overflow:hidden; white-space:nowrap;}
+.stat b{display:block; font-family:var(--display); font-size:1.375rem; color:var(--ink-bright); line-height:1.1;}
+.stat small{display:block; font-size:0.75rem; color:var(--text-dim); overflow:hidden; white-space:nowrap;}
 .stat .bar{height:4px; margin:5px 4px 0; background:var(--bg); border-radius:2px; overflow:hidden;}
 .stat .bar i{display:block; height:100%; background:var(--ink);}
 .bonuses{display:flex; flex-wrap:wrap; gap:6px; margin-top:12px;}
-.bonus{display:flex; align-items:center; gap:6px; border:2px solid var(--ink-dark); border-radius:5px; padding:4px 8px; font-size:12px;}
-.bonus .hi{font-size:16px; color:var(--ink);}
+.bonus{display:flex; align-items:center; gap:6px; border:2px solid var(--ink-dark); border-radius:5px; padding:4px 8px; font-size:0.75rem;}
+.bonus .hi{font-size:1rem; color:var(--ink);}
 .bonus b{color:var(--amber); font-weight:normal;}
 .bonus.cap b::after{content:" макс."; color:var(--text-dim);}
 
 /* habit rows */
 .list{display:grid; gap:6px;}
-.trow{display:grid; grid-template-columns:34px minmax(0,1fr) auto 34px; align-items:center; gap:10px; width:100%; text-align:left;
-  background:var(--bg); border:2px solid var(--ink-dark); border-radius:5px; padding:8px 10px; cursor:pointer; font-size:14px;}
-.trow .hi{font-size:26px; color:var(--ink);}
-.trow .meta{font-size:11px; color:var(--text-dim); text-align:right; max-width:8.5em; line-height:1.25;}
+.trow{display:grid; grid-template-columns:34px minmax(0,1fr) 34px; align-items:center; column-gap:10px; row-gap:0; width:100%; text-align:left;
+  background:var(--bg); border:2px solid var(--ink-dark); border-radius:5px; padding:8px 10px; cursor:pointer; font-size:0.875rem;}
+.trow .hi{font-size:1.625rem; color:var(--ink); grid-column:1; grid-row:1 / span 2; align-self:center;}
+.trow>span:nth-child(2){grid-column:2; grid-row:1;}
+.trow .meta{grid-column:2; grid-row:2; font-size:0.75rem; color:var(--text-dim); text-align:left; line-height:1.3; margin-top:2px; overflow-wrap:anywhere;}
+.trow .meta:empty{display:none;}
+.trow .box{grid-column:3; grid-row:1 / span 2; align-self:center;}
+.nw{white-space:nowrap;}
 .trow .meta.hot{color:var(--amber);}
-.trow .box{width:30px; height:30px; border:2px solid var(--ink-dim); border-radius:4px; display:flex; align-items:center; justify-content:center; font-size:18px; color:transparent;}
+.trow .box{width:30px; height:30px; border:2px solid var(--ink-dim); border-radius:4px; display:flex; align-items:center; justify-content:center; font-size:1.125rem; color:transparent;}
 .trow.on{border-color:var(--ink);}
 .trow.on .box{background:var(--ink); color:var(--bg); box-shadow:0 0 8px var(--glow);}
 .trow.pop .box{animation:pop .25s ease;}
 @keyframes pop{50%{transform:scale(1.25);}}
 .sub-in{margin:-2px 0 4px 44px;}
 .prog{display:grid; gap:8px; margin-top:12px;}
-.pline{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:2px 10px; font-size:12.5px;}
+.pline{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:2px 10px; font-size:0.7812rem;}
 .pline .val{color:var(--text-dim); text-align:right;}
 .pline.done .val{color:var(--amber);}
 .pline .bar{grid-column:1/-1; height:6px; border:1px solid var(--ink-dim); border-radius:3px; overflow:hidden; background:var(--bg);}
 .pline .bar i{display:block; height:100%; background:var(--ink);}
-.reward{margin-top:12px; border:2px dashed var(--ink-dim); border-radius:6px; padding:10px; font-size:13px;}
+.reward{margin-top:12px; border:2px dashed var(--ink-dim); border-radius:6px; padding:10px; font-size:0.8125rem;}
 .reward.open{border-style:solid; border-color:var(--amber);}
-.reward h3{margin:0 0 4px; font-family:var(--display); font-size:15px; color:var(--amber);}
+.reward h3{margin:0 0 4px; font-family:var(--display); font-size:0.9375rem; color:var(--amber);}
 .reward.locked h3{color:var(--text-dim);}
 .reward p{margin:0; color:var(--text-dim);}
 .reward .got{color:var(--ink-bright);}
@@ -130,43 +134,43 @@ input[type=text]:focus{outline:none; border-color:var(--ink);}
 /* mood */
 .moods{display:flex; gap:6px; justify-content:space-between;}
 .mood{flex:1; padding:8px 0 6px; background:var(--bg); border:2px solid var(--ink-dark); border-radius:5px; cursor:pointer; color:var(--text-dim); opacity:.55;
-  display:flex; flex-direction:column; align-items:center; gap:3px; font-size:32px;}
-.mood small{font-size:9.5px;}
+  display:flex; flex-direction:column; align-items:center; gap:3px; font-size:2rem;}
+.mood small{font-size:0.75rem;}
 .mood.sel{opacity:1; color:var(--ink); border-color:var(--ink); box-shadow:0 0 8px var(--glow);}
 .mood.sel small{color:var(--ink-bright);}
 .chips{display:flex; flex-wrap:wrap; gap:6px; margin-top:10px;}
-.chip{background:var(--bg); border:2px solid var(--ink-dark); border-radius:14px; padding:4px 10px; font-size:12px; cursor:pointer; color:var(--text-dim);}
+.chip{background:var(--bg); border:2px solid var(--ink-dark); border-radius:14px; padding:4px 10px; font-size:0.75rem; cursor:pointer; color:var(--text-dim);}
 .chip.sel{border-color:var(--ink); color:var(--ink-bright); background:var(--panel);}
 .log{margin-top:10px; max-height:220px; overflow-y:auto;}
-.log div{padding:6px 0; border-bottom:1px dashed var(--ink-dark); font-size:12.5px; color:var(--text-dim); display:flex; gap:6px; align-items:baseline;}
+.log div{padding:6px 0; border-bottom:1px dashed var(--ink-dark); font-size:0.7812rem; color:var(--text-dim); display:flex; gap:6px; align-items:baseline;}
 .log b{color:var(--ink); font-weight:normal; flex:none;}
-.log .f{font-size:15px; color:var(--ink); align-self:center; flex:none;}
+.log .f{font-size:0.9375rem; color:var(--ink); align-self:center; flex:none;}
 
 /* journal */
 .weeknav{display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;}
-.weeknav .range{font-family:var(--display); font-size:15px; color:var(--ink-bright);}
+.weeknav .range{font-family:var(--display); font-size:0.9375rem; color:var(--ink-bright); text-align:center;}
 .gridwrap{overflow-x:auto; -webkit-overflow-scrolling:touch;}
 table{border-collapse:separate; border-spacing:3px; width:100%; min-width:520px;}
-th{font-weight:normal; font-size:11px; color:var(--text-dim); padding:2px 0 6px;}
+th{font-weight:normal; font-size:0.75rem; color:var(--text-dim); padding:2px 0 6px;}
 th.today{color:var(--amber);}
-td.name{position:sticky; left:0; background:var(--panel); font-size:12px; white-space:nowrap; padding-right:6px;}
+td.name{position:sticky; left:0; background:var(--panel); font-size:0.75rem; white-space:nowrap; padding-right:6px;}
 td.name>span{display:inline-flex; align-items:center; gap:6px;}
-td.name .hi{font-size:18px; color:var(--ink);}
+td.name .hi{font-size:1.125rem; color:var(--ink);}
 tr.off td.name{opacity:.5;}
 td.c{text-align:center;}
-.chk{width:32px; height:32px; border:2px solid var(--ink-dark); border-radius:4px; background:var(--bg); cursor:pointer; display:inline-flex; align-items:center; justify-content:center; color:transparent; font-size:16px; padding:0;}
+.chk{width:32px; height:32px; border:2px solid var(--ink-dark); border-radius:4px; background:var(--bg); cursor:pointer; display:inline-flex; align-items:center; justify-content:center; color:transparent; font-size:1rem; padding:0;}
 .chk.on{background:var(--ink); border-color:var(--ink); color:var(--bg); box-shadow:0 0 6px var(--glow);}
 .chk:disabled{opacity:.25; cursor:default;}
-td.mood-c{text-align:center; font-size:20px; color:var(--ink);}
+td.mood-c{text-align:center; font-size:1.25rem; color:var(--ink);}
 td.mood-c svg{margin:0 auto;}
 .wk-list{display:grid; gap:6px; margin-top:12px;}
-.wk-item{display:flex; align-items:center; gap:10px; font-size:13px;}
-.wk-item .hi{font-size:20px; color:var(--ink);}
-.wk-item .st{margin-left:auto; font-size:12px; color:var(--text-dim);}
+.wk-item{display:flex; align-items:center; gap:10px; font-size:0.8125rem;}
+.wk-item .hi{font-size:1.25rem; color:var(--ink);}
+.wk-item .st{margin-left:auto; font-size:0.75rem; color:var(--text-dim);}
 .wk-item.on .st{color:var(--amber);}
 .chart{margin-top:12px;}
 .chart svg{width:100%; height:auto; display:block;}
-.legend{display:flex; gap:14px; font-size:11px; color:var(--text-dim); margin-top:4px;}
+.legend{display:flex; gap:14px; font-size:0.75rem; color:var(--text-dim); margin-top:4px;}
 .legend i{display:inline-block; width:10px; height:10px; vertical-align:-1px; margin-right:4px; background:var(--ink);}
 .legend i.m{background:var(--amber); border-radius:50%;}
 
@@ -177,33 +181,33 @@ td.mood-c svg{margin:0 auto;}
 .perks{display:grid; grid-template-columns:repeat(auto-fill,minmax(104px,1fr)); gap:8px;}
 .perk{border:2px solid var(--ink-dark); border-radius:6px; padding:10px 6px 8px; text-align:center; background:var(--bg); cursor:pointer;}
 .perk.open{border-color:var(--ink-dim);}
-.medal{position:relative; width:56px; height:56px; margin:0 auto; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:32px; color:var(--bg); background:var(--ink);
+.medal{position:relative; width:56px; height:56px; margin:0 auto; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2rem; color:var(--bg); background:var(--ink);
   box-shadow:0 0 0 3px var(--bg), 0 0 0 5px var(--ink), 0 0 12px var(--glow);}
 .medal .cut,.perk .medal .cut{fill:var(--ink);}
 .perk.locked .medal{background:var(--ink-dark); color:var(--text-dim); box-shadow:0 0 0 3px var(--bg), 0 0 0 5px var(--ink-dark);}
 .perk.locked .medal .cut{fill:var(--ink-dark);}
-.medal .lk{position:absolute; right:-5px; bottom:-5px; width:22px; height:22px; border-radius:50%; background:var(--bg); color:var(--text-dim); font-size:13px; display:flex; align-items:center; justify-content:center; border:2px solid var(--ink-dark);}
+.medal .lk{position:absolute; right:-5px; bottom:-5px; width:22px; height:22px; border-radius:50%; background:var(--bg); color:var(--text-dim); font-size:0.8125rem; display:flex; align-items:center; justify-content:center; border:2px solid var(--ink-dark);}
 .medal .lk .cut{fill:var(--bg);}
-.perk h3{font-family:var(--display); font-weight:700; font-size:12.5px; margin:10px 0 1px; color:var(--ink-bright); line-height:1.2;}
+.perk h3{font-family:var(--display); font-weight:700; font-size:0.7812rem; margin:10px 0 1px; color:var(--ink-bright); line-height:1.2;}
 .perk.locked h3{color:var(--text-dim);}
-.perk .lvl{font-size:10px; color:var(--amber);}
+.perk .lvl{font-size:0.75rem; color:var(--amber);}
 .perk.locked .lvl{color:var(--text-dim);}
 
 /* library */
 .lrow{display:grid; grid-template-columns:28px minmax(0,1fr) auto; align-items:center; gap:10px; padding:8px 0; border-bottom:1px dashed var(--ink-dark);}
 .lrow:last-child{border-bottom:0;}
-.lrow .hi{font-size:22px; color:var(--ink);}
-.lrow small{display:block; font-size:11px; color:var(--text-dim);}
+.lrow .hi{font-size:1.375rem; color:var(--ink);}
+.lrow small{display:block; font-size:0.75rem; color:var(--text-dim);}
 .sw{width:46px; height:26px; border:2px solid var(--ink-dim); border-radius:13px; position:relative; background:var(--bg); cursor:pointer; padding:0;}
 .sw::after{content:""; position:absolute; top:3px; left:3px; width:16px; height:16px; border-radius:50%; background:var(--ink-dim); transition:left .15s;}
 .sw.on{background:var(--ink); border-color:var(--ink);}
 .sw.on::after{left:23px; background:var(--bg);}
 .sw:disabled{opacity:.35; cursor:default;}
-.grouph{font-size:12px; color:var(--amber); margin:12px 0 2px;}
+.grouph{font-size:0.75rem; color:var(--amber); margin:12px 0 2px;}
 .rowbtns{display:flex; gap:8px; flex-wrap:wrap;}
 .rowbtns label{cursor:pointer;}
 .rowbtns input[type=file]{display:none;}
-.sync{display:flex; align-items:center; gap:8px; font-size:12px; color:var(--text-dim); margin-top:12px;}
+.sync{display:flex; align-items:center; gap:8px; font-size:0.75rem; color:var(--text-dim); margin-top:12px;}
 .dot{width:9px; height:9px; border-radius:50%; background:var(--text-dim);}
 .dot.ok{background:var(--ink); box-shadow:0 0 6px var(--glow);}
 .dot.local{background:var(--amber);}
@@ -216,12 +220,12 @@ td.mood-c svg{margin:0 auto;}
 .hpbar.low i{background:repeating-linear-gradient(90deg,var(--amber) 0 6px, transparent 6px 8px);}
 .hpbar.crit i{background:repeating-linear-gradient(90deg,var(--red) 0 6px, transparent 6px 8px);}
 .hitlog{margin-top:10px;}
-.hitlog>*{display:flex; gap:8px; align-items:baseline; width:100%; text-align:left; padding:6px 0; border:0; border-bottom:1px dashed var(--ink-dark); background:none; font-size:12.5px; color:var(--text-dim); font-family:inherit;}
+.hitlog>*{display:flex; gap:8px; align-items:baseline; width:100%; text-align:left; padding:6px 0; border:0; border-bottom:1px dashed var(--ink-dark); background:none; font-size:0.7812rem; color:var(--text-dim); font-family:inherit;}
 .hitlog b{color:var(--ink); font-weight:normal; flex:none;}
 .hitlog button{cursor:pointer;}
-.fl{display:block; font-size:12px; color:var(--text-dim); margin:12px 0 4px;}
-.chk.slip{border-color:var(--red); color:var(--red); background:var(--bg); font-size:15px;}
-.modal textarea{width:100%; height:260px; background:var(--bg); color:var(--text); border:2px solid var(--ink-dark); border-radius:5px; font-family:var(--mono); font-size:12px; padding:8px; resize:none;}
+.fl{display:block; font-size:0.75rem; color:var(--text-dim); margin:12px 0 4px;}
+.chk.slip{border-color:var(--red); color:var(--red); background:var(--bg); font-size:0.9375rem;}
+.modal textarea{width:100%; height:260px; background:var(--bg); color:var(--text); border:2px solid var(--ink-dark); border-radius:5px; font-family:var(--mono); font-size:0.75rem; padding:8px; resize:none;}
 #hitfx{position:fixed; inset:0; z-index:55; pointer-events:none; box-shadow:inset 0 0 70px 14px var(--red); opacity:0;}
 #hitfx.on{animation:hitp .7s ease-out;}
 @keyframes hitp{0%{opacity:.95;} 100%{opacity:0;}}
@@ -233,64 +237,67 @@ header{margin-bottom:12px;}
 .wrap{padding-bottom:calc(150px + env(safe-area-inset-bottom,0px));}
 .toast{bottom:calc(84px + env(safe-area-inset-bottom,0px));}
 nav.tabs{position:fixed; top:auto; left:0; right:0; bottom:0; z-index:25; margin:0; display:block; background:var(--bg); border-top:2px solid var(--ink-dim); border-bottom:0; padding-bottom:env(safe-area-inset-bottom,0px);}
-nav.tabs .in{max-width:760px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr);}
-nav.tabs button{padding:8px 2px 8px; font-size:13px; display:flex; flex-direction:column; align-items:center; gap:3px;}
-nav.tabs button .tic{font-size:22px; display:block;}
+nav.tabs .in{max-width:760px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr 1.15fr 1fr 1fr; align-items:end;}
+nav.tabs button.navcrave{width:60px; height:60px; margin:-18px auto 6px; padding:0; border-radius:50%; border:2px solid var(--ink); background:var(--panel); color:var(--ink); justify-content:center; gap:0; font-size:1.375rem; box-shadow:0 0 12px var(--glow), 0 2px 8px rgba(0,0,0,.35); letter-spacing:0;}
+nav.tabs button.navcrave small{font-size:0.75rem; color:var(--text-dim); font-family:var(--mono); font-weight:400; line-height:1.1; margin-top:1px;}
+nav.tabs button.navcrave:active{background:var(--ink-dark);}
+nav.tabs button{padding:8px 2px 8px; font-size:0.8125rem; display:flex; flex-direction:column; align-items:center; gap:3px;}
+nav.tabs button .tic{font-size:1.375rem; display:block;}
 nav.tabs button[aria-selected="true"]::after{top:-2px; bottom:auto; left:18%; right:18%;}
 .trow>span:nth-child(2){min-width:0; overflow-wrap:anywhere;}
 .wk-item>span:nth-child(2),.hitlog span{min-width:0; overflow-wrap:anywhere;}
 .quick{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px;}
-.qbtn{display:flex; align-items:center; justify-content:center; gap:8px; padding:14px 8px; border:2px solid var(--ink); border-radius:6px; background:var(--panel); color:var(--ink-bright); font-family:var(--display); font-weight:700; font-size:16px; cursor:pointer; box-shadow:0 0 10px var(--glow);}
-.qbtn .tic{font-size:24px; display:block;}
-.fab{position:fixed; right:14px; bottom:calc(80px + env(safe-area-inset-bottom,0px)); z-index:26; width:54px; height:54px; border-radius:50%; border:2px solid var(--ink); background:var(--panel); color:var(--ink); display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:22px; padding:0; box-shadow:0 0 12px var(--glow), 0 2px 8px rgba(0,0,0,.35); cursor:pointer;}
-.fab small{font-size:9px; margin-top:1px; color:var(--text-dim); font-family:var(--mono);}
+.qbtn{display:flex; align-items:center; justify-content:center; gap:8px; padding:14px 8px; border:2px solid var(--ink); border-radius:6px; background:var(--panel); color:var(--ink-bright); font-family:var(--display); font-weight:700; font-size:1rem; cursor:pointer; box-shadow:0 0 10px var(--glow);}
+.qbtn .tic{font-size:1.5rem; display:block;}
+.fab{position:fixed; right:14px; bottom:calc(80px + env(safe-area-inset-bottom,0px)); z-index:26; width:54px; height:54px; border-radius:50%; border:2px solid var(--ink); background:var(--panel); color:var(--ink); display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:1.375rem; padding:0; box-shadow:0 0 12px var(--glow), 0 2px 8px rgba(0,0,0,.35); cursor:pointer;}
+.fab small{font-size:0.75rem; margin-top:1px; color:var(--text-dim); font-family:var(--mono);}
 body.mo .fab{display:none;}
-.bk{display:flex; align-items:center; gap:10px; margin-bottom:12px; border:2px solid var(--amber); border-radius:6px; padding:10px 12px; background:var(--panel); font-size:12.5px;}
+.bk{display:flex; align-items:center; gap:10px; margin-bottom:12px; border:2px solid var(--amber); border-radius:6px; padding:10px 12px; background:var(--panel); font-size:0.7812rem;}
 .bk span{flex:1; color:var(--text);}
 .bk .btn{flex:none;}
-.prio summary{cursor:pointer; font-family:var(--display); font-weight:700; font-size:17px; color:var(--ink-bright); list-style:none;}
+.prio summary{cursor:pointer; font-family:var(--display); font-weight:700; font-size:1.0625rem; color:var(--ink-bright); list-style:none;}
 .prio summary::-webkit-details-marker{display:none;}
 .prio summary::after{content:'▾'; float:right; color:var(--text-dim);}
 .prio:not([open]) summary::after{content:'▸';}
 .idea{border:2px solid var(--ink-dark); border-radius:6px; padding:10px; margin-top:8px; background:var(--bg);}
-.idea b{font-family:var(--display); color:var(--ink-bright); font-size:15px; font-weight:700;}
-.idea p{margin:4px 0 8px; font-size:12.5px; color:var(--text-dim);}
-.badge{display:inline-block; font-size:10px; border:1px solid var(--amber); color:var(--amber); border-radius:8px; padding:0 6px; margin-left:6px; vertical-align:2px;}
+.idea b{font-family:var(--display); color:var(--ink-bright); font-size:0.9375rem; font-weight:700;}
+.idea p{margin:4px 0 8px; font-size:0.7812rem; color:var(--text-dim);}
+.badge{display:inline-block; font-size:0.75rem; border:1px solid var(--amber); color:var(--amber); border-radius:8px; padding:0 6px; margin-left:6px; vertical-align:2px;}
 .timer{text-align:center; margin:12px 0;}
-.timer .tt{font-family:var(--display); font-size:46px; color:var(--ink-bright); text-shadow:0 0 10px var(--glow); line-height:1.1;}
+.timer .tt{font-family:var(--display); font-size:2.875rem; color:var(--ink-bright); text-shadow:0 0 10px var(--glow); line-height:1.1;}
 .tbar{height:8px; border:2px solid var(--ink-dim); border-radius:3px; overflow:hidden; background:var(--bg); margin:6px 0 8px;}
 .tbar i{display:block; height:100%; width:0; background:var(--ink); transition:width .5s linear;}
 .breath{width:150px; height:150px; margin:14px auto 6px; border-radius:50%; border:3px solid var(--ink); position:relative; box-shadow:0 0 14px var(--glow);}
 .breath i{position:absolute; inset:12px; border-radius:50%; background:var(--ink); opacity:.3; transform:scale(.35); animation:breath 9s ease-in-out infinite;}
 @keyframes breath{0%{transform:scale(.35);} 24%{transform:scale(.8);} 33%{transform:scale(1);} 100%{transform:scale(.35);}}
-.cue{text-align:center; font-family:var(--display); font-size:17px; color:var(--ink-bright); min-height:24px;}
-.bignum{font-family:var(--display); font-size:56px; text-align:center; color:var(--ink-bright); text-shadow:0 0 10px var(--glow); line-height:1.1;}
-.range{width:100%; accent-color:var(--ink); margin:6px 0;}
+.cue{text-align:center; font-family:var(--display); font-size:1.0625rem; color:var(--ink-bright); min-height:24px;}
+.bignum{font-family:var(--display); font-size:3.5rem; text-align:center; color:var(--ink-bright); text-shadow:0 0 10px var(--glow); line-height:1.1;}
+.slider{width:100%; accent-color:var(--ink); margin:6px 0;}
 .cstats{display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-top:12px;}
 .cstats div{border:2px solid var(--ink-dark); border-radius:5px; text-align:center; padding:6px 2px;}
-.cstats b{display:block; font-family:var(--display); font-size:18px; color:var(--ink-bright);}
-.cstats small{font-size:10px; color:var(--text-dim);}
-.stepn{text-align:center; font-size:11px; color:var(--amber); margin-bottom:4px;}
+.cstats b{display:block; font-family:var(--display); font-size:1.125rem; color:var(--ink-bright);}
+.cstats small{font-size:0.75rem; color:var(--text-dim);}
+.stepn{text-align:center; font-size:0.75rem; color:var(--amber); margin-bottom:4px;}
 .navbtns{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:14px;}
 .btn.danger{background:none; color:var(--red); border:2px solid var(--red);}
-.btn.sm{padding:4px 9px; font-size:12px;}
+.btn.sm{padding:4px 9px; font-size:0.75rem;}
 .modal textarea.note{height:110px; resize:vertical;}
-.rl{margin:6px 0 4px; padding-left:18px; font-size:13px;}
+.rl{margin:6px 0 4px; padding-left:18px; font-size:0.8125rem;}
 .rl li{margin:3px 0;}
 #crit{position:fixed; inset:0; z-index:75; display:none; flex-direction:column; align-items:center; justify-content:center; background:rgba(40,0,0,.6); pointer-events:none;}
 #crit.show{display:flex;}
-#crit .gt{position:relative; font-family:var(--display); font-weight:700; font-size:60px; letter-spacing:6px; color:#ff5a4e; text-shadow:0 0 18px rgba(255,90,78,.85); animation:critj .45s steps(4) 2;}
+#crit .gt{position:relative; font-family:var(--display); font-weight:700; font-size:3.75rem; letter-spacing:6px; color:#ff5a4e; text-shadow:0 0 18px rgba(255,90,78,.85); animation:critj .45s steps(4) 2;}
 #crit .gt::before,#crit .gt::after{content:attr(data-text); position:absolute; inset:0; clip-path:inset(0 0 100% 0);}
 #crit .gt::before{color:#ffd24e; animation:g1 .6s steps(1) 2 forwards;}
 #crit .gt::after{color:#3bf0ff; animation:g2 .6s steps(1) 2 forwards;}
-#crit .sub{font-family:var(--display); font-size:20px; color:#ffb3ad; margin-top:6px;}
+#crit .sub{font-family:var(--display); font-size:1.25rem; color:#ffb3ad; margin-top:6px;}
 @keyframes critj{0%{transform:translate(0,0) skewX(0);} 25%{transform:translate(-6px,2px) skewX(12deg);} 50%{transform:translate(5px,-2px) skewX(-10deg);} 75%{transform:translate(-3px,1px) skewX(6deg);} 100%{transform:none;}}
 
 /* v2.3: skins, fonts, achievements, editor */
-.who h1{font-size:18px; line-height:1.15; letter-spacing:0; overflow-wrap:anywhere; cursor:pointer;}
+.who h1{font-size:1.125rem; line-height:1.15; letter-spacing:0; overflow-wrap:anywhere; cursor:pointer;}
 nav.tabs button{letter-spacing:.5px;}
-:root[data-skin="amber"]{--bg:#0b0702; --panel:#150d04; --ink:#ffb642; --ink-bright:#ffd98a; --ink-dim:#7a4e12; --ink-dark:#3a2508; --text:#ffe2b0; --text-dim:#c4924a; --amber:#fff0c2; --red:#ff6a4e; --glow:rgba(255,182,66,.45); color-scheme:dark;}
-:root[data-skin="cute"]{--bg:#fff5fa; --panel:#ffffff; --ink:#e8619d; --ink-bright:#8a4fc9; --ink-dim:#f2b3cf; --ink-dark:#f8dce9; --text:#4b3653; --text-dim:#9b7fa3; --amber:#23a07f; --red:#e0507a; --glow:rgba(232,97,157,.22); --display:'Comfortaa','Nunito',system-ui,sans-serif; --mono:'Nunito',system-ui,'Segoe UI',sans-serif; color-scheme:light;}
+:root[data-skin="amber"]{--bg:#0b0702; --panel:#150d04; --ink:#ffb642; --ink-bright:#ffd98a; --ink-dim:#7a4e12; --ink-dark:#3a2508; --text:#ffe2b0; --text-dim:#c4924a; --amber:#fff0c2; --red:#ff6a4e; --glow:rgba(255,182,66,.3); color-scheme:dark;}
+:root[data-skin="cute"]{--bg:#fff5fa; --panel:#ffffff; --ink:#c23a7e; --ink-bright:#6b3fae; --ink-dim:#f2b3cf; --ink-dark:#f8dce9; --text:#4b3653; --text-dim:#6f5778; --amber:#0d7560; --red:#bf3463; --glow:rgba(232,97,157,.22); --display:'Nunito',system-ui,'Segoe UI',sans-serif; --mono:'Nunito',system-ui,'Segoe UI',sans-serif; color-scheme:light;}
 @media (prefers-color-scheme: dark){
   :root[data-skin="cute"]{--bg:#221a2c; --panel:#2e2340; --ink:#ff8fc2; --ink-bright:#e9c8ff; --ink-dim:#6a4d84; --ink-dark:#3d2f53; --text:#f4e8f8; --text-dim:#b9a2c8; --amber:#7fe3c6; --red:#ff7c9c; --glow:rgba(255,143,194,.28); color-scheme:dark;}
   [data-skin="cute"] #crit{background:rgba(34,26,44,.82) !important;}
@@ -332,7 +339,7 @@ nav.tabs button{letter-spacing:.5px;}
 [data-skin="cute"] .lvlup .ok{background:var(--ink); color:#fff;}
 [data-skin="cute"] .shake{animation:softshake .5s ease;}
 [data-skin="cute"] #crit{background:rgba(255,230,240,.82);}
-[data-skin="cute"] #crit .gt{color:var(--red); font-size:38px; letter-spacing:1px; text-shadow:none; animation:softpop .5s cubic-bezier(.2,1.4,.4,1);}
+[data-skin="cute"] #crit .gt{color:var(--red); font-size:2.375rem; letter-spacing:1px; text-shadow:none; animation:softpop .5s cubic-bezier(.2,1.4,.4,1);}
 [data-skin="cute"] #crit .sub{color:var(--text-dim);}
 [data-skin="cute"] #hitfx{box-shadow:inset 0 0 60px 12px rgba(224,80,122,.3);}
 [data-skin="cute"] #boot{background:var(--bg);}
@@ -343,14 +350,14 @@ nav.tabs button{letter-spacing:.5px;}
 @keyframes softshake{25%{transform:rotate(-.6deg);} 75%{transform:rotate(.6deg);}}
 @keyframes softfade{from{opacity:.3;} to{opacity:1;}}
 .skins{display:grid; grid-template-columns:repeat(3,1fr); gap:8px;}
-.skin{display:flex; flex-direction:column; align-items:center; gap:6px; padding:10px 4px; border:2px solid var(--ink-dark); border-radius:8px; background:var(--bg); color:var(--text); font-family:var(--display); font-weight:700; font-size:13px; cursor:pointer;}
+.skin{display:flex; flex-direction:column; align-items:center; gap:6px; padding:10px 4px; border:2px solid var(--ink-dark); border-radius:8px; background:var(--bg); color:var(--text); font-family:var(--display); font-weight:700; font-size:0.8125rem; cursor:pointer;}
 .skin.sel{border-color:var(--ink); box-shadow:0 0 8px var(--glow);}
 .skin i{width:40px; height:40px; border-radius:50%; border:2px solid var(--ink-dim); display:block;}
 .icgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(42px,1fr)); gap:6px;}
-.icb{height:42px; border:2px solid var(--ink-dark); border-radius:6px; background:var(--bg); color:var(--ink); font-size:22px; display:flex; align-items:center; justify-content:center; cursor:pointer; padding:0;}
+.icb{height:42px; border:2px solid var(--ink-dark); border-radius:6px; background:var(--bg); color:var(--ink); font-size:1.375rem; display:flex; align-items:center; justify-content:center; cursor:pointer; padding:0;}
 .icb.sel{border-color:var(--ink); box-shadow:0 0 6px var(--glow);}
 .lctl{display:flex; gap:6px; align-items:center;}
-h2.sect{font-family:var(--display); font-weight:700; font-size:17px; color:var(--ink-bright); margin:18px 0 4px;}
+h2.sect{font-family:var(--display); font-weight:700; font-size:1.0625rem; color:var(--ink-bright); margin:18px 0 4px;}
 .perk .pbar{height:4px; margin:6px 8px 0; background:var(--ink-dark); border-radius:2px; overflow:hidden;}
 .perk .pbar i{display:block; height:100%; background:var(--ink);}
 .perk .lvl.ach{color:var(--text-dim);}
@@ -364,32 +371,32 @@ h2.sect{font-family:var(--display); font-weight:700; font-size:17px; color:var(-
 .modal{position:fixed; inset:0; z-index:65; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.55); padding:16px;}
 .modal.show{display:flex;}
 .modal .card{background:var(--panel); border:2px solid var(--ink); border-radius:8px; padding:18px; max-width:420px; width:100%; max-height:85vh; overflow-y:auto; box-shadow:0 0 24px var(--glow); animation:tabin .18s steps(3);}
-.modal .card .medal{width:76px; height:76px; font-size:44px;}
-.modal h3{font-family:var(--display); font-size:20px; color:var(--ink-bright); margin:14px 0 2px; text-align:center;}
-.modal .lvl{text-align:center; font-size:12px; color:var(--amber);}
-.modal .fact{margin:12px 0 0; font-size:14px; line-height:1.5;}
-.modal .bon{margin-top:10px; font-size:12.5px; color:var(--amber);}
+.modal .card .medal{width:76px; height:76px; font-size:2.75rem;}
+.modal h3{font-family:var(--display); font-size:1.25rem; color:var(--ink-bright); margin:14px 0 2px; text-align:center;}
+.modal .lvl{text-align:center; font-size:0.75rem; color:var(--amber);}
+.modal .fact{margin:12px 0 0; font-size:0.875rem; line-height:1.5;}
+.modal .bon{margin-top:10px; font-size:0.7812rem; color:var(--amber);}
 .modal .close{margin-top:16px; width:100%;}
 .modal .menu{display:grid; gap:8px;}
 .modal .menu .btn{width:100%; text-align:center;}
 .modal .menu label.btn{display:block;}
 .modal .menu label.btn{position:relative; overflow:hidden;}
 .modal .menu input[type=file]{position:absolute; inset:0; opacity:0; width:100%; height:100%; cursor:pointer;}
-.tgl{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:6px 0; font-size:14px;}
+.tgl{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:6px 0; font-size:0.875rem;}
 
 /* level up glitch */
 .lvlup{position:fixed; inset:0; z-index:70; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.55); padding:16px;}
 .lvlup.show{display:flex;}
 .lvlup .card{background:#050a05; border:3px solid #3ef07a; border-radius:8px; padding:22px 24px; text-align:center; color:#9dffbb; box-shadow:0 0 30px rgba(62,240,122,.5); animation:cardin .5s steps(5); max-width:420px;}
-.lvlup .gt{position:relative; font-family:var(--display); font-weight:700; font-size:40px; letter-spacing:2px; color:#9dffbb; text-shadow:0 0 12px rgba(62,240,122,.8);}
+.lvlup .gt{position:relative; font-family:var(--display); font-weight:700; font-size:2.5rem; letter-spacing:2px; color:#9dffbb; text-shadow:0 0 12px rgba(62,240,122,.8);}
 .lvlup .gt::before,.lvlup .gt::after{content:attr(data-text); position:absolute; inset:0; clip-path:inset(0 0 100% 0);}
 .lvlup .gt::before{color:#ff3b6b; animation:g1 .7s steps(1) 2 forwards;}
 .lvlup .gt::after{color:#3bf0ff; animation:g2 .7s steps(1) 2 forwards;}
-.lvlup .sub{font-size:14px; margin-top:8px; color:#bdf7cf;}
-.lvlup .perknew{margin-top:14px; display:flex; align-items:center; gap:12px; justify-content:center; font-size:14px; color:#ffb000; text-align:left;}
-.lvlup .perknew .medal{width:46px; height:46px; font-size:26px; margin:0; flex:none; background:#3ef07a; color:#050a05; box-shadow:0 0 0 2px #050a05,0 0 0 4px #3ef07a;}
+.lvlup .sub{font-size:0.875rem; margin-top:8px; color:#bdf7cf;}
+.lvlup .perknew{margin-top:14px; display:flex; align-items:center; gap:12px; justify-content:center; font-size:0.875rem; color:#ffb000; text-align:left;}
+.lvlup .perknew .medal{width:46px; height:46px; font-size:1.625rem; margin:0; flex:none; background:#3ef07a; color:#050a05; box-shadow:0 0 0 2px #050a05,0 0 0 4px #3ef07a;}
 .lvlup .perknew .medal .cut{fill:#3ef07a;}
-.lvlup .extra{margin-top:10px; font-size:13px; color:#bdf7cf;}
+.lvlup .extra{margin-top:10px; font-size:0.8125rem; color:#bdf7cf;}
 .lvlup .ok{margin-top:16px; background:#3ef07a; color:#050a05;}
 @keyframes cardin{0%{transform:scaleY(.02); opacity:.3;} 40%{transform:scaleY(1.04) skewX(8deg);} 60%{transform:skewX(-6deg) translateX(4px);} 80%{transform:skewX(2deg) translateX(-2px);} 100%{transform:none; opacity:1;}}
 @keyframes g1{0%{clip-path:inset(10% 0 60% 0); transform:translate(-4px,0);} 20%{clip-path:inset(50% 0 20% 0); transform:translate(4px,0);} 40%{clip-path:inset(80% 0 2% 0); transform:translate(-3px,0);} 60%{clip-path:inset(25% 0 55% 0); transform:translate(3px,0);} 80%{clip-path:inset(60% 0 10% 0); transform:translate(-2px,0);} 100%{clip-path:inset(0 0 100% 0);}}
@@ -401,7 +408,7 @@ h2.sect{font-family:var(--display); font-weight:700; font-size:17px; color:var(-
 #boot{position:fixed; inset:0; z-index:100; background:#000; overflow:hidden; cursor:pointer;}
 #boot .beam{position:absolute; left:50%; top:50%; width:0; height:3px; background:#c9ffd9; transform:translate(-50%,-50%); box-shadow:0 0 18px 6px rgba(62,240,122,.8); animation:beam .5s cubic-bezier(.7,0,.3,1) forwards;}
 @keyframes beam{0%{width:0; height:3px; opacity:1;} 45%{width:100%; height:3px; opacity:1;} 75%{width:100%; height:100%; opacity:.9; background:#3ef07a;} 100%{width:100%; height:100%; opacity:0;}}
-#boot .txt{position:absolute; left:8%; top:22%; right:8%; font-family:var(--mono); font-size:15px; color:#3ef07a; text-shadow:0 0 6px rgba(62,240,122,.7); opacity:0; animation:fadein .15s .45s forwards;}
+#boot .txt{position:absolute; left:8%; top:22%; right:8%; font-family:var(--mono); font-size:0.9375rem; color:#3ef07a; text-shadow:0 0 6px rgba(62,240,122,.7); opacity:0; animation:fadein .15s .45s forwards;}
 #boot .txt div{white-space:pre; overflow:hidden; opacity:0;}
 #boot .txt div.v{opacity:1;}
 #boot .cursor{display:inline-block; width:9px; height:16px; background:#3ef07a; vertical-align:-3px; animation:blink .5s steps(1) infinite;}
@@ -413,20 +420,220 @@ h2.sect{font-family:var(--display); font-weight:700; font-size:17px; color:var(-
 @media (max-width:560px){
   table{min-width:0; border-spacing:2px;}
   td.name .nm{display:none;}
-  td.name .hi{font-size:20px;}
+  td.name .hi{font-size:1.25rem;}
   .chk{width:100%; max-width:38px; height:36px;}
 }
 @media (max-width:420px){
-  .who h1{font-size:19px;}
-  nav.tabs button{font-size:14px;}
-  .stat b{font-size:19px;}
-  .stat small{font-size:8.5px;}
-  .mood{font-size:28px;}
-  .mood small{font-size:8.5px;}
+  .who h1{font-size:1.1875rem;}
+  nav.tabs button{font-size:0.875rem;}
+  .stat b{font-size:1.1875rem;}
+  .stat small{font-size:0.75rem;}
+  .mood{font-size:1.75rem;}
+  .mood small{font-size:0.75rem;}
 }
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition:none !important;}
 }
+
+/* ===== v2.4: redesign ===== */
+html{-webkit-text-size-adjust:100%; text-size-adjust:100%;}
+section.tab.active{animation:none;}
+[data-skin="cute"] section.tab.active{animation:none;}
+.qm{position:relative; width:28px; height:28px; border-radius:50%; border:2px solid var(--ink-dim); background:none; color:var(--text-dim); font-family:var(--display); font-weight:700; font-size:0.8125rem; margin-left:8px; vertical-align:middle; cursor:pointer; padding:0; line-height:1;}
+.qm::after{content:""; position:absolute; inset:-9px;}
+.hlist{display:grid;}
+.hrow{display:flex; align-items:center; justify-content:space-between; min-height:48px; padding:0 4px; background:none; border:0; border-bottom:1px dashed var(--ink-dark); color:var(--text); font-size:0.875rem; text-align:left; width:100%; cursor:pointer;}
+.hrow:last-child{border-bottom:0;}
+.hrow .chev{color:var(--text-dim); font-size:1.25rem;}
+details.inl{margin:8px 0 0; font-size:0.75rem; color:var(--text-dim);}
+details.inl summary{cursor:pointer; color:var(--ink); min-height:32px; display:flex; align-items:center;}
+details.inl p{margin:4px 0 0; line-height:1.5;}
+.mclose{position:absolute; right:6px; top:6px; width:44px; height:44px; border:0; background:none; color:var(--text-dim); font-size:1.75rem; line-height:1; cursor:pointer; z-index:2;}
+.modal .card{position:relative;}
+.modal h3{padding:0 34px;}
+.empty{display:flex; align-items:center; gap:10px; color:var(--text-dim); font-size:0.8125rem; padding:8px 0; line-height:1.4;}
+.empty svg{width:22px; height:22px; flex:none; color:var(--ink);}
+.log .empty,.hitlog .empty{border:0;}
+
+/* header */
+header{position:relative;}
+.who .bx{margin-top:6px;}
+.xpnum{display:block; font-size:0.75rem; color:var(--text-dim); margin-top:3px;}
+.xpnum span{display:inline-flex; align-items:center; gap:5px;}
+.xpnum svg{width:1em; height:1em; flex:none;}
+.xpnum .short{display:none;}
+.xpbar i{background:var(--ink);}
+header.compact{padding:8px 10px; gap:10px;}
+header.compact .avatar{width:40px; height:40px; font-size:1.75rem;}
+header.compact .avatar .lv{min-width:20px; height:20px; line-height:20px; font-size:0.75rem; right:-7px; bottom:-7px;}
+header.compact .who h1{font-size:1rem;}
+header.compact .bars{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+header.compact .bx{margin-top:3px;}
+header.compact .xpbar,header.compact .hpbar{height:6px; border-width:1px; margin-top:2px;}
+header.compact .xpnum .full{display:none;}
+header.compact .xpnum .short{display:inline-flex;}
+header.compact .sound{width:40px; height:40px;}
+.sound{width:44px; height:44px; padding:0; justify-content:center; flex-direction:row; font-size:1.25rem;}
+
+/* bottom nav */
+nav.tabs{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 4px);}
+nav.tabs button{font-size:0.8125rem; letter-spacing:.3px; text-shadow:none;}
+[data-skin="green"] nav.tabs button:not(.navcrave),[data-skin="amber"] nav.tabs button:not(.navcrave){text-transform:uppercase;}
+nav.tabs button[aria-selected="true"]{background:linear-gradient(180deg,var(--ink-dark),transparent); background:linear-gradient(180deg,color-mix(in srgb,var(--ink) 30%,transparent),color-mix(in srgb,var(--ink) 4%,transparent)); border-radius:10px 10px 0 0; text-shadow:none;}
+nav.tabs button.navcrave small{font-size:0.75rem;}
+nav.tabs button.navcrave{background:var(--panel);}
+nav.tabs button.navcrave.hl{animation:pulse 1.6s ease-in-out infinite;}
+@keyframes pulse{50%{box-shadow:0 0 0 9px color-mix(in srgb,var(--ink) 22%,transparent);}}
+
+/* coach mark */
+#coach{position:fixed; left:50%; transform:translateX(-50%); bottom:calc(98px + env(safe-area-inset-bottom,0px)); width:min(92vw,360px); z-index:28; background:var(--panel); border:2px solid var(--ink); border-radius:12px; padding:12px 14px; box-shadow:0 6px 24px rgba(0,0,0,.4), 0 0 14px var(--glow); font-size:0.8125rem;}
+#coach::after{content:""; position:absolute; left:50%; bottom:-9px; width:16px; height:16px; background:var(--panel); border-right:2px solid var(--ink); border-bottom:2px solid var(--ink); transform:translateX(-50%) rotate(45deg);}
+#coach b{display:block; font-family:var(--display); color:var(--ink-bright); margin-bottom:4px; font-size:0.9375rem;}
+#coach p{margin:0 0 10px; color:var(--text); line-height:1.45;}
+#coach .row{display:flex; gap:8px;}
+#coach .row .btn{flex:1;}
+
+/* quick, stats, tonal fills */
+.quick.one{grid-template-columns:1fr;}
+.qbtn{min-height:56px;}
+.stats{grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px;}
+.stats.ic{grid-template-columns:repeat(7,minmax(0,1fr)); gap:6px;}
+.stat{border:0; background:color-mix(in srgb,var(--ink) 9%,transparent); padding:8px 2px;}
+.stat small{font-size:0.75rem; white-space:normal; line-height:1.15;}
+.stat .si{display:block; font-size:1.375rem; color:var(--ink); width:1em; margin:0 auto 2px;}
+.bonus,.cstats div,.idea{border:0; background:color-mix(in srgb,var(--ink) 9%,transparent);}
+.stat b,.bignum,.timer .tt,.cstats b{font-variant-numeric:tabular-nums;}
+.perk.locked{border-style:dashed;}
+.perk{min-width:0;}
+.perk h3{overflow-wrap:break-word; hyphens:auto;}
+.mood{padding:8px 2px 6px;}
+.mood small{white-space:normal; line-height:1.1; text-align:center;}
+.panel .hint,.fact,.rl{max-width:62ch;}
+.hint,.fact,.rl{line-height:1.5;}
+
+/* touch targets */
+.btn{min-height:48px; padding:0 16px; display:inline-flex; align-items:center; justify-content:center; gap:6px;}
+.btn.sm{min-height:44px; padding:0 12px; font-size:0.75rem;}
+.weeknav .btn{min-width:48px; padding:0;}
+.chip{min-height:36px; display:inline-flex; align-items:center; padding:0 12px;}
+.lctl{gap:16px;}
+.trow{min-height:56px;}
+.chk{height:44px; min-height:44px;}
+@media (max-width:560px){ .chk{max-width:44px; height:44px;} }
+
+/* glow & effects */
+.who h1,.panel h2,.modal h3{text-shadow:none;}
+.avatar{filter:drop-shadow(0 0 4px var(--glow));}
+.bignum,.timer .tt{text-shadow:0 0 6px var(--glow);}
+[data-fx="off"] .scan,[data-fx="off"] .avatar.tint::after{display:none;}
+
+/* ===== standard theme ===== */
+:root[data-skin="std"]{--bg:#f3f4f6; --panel:#ffffff; --ink:#2563eb; --ink-bright:#111827; --ink-dim:#cbd5e1; --ink-dark:#e5e7eb; --text:#1f2937; --text-dim:#5b6472; --amber:#b45309; --red:#c81e1e; --glow:transparent; --display:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif; --mono:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif; color-scheme:light;}
+@media (prefers-color-scheme: dark){
+  :root[data-skin="std"]{--bg:#0f1115; --panel:#181b21; --ink:#6ea8ff; --ink-bright:#f3f4f6; --ink-dim:#3a4150; --ink-dark:#262b34; --text:#e5e7eb; --text-dim:#9aa3b2; --amber:#f5b74a; --red:#ff6b6b; color-scheme:dark;}
+}
+[data-skin="std"] .scan{display:none;}
+[data-skin="std"] header,[data-skin="std"] .panel{border:1px solid var(--ink-dark); border-radius:16px; box-shadow:0 1px 2px rgba(0,0,0,.06);}
+[data-skin="std"] .trow,[data-skin="std"] .mood,[data-skin="std"] .perk,[data-skin="std"] .btn,[data-skin="std"] .qbtn,[data-skin="std"] input[type=text],[data-skin="std"] .skin,[data-skin="std"] .chip,[data-skin="std"] .reward,[data-skin="std"] .icb,[data-skin="std"] .modal .card,[data-skin="std"] .bk,[data-skin="std"] .avatar,[data-skin="std"] .sound,[data-skin="std"] .modal textarea,[data-skin="std"] .stat,[data-skin="std"] .bonus,[data-skin="std"] .idea,[data-skin="std"] #coach{border-radius:12px;}
+[data-skin="std"] .trow,[data-skin="std"] .mood,[data-skin="std"] .perk,[data-skin="std"] .qbtn,[data-skin="std"] input[type=text],[data-skin="std"] .skin,[data-skin="std"] .chip,[data-skin="std"] .btn.ghost,[data-skin="std"] .sound,[data-skin="std"] .avatar{border-width:1px;}
+[data-skin="std"] .qbtn{box-shadow:none; border-color:var(--ink); color:var(--ink);}
+[data-skin="std"] .chk,[data-skin="std"] .trow .box{border-radius:8px; border-width:1.5px;}
+[data-skin="std"] .xpbar,[data-skin="std"] .hpbar,[data-skin="std"] .tbar,[data-skin="std"] .next .bar,[data-skin="std"] .stat .bar,[data-skin="std"] .pline .bar{border-radius:999px; border-width:0; background:var(--ink-dark);}
+[data-skin="std"] .xpbar i{background:var(--ink);}
+[data-skin="std"] .hpbar i{background:#16a34a;}
+[data-skin="std"] .hpbar.low i{background:var(--amber);}
+[data-skin="std"] .hpbar.crit i{background:var(--red);}
+[data-skin="std"] nav.tabs button{text-transform:none; letter-spacing:0;}
+[data-skin="std"] .who h1,[data-skin="std"] .panel h2,[data-skin="std"] .modal h3{letter-spacing:0;}
+[data-skin="std"] .medal{box-shadow:0 0 0 3px var(--bg), 0 0 0 4px var(--ink);}
+[data-skin="std"] .avatar,[data-skin="std"] .avatar.tint img{filter:none;}
+[data-skin="std"] .lvlup{background:rgba(0,0,0,.5);}
+[data-skin="std"] .lvlup .card{background:var(--panel); border:1px solid var(--ink-dark); color:var(--text); border-radius:20px; box-shadow:0 12px 40px rgba(0,0,0,.25); animation:softpop .3s ease;}
+[data-skin="std"] .lvlup .gt{color:var(--ink-bright); text-shadow:none; font-size:2rem; letter-spacing:0;}
+[data-skin="std"] .lvlup .gt::before,[data-skin="std"] .lvlup .gt::after,[data-skin="std"] #crit .gt::before,[data-skin="std"] #crit .gt::after{display:none;}
+[data-skin="std"] .lvlup .sub,[data-skin="std"] .lvlup .extra{color:var(--text);}
+[data-skin="std"] .lvlup .perknew{color:var(--amber);}
+[data-skin="std"] .lvlup .perknew small{color:var(--text-dim) !important;}
+[data-skin="std"] .lvlup .perknew .medal{background:var(--ink); color:var(--bg); box-shadow:0 0 0 2px var(--panel), 0 0 0 3px var(--ink);}
+[data-skin="std"] .lvlup .perknew .medal .cut{fill:var(--ink);}
+[data-skin="std"] .lvlup .ok{background:var(--ink); color:var(--bg);}
+[data-skin="std"] .shake{animation:none;}
+[data-skin="std"] #crit{background:rgba(0,0,0,.55);}
+[data-skin="std"] #crit .gt{color:#ff8a8a; font-size:2.25rem; letter-spacing:0; text-shadow:none; animation:softpop .3s ease;}
+[data-skin="std"] #crit .sub{color:#ffd1d1; font-family:var(--display);}
+[data-skin="std"] #hitfx{box-shadow:inset 0 0 50px 8px rgba(220,38,38,.35);}
+[data-skin="std"] .toast{border-radius:12px; font-family:var(--display);}
+
+/* ===== cute refinements ===== */
+[data-skin="cute"] body{background:linear-gradient(180deg,var(--bg),color-mix(in srgb,var(--ink) 7%,var(--bg))) fixed;}
+[data-skin="cute"] header::after{content:""; position:absolute; right:58px; top:-13px; width:30px; height:30px; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cg fill='%23f7a6c9'%3E%3Cellipse cx='11' cy='21' rx='5' ry='7'/%3E%3Cellipse cx='23' cy='13' rx='5' ry='7'/%3E%3Cellipse cx='35' cy='21' rx='5' ry='7'/%3E%3Cpath d='M23 24c-8 0-14 8-12 14 2 5 8 4 12 4s10 1 12-4c2-6-4-14-12-14z'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat; transform:rotate(16deg); pointer-events:none;}
+[data-skin="cute"] .panel h2::before{content:"\2726"; color:var(--ink); margin-right:6px; font-size:.8em;}
+[data-skin="cute"] .trow.pop .box{animation:softpop .35s cubic-bezier(.2,1.4,.4,1);}
+[data-skin="cute"] .who h1,[data-skin="cute"] .panel h2,[data-skin="cute"] .modal h3{font-weight:800;}
+[data-skin="cute"] nav.tabs button.navcrave{border-radius:50%;}
+[data-skin="cute"] #coach,[data-skin="cute"] .mclose{border-radius:18px;}
+
+/* ===== v2.5: pill crave button, cute checks, touch targets ===== */
+nav.tabs .in{grid-template-columns:1fr 1fr auto 1fr 1fr;}
+nav.tabs button.navcrave{width:auto; min-width:60px; max-width:100%; justify-self:center; padding:0 8px; border-radius:30px; white-space:nowrap;}
+[data-skin="cute"] nav.tabs button.navcrave{border-radius:30px;}
+nav.tabs button.navcrave small{white-space:nowrap; letter-spacing:-.2px; font-size:12px;}
+[data-skin="cute"] .chk{border-radius:14px;}
+input[type=text]{min-height:44px;}
+input[type=range]{height:44px; margin:0;}
+details.inl summary{min-height:44px;}
+.chip{min-height:40px;}
+.chips{gap:8px;}
+header.compact .avatar{width:44px; height:44px;}
+header.compact .sound{width:44px; height:44px;}
+.btn.sm{min-width:44px;}
+.icgrid{grid-template-columns:repeat(auto-fill,minmax(44px,1fr));}
+.icb{height:44px; min-height:44px;}
+.sw::before{content:""; position:absolute; inset:-9px -3px;}
+
+/* ===== v2.6: four screens, blocks, drag order, personal, landscape ===== */
+header{grid-template-columns:auto minmax(0,1fr);}
+nav.tabs button:not(.navcrave){font-size:13px; letter-spacing:0;}
+@media (max-width:359px){ nav.tabs button:not(.navcrave){font-size:12px; letter-spacing:-.2px;} }
+.greet{font-size:14px; color:var(--text-dim); margin:0 2px 10px;}
+.pers{display:flex; align-items:center; gap:8px; border:2px dashed var(--ink-dim); border-radius:12px; padding:10px 12px; margin-bottom:12px; background:var(--panel);}
+.pers span{flex:1; font-size:13px; line-height:1.4; color:var(--text);}
+details.sg>summary{cursor:pointer; font-family:var(--display); font-weight:700; font-size:17px; color:var(--ink-bright); list-style:none; min-height:44px; display:flex; align-items:center; justify-content:space-between;}
+details.sg>summary::-webkit-details-marker{display:none;}
+details.sg>summary::after{content:'▾'; color:var(--text-dim);}
+details.sg:not([open])>summary::after{content:'▸';}
+details.sg[open]>summary{margin-bottom:10px;}
+.brow{display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:10px; padding:8px 0; border-bottom:1px dashed var(--ink-dark); font-size:14px;}
+.brow small{display:block; font-size:12px; color:var(--text-dim);}
+.lrow[data-id]{grid-template-columns:36px 28px minmax(0,1fr) auto; gap:8px;}
+.dh{position:relative; width:36px; height:44px; background:none; border:0; color:var(--text-dim); font-size:22px; line-height:1; cursor:grab; touch-action:none; user-select:none; -webkit-user-select:none; display:flex; align-items:center; justify-content:center; padding:0;}
+.dh::after{content:""; position:absolute; inset:0 -4px;}
+.lrow.drag{position:relative; z-index:6; background:var(--panel); box-shadow:0 4px 14px rgba(0,0,0,.35); border-radius:8px; cursor:grabbing;}
+html[data-hide~="hp"] #hpPanel, html[data-hide~="hp"] .bx.hp{display:none !important;}
+html[data-hide~="mood"] #moodPanel{display:none !important;}
+html[data-hide~="idle"] .quick{display:none !important;}
+html[data-hide~="wprog"] #weekProg{display:none !important;}
+html[data-hide~="reward"] #reward{display:none !important;}
+html[data-hide~="chart"] #chart, html[data-hide~="chart"] .legend{display:none !important;}
+html[data-hide~="prio"] #prioBox{display:none !important;}
+html[data-hide~="stats"] #stats{display:none !important;}
+html[data-hide~="bonuses"] #bonuses{display:none !important;}
+html[data-hide~="stats"][data-hide~="bonuses"] #statsPanel{display:none !important;}
+html[data-hide~="ach"] #achHead, html[data-hide~="ach"] #achGrid{display:none !important;}
+html[data-hide~="hp"] header.compact .bars{grid-template-columns:1fr;}
+@media (min-width:640px){
+  .wrap{max-width:1040px;}
+  nav.tabs .in{max-width:900px;}
+  section.tab.active{column-count:2; column-gap:12px; display:block;}
+  section.tab .panel, section.tab .quick, #satBanner, .pers, .greet{break-inside:avoid; -webkit-column-break-inside:avoid;}
+  #nextPerk, #perks, #achGrid, h2.sect{column-span:all;}
+}
+@media (max-width:560px){ #table{table-layout:fixed;} #table td.name, #table th:first-child{width:34px;} }
+
+/* ===== v2.7: row alignment, tone ===== */
+.trow>span:nth-child(2){grid-row:1 / span 2; align-self:center;}
+.trow.hm>span:nth-child(2){grid-row:1; align-self:end;}
+.trow.hm .meta{align-self:start;}
 </style>
 </head>
 <body>
@@ -434,41 +641,29 @@ h2.sect{font-family:var(--display); font-weight:700; font-size:17px; color:var(-
 <div class="scan"></div>
 
 <div class="wrap" id="wrap">
-  <header>
+  <header id="hdr">
     <button class="avatar" id="avatar" aria-label="Персонаж: сменить фото"><span id="avIn"></span><span class="lv" id="lvl">1</span></button>
     <div class="who">
       <h1 id="ttl" title="Нажми, чтобы переименовать">Терминал баланса</h1>
-      <div class="xpbar"><i id="xpFill"></i></div>
-      <div class="xpnum" id="xpNum"></div>
-      <div class="hp"><div class="hpbar" id="hpBarHdr"><i id="hpFillHdr"></i></div><div class="xpnum" id="hpNum"></div></div>
+      <div class="bars">
+        <div class="bx"><div class="xpbar"><i id="xpFill"></i></div><div class="xpnum" id="xpNum"></div></div>
+        <div class="bx hp"><div class="hpbar" id="hpBarHdr"><i id="hpFillHdr"></i></div><div class="xpnum" id="hpNum"></div></div>
+      </div>
     </div>
-    <button class="sound" id="soundBtn" aria-label="Звук"></button>
   </header>
   <div class="bk" id="bkBanner" hidden><span id="bkText"></span><button class="btn" id="bkBtn" type="button">Скачать копию</button></div>
 
-
   <section class="tab" id="tab-stat">
     <div id="satBanner"></div>
-    <div class="quick"><button class="qbtn" id="qIdle" type="button"><span class="tic" data-i="compass"></span>Нечего делать</button><button class="qbtn" id="qCrave" type="button"><span class="tic" data-i="wave"></span>Тяга</button></div>
-    <details class="panel prio" id="prioBox" open hidden><summary id="prioSum">Приоритеты недели</summary><div class="list" id="prioList" style="margin-top:10px"></div></details>
-    <div class="panel">
-      <h2>Характеристики</h2>
-      <div class="stats" id="stats"></div>
-      <div class="bonuses" id="bonuses"></div>
-    </div>
-    <div class="panel" id="hpPanel"></div>
+    <div class="pers" id="persCard" hidden><span>Познакомимся? Укажи имя, чтобы приложение обращалось к тебе по-человечески.</span><button class="btn sm" id="persGo" type="button">Указать</button><button class="btn ghost sm" id="persNo" type="button" aria-label="Не сейчас">×</button></div>
+    <div class="greet" id="greet" hidden></div>
+    <div class="quick one"><button class="qbtn" id="qIdle" type="button"><span class="tic" data-i="compass"></span>Чем себя занять?</button></div>
     <div class="panel">
       <h2 id="todayTitle">Сегодня</h2>
       <div class="list" id="todayList"></div>
     </div>
-    <div class="panel">
-      <h2>Эта неделя</h2>
-      <p class="hint">Недельные привычки отмечаются один раз в любой день. +50 XP за каждую.</p>
-      <div class="list" id="weekList"></div>
-      <div class="prog" id="weekProg"></div>
-      <div id="reward"></div>
-    </div>
-    <div class="panel">
+    <div class="panel" id="hpPanel"></div>
+    <div class="panel" id="moodPanel">
       <h2>Состояние</h2>
       <div class="moods" id="moods"></div>
       <div class="chips" id="tags"></div>
@@ -481,6 +676,14 @@ h2.sect{font-family:var(--display); font-weight:700; font-size:17px; color:var(-
   </section>
 
   <section class="tab" id="tab-log">
+    <div class="panel" id="weekPanel">
+      <h2>Эта неделя<button class="qm" type="button" data-help="week" aria-label="Справка: неделя">?</button></h2>
+      <p class="hint">Недельные привычки отмечаются один раз в любой день. +50 XP за каждую.</p>
+      <div class="list" id="weekList"></div>
+      <div class="prog" id="weekProg"></div>
+      <div id="reward"></div>
+    </div>
+    <details class="panel prio" id="prioBox" open hidden><summary id="prioSum">Приоритеты недели</summary><div class="list" id="prioList" style="margin-top:10px"></div></details>
     <div class="panel">
       <div class="weeknav">
         <button class="btn ghost" id="prevW" aria-label="Предыдущая неделя">◀</button>
@@ -496,6 +699,11 @@ h2.sect{font-family:var(--display); font-weight:700; font-size:17px; color:var(-
   </section>
 
   <section class="tab" id="tab-perks">
+    <div class="panel" id="statsPanel">
+      <h2>Характеристики<button class="qm" type="button" data-help="stats" aria-label="Справка: характеристики">?</button></h2>
+      <div class="stats" id="stats"></div>
+      <div class="bonuses" id="bonuses"></div>
+    </div>
     <div class="panel" id="nextPerk"></div>
     <div class="perks" id="perks"></div>
     <h2 class="sect" id="achHead">Достижения</h2>
@@ -503,20 +711,49 @@ h2.sect{font-family:var(--display); font-weight:700; font-size:17px; color:var(-
   </section>
 
   <section class="tab" id="tab-data">
-    <div class="panel">
-      <h2>Внешний вид</h2>
+    <details class="panel sg" open><summary>Внешний вид и звук</summary>
+
       <div class="skins" id="skins"></div>
+      <label class="fl" id="accLbl">Цвет терминала</label>
+      <div class="chips" id="accentRow" style="margin-top:0"><button class="chip" type="button" data-acc="green">Зелёный</button><button class="chip" type="button" data-acc="amber">Янтарный</button></div>
+      <label class="fl">Подписи характеристик</label>
+      <div class="chips" id="statStyle" style="margin-top:0"><button class="chip" type="button" data-v="text">Текст</button><button class="chip" type="button" data-v="icons">Значки</button></div>
+      <label class="fl" id="fxLbl">Эффекты экрана (линии развёртки)</label>
+      <div class="chips" id="fxRow" style="margin-top:0"><button class="chip" type="button" data-v="on">Включены</button><button class="chip" type="button" data-v="off">Выключены</button></div>
+      <label class="fl">Слово для кнопки помощи</label>
+      <div class="chips" id="wordRow" style="margin-top:0" data-nowrd="1"><button class="chip" type="button" data-w="тяга">Тяга</button><button class="chip" type="button" data-w="соблазн">Соблазн</button></div>
+      <label class="fl">Звук</label>
+      <div class="chips" id="soundRow" style="margin-top:0"><button class="chip" type="button" data-v="on">Включён</button><button class="chip" type="button" data-v="off">Выключен</button></div>
+      <label class="fl" for="volIn">Громкость звуков</label>
+      <input type="range" class="slider" id="volIn" min="0" max="100" step="5" aria-label="Громкость звуков">
       <label class="fl" for="titleIn">Название трекера</label>
       <div class="inrow" style="margin-top:0"><input type="text" id="titleIn" maxlength="24"><button class="btn" id="titleSave" type="button">Сохранить</button></div>
-    </div>
-    <div class="panel">
-      <h2>Библиотека привычек</h2>
-      <p class="hint">Новые привычки лучше включать по одной-две, когда прежние уже держатся. История выключенных привычек сохраняется.</p>
+    </details>
+    <details class="panel sg"><summary>Личное</summary>
+      <label class="fl" for="nameIn" style="margin-top:0">Как к тебе обращаться</label>
+      <div class="inrow" style="margin-top:0"><input type="text" id="nameIn" maxlength="24" placeholder="Имя"><button class="btn" id="nameSave" type="button">Сохранить</button></div>
+      <label class="fl">Пол (для формулировок)</label>
+      <div class="chips" id="genderRow" style="margin-top:0"><button class="chip" type="button" data-g="m">Мужской</button><button class="chip" type="button" data-g="f">Женский</button><button class="chip" type="button" data-g="n">Не указывать</button></div>
+      <p class="hint" style="margin:10px 0 0">Имя и пол нужны, чтобы приложение обращалось к тебе правильно. Хранятся только у тебя.</p>
+      <label class="fl">Тон сообщений</label>
+      <div class="chips" id="toneRow" style="margin-top:0"><button class="chip" type="button" data-t="tender">Нежный</button><button class="chip" type="button" data-t="direct">Прямой</button><button class="chip" type="button" data-t="ironic">Ироничный</button><button class="chip" type="button" data-t="hard">Жёсткий 18+</button></div>
+      <div id="toneSlipBox" hidden><label class="fl">Жёстко и про срывы</label>
+        <div class="chips" id="toneSlipRow" style="margin-top:0"><button class="chip" type="button" data-v="off">Выкл</button><button class="chip" type="button" data-v="on">Вкл</button></div>
+        <p class="hint" style="margin:8px 0 0">По умолчанию выключено: про срывы с алкоголем тон остаётся не выше «Ироничного» и без мата.</p></div>
+      <button class="btn ghost" id="tonePreview" type="button" style="margin-top:12px">Показать пример</button>
+    </details>
+    <details class="panel sg"><summary>Блоки экранов</summary>
+      <p class="hint" style="margin-top:0">Выключенный блок скрывается с экрана, данные остаются. «Тяга» всегда доступна.</p>
+      <div id="blocksList"></div>
+    </details>
+    <details class="panel sg"><summary>Привычки</summary>
+
+      <p class="hint">Переключатель выключает привычку временно. «≡» меняет порядок: зажми и перетащи. «✎» открывает правку и удаление (история и опыт остаются). Новые привычки лучше включать по одной-две.</p>
       <div id="library"></div>
-    </div>
-    <div class="panel">
-      <h2>Банк идей</h2>
-      <p class="hint">Отсюда «Нечего делать» подбирает варианты. Добавляй своё: дела, места, людей.</p>
+    </details>
+    <details class="panel sg"><summary>Банк идей</summary>
+
+      <p class="hint">Отсюда «Чем себя занять?» подбирает варианты. Добавляй своё: дела, места, людей.</p>
       <div id="ideasList"></div>
       <div class="fl">Новая идея</div>
       <input type="text" id="niT" maxlength="60" placeholder="Что сделать">
@@ -525,41 +762,49 @@ h2.sect{font-family:var(--display); font-weight:700; font-size:17px; color:var(-
       <div class="chips" id="niM"><button class="chip" type="button" data-v="tired">устал морально</button><button class="chip" type="button" data-v="even">ровно</button><button class="chip" type="button" data-v="move">хочется движения</button></div>
       <div class="chips"><button class="chip" type="button" id="niSoc">с людьми</button></div>
       <button class="btn" id="niAdd" type="button" style="margin-top:10px">Добавить идею</button>
-    </div>
-    <div class="panel">
-      <h2>Старт HP</h2>
+    </details>
+    <details class="panel sg"><summary>Данные</summary>
+      <div class="fl" style="margin-top:0">Старт HP</div>
+
       <p class="hint" id="hpStartTxt"></p>
       <button class="btn ghost" id="hpReset" type="button">Начать HP заново с сегодня</button>
-    </div>
-    <div class="panel">
-      <h2>Резервная копия</h2>
+      <div class="fl">Резервная копия</div>
+
       <p class="hint">Все данные хранятся только в этом браузере. Сохраняй JSON-копию хотя бы раз в неделю: она нужна для переноса на другое устройство и на случай очистки браузера.</p>
       <div class="rowbtns">
         <button class="btn" id="exportBtn">Скачать JSON</button>
         <label class="btn ghost">Загрузить JSON<input type="file" id="importFile" accept="application/json,.json"></label>
       </div>
       <div class="sync"><span class="dot" id="syncDot"></span><span id="syncLbl">Проверка хранилища…</span></div>
-    </div>
-    <div class="panel">
-      <h2>Как работает HP</h2>
-      <p class="hint" style="margin:0">Срыв с алкоголем: −25 HP. Два дня подряд без ключевой привычки (их выбираешь в библиотеке): −10 HP за день, первые три дня после старта без этого. День с отметками и без ударов: +10 HP. Разбор срыва (стимпак): +10 HP. Пройденная «Тяга» (полные 5 минут): +5 HP и +10 XP, до трёх раз в день. Дело из «Нечего делать»: +5 HP раз в день. HP считается с даты старта, её можно сбросить ниже. Опыт и уровни HP не затрагивает. При 0 HP включается режим восстановления на три дня: нужны только две первые ключевые привычки, они дают +15 HP за день. Некоторые достижения усиливают HP.</p>
-    </div>
-    <div class="panel">
-      <h2>Как начисляется опыт</h2>
-      <p class="hint" style="margin:0">Ежедневная привычка: +15 XP. Недельная: +50 XP. Настроение: +5 XP. Бонусы недели: семь дней без алкоголя +100 XP, две тренировки +30 XP, все недельные привычки +50 XP. Перки добавляют проценты к опыту за свои привычки, до +50% на привычку. Это игровые бонусы: реальный результат дают сами привычки.</p>
-    </div>
+    </details>
+    <details class="panel sg"><summary>Справка</summary>
+
+      <div class="hlist">
+        <button class="hrow" type="button" data-help="hp"><span>Как работает HP</span><span class="chev">›</span></button>
+        <button class="hrow" type="button" data-help="xp"><span>Как начисляется опыт</span><span class="chev">›</span></button>
+        <button class="hrow" type="button" data-help="crave"><span>Как работает «Тяга»</span><span class="chev">›</span></button>
+        <button class="hrow" type="button" data-help="idle"><span>Как работает «Чем себя занять?»</span><span class="chev">›</span></button>
+        <button class="hrow" type="button" data-help="week"><span>Недельные привычки и награда</span><span class="chev">›</span></button>
+        <button class="hrow" type="button" data-help="stats"><span>Характеристики и бонусы</span><span class="chev">›</span></button>
+      </div>
+    </details>
   </section>
 </div>
 
 <nav class="tabs" role="tablist" aria-label="Разделы"><div class="in">
-  <button role="tab" data-tab="stat" type="button"><span class="tic" data-i="figure"></span>СТАТ</button>
-  <button role="tab" data-tab="log" type="button"><span class="tic" data-i="calendar"></span>ЖУРНАЛ</button>
-  <button role="tab" data-tab="perks" type="button"><span class="tic" data-i="crown"></span>ПЕРКИ</button>
-  <button role="tab" data-tab="data" type="button"><span class="tic" data-i="chart"></span>ДАННЫЕ</button>
+  <button role="tab" data-tab="stat" type="button"><span class="tic" data-i="sun"></span>Сегодня</button>
+  <button role="tab" data-tab="log" type="button"><span class="tic" data-i="calendar"></span>Неделя</button>
+  <button class="navcrave" id="fab" type="button" aria-label="Тяга: открыть помощь"><span class="tic" data-i="wave"></span><small>тяга</small></button>
+  <button role="tab" data-tab="perks" type="button"><span class="tic" data-i="crown"></span>Прогресс</button>
+  <button role="tab" data-tab="data" type="button"><span class="tic" data-i="gear"></span>Настройки</button>
 </div></nav>
-<button class="fab" id="fab" type="button" aria-label="Тяга: открыть помощь"><span class="tic" data-i="wave"></span><small>тяга</small></button>
 <div id="crit" aria-hidden="true"><div class="gt" data-text="СРЫВ">СРЫВ</div><div class="sub">критический урон</div></div>
 <div id="hitfx"></div>
+<div id="coach" role="dialog" aria-label="Подсказка" hidden>
+  <b>Кнопка «Тяга»</b>
+  <p>Когда сильно хочется сорваться, нажми её: шесть коротких шагов и пять минут дыхания. Желание идёт волной и спадает. Закрыть можно в любой момент.</p>
+  <div class="row"><button class="btn sm" id="coachOk" type="button">Понятно</button><button class="btn ghost sm" id="coachMore" type="button">Подробнее</button></div>
+</div>
 <div class="toast" id="toast"></div>
 <div class="modal" id="modal" role="dialog" aria-modal="true"><div class="card" id="modalCard"></div></div>
 <div class="lvlup" id="lvlup" role="dialog" aria-live="assertive">
@@ -617,6 +862,12 @@ const I = {
 };
 I.stim='<rect x="20" y="2" width="8" height="6" rx="1"/><rect x="14" y="8" width="20" height="4" rx="1"/><rect x="17" y="12" width="14" height="24" rx="2"/><rect class="cut" x="21" y="18" width="6" height="12"/><rect x="23" y="36" width="2" height="10"/>';
 I.wave='<path d="M2 18c5-6 10-6 15 0s10 6 15 0 10-6 14 0v7c-4-6-9-6-14 0s-10 6-15 0-10-6-15 0z"/><path d="M2 31c5-6 10-6 15 0s10 6 15 0 10-6 14 0v7c-4-6-9-6-14 0s-10 6-15 0-10-6-15 0z"/>';
+I.bath='<path d="M4 26h40v3a13 13 0 0 1-13 13H17A13 13 0 0 1 4 29z"/><rect x="9" y="41" width="6" height="5" rx="1.5"/><rect x="33" y="41" width="6" height="5" rx="1.5"/><circle cx="14" cy="15" r="5"/><circle cx="25" cy="9" r="3.5"/><circle cx="33" cy="17" r="3"/><circle cx="21" cy="19" r="2"/>';
+I.eye='<path d="M2 24C8 13 16 8 24 8s16 5 22 16c-6 11-14 16-22 16S8 35 2 24z"/><circle class="cut" cx="24" cy="24" r="9"/><circle cx="24" cy="24" r="4.5"/>';
+I.bolt='<path d="M28 2L9 27h12l-3 19 21-27H27z"/>';
+I.clover='<circle cx="17" cy="17" r="9"/><circle cx="31" cy="17" r="9"/><circle cx="17" cy="31" r="9"/><circle cx="31" cy="31" r="9"/><circle class="cut" cx="24" cy="24" r="3.2"/><path d="M26 34c2 6 6 9 11 10l-1-3c-4-1-7-3-8-7z"/>';
+I.drop='<path d="M24 3C16 14 9 22 9 31a15 15 0 0 0 30 0c0-9-7-17-15-28z"/><path class="cut" d="M16 30c0 4 3 7 7 8v3c-6-1-10-5-10-11z"/>';
+I.gear='<rect x="20" y="2" width="8" height="44" rx="3"/><rect x="20" y="2" width="8" height="44" rx="3" transform="rotate(45 24 24)"/><rect x="20" y="2" width="8" height="44" rx="3" transform="rotate(90 24 24)"/><rect x="20" y="2" width="8" height="44" rx="3" transform="rotate(135 24 24)"/><circle cx="24" cy="24" r="14"/><circle class="cut" cx="24" cy="24" r="6"/>';
 const svg = (k) => `<svg class="ic" viewBox="0 0 48 48" aria-hidden="true">${I[k]||''}</svg>`;
 
 /* ================= CONFIG ================= */
@@ -644,14 +895,15 @@ const DAILY=[], WEEKLY=[], ALLH=[], HMAP={};
 BASE_DAILY.forEach(h=>h.base=h.name); BASE_WEEKLY.forEach(h=>h.base=h.name);
 function rebuildHabits(){
   const names=state.names||{}, custom=state.custom||[];
-  const mk=(h)=>({...h, name:names[h.id]||h.base});
-  const cu=(c)=>({id:c.id, icon:c.icon, name:c.name, stats:c.stats, def:true, custom:true, archived:!!c.archived});
-  const d=[...BASE_DAILY.map(mk), ...custom.filter(c=>c.type==='d').map(cu)], w=[...BASE_WEEKLY.map(mk), ...custom.filter(c=>c.type==='w').map(cu)];
+  const mk=(h)=>({...h, name:names[h.id]||h.base, archived:!!(state.deleted&&state.deleted[h.id])});
+  const od=(arr,k)=>{ const o=(state.order&&state.order[k])||[]; return arr.map((h,i)=>[h,i]).sort((x,y)=>{ const a=o.indexOf(x[0].id), b=o.indexOf(y[0].id); return ((a<0?999:a)-(b<0?999:b))||(x[1]-y[1]); }).map(x=>x[0]); };
+  const cu=(c)=>({id:c.id, icon:(c.icon==='wave'?(/бан|саун|парил/i.test(c.name)?'bath':'spark'):c.icon), name:c.name, stats:c.stats, def:true, custom:true, archived:!!c.archived});
+  const d=od([...BASE_DAILY.map(mk), ...custom.filter(c=>c.type==='d').map(cu)],'d'), w=od([...BASE_WEEKLY.map(mk), ...custom.filter(c=>c.type==='w').map(cu)],'w');
   DAILY.length=0; DAILY.push(...d); WEEKLY.length=0; WEEKLY.push(...w); ALLH.length=0; ALLH.push(...d,...w);
   for(const k in HMAP) delete HMAP[k]; ALLH.forEach(h=>HMAP[h.id]=h);
 }
 const isWeekly = (id) => WEEKLY.some(h=>h.id===id);
-const STATS = [{k:'STR',l:'Сила'},{k:'PER',l:'Воспр.'},{k:'END',l:'Вынос.'},{k:'CHA',l:'Харизма'},{k:'INT',l:'Интел.'},{k:'AGI',l:'Ловк.'},{k:'LCK',l:'Удача'}];
+const STATS = [{k:'STR',l:'Сила',full:'Сила',icon:'dumbbell'},{k:'PER',l:'Воспр.',full:'Восприятие',icon:'eye'},{k:'END',l:'Вынос.',full:'Выносливость',icon:'lungs'},{k:'CHA',l:'Харизма',full:'Харизма',icon:'people'},{k:'INT',l:'Интел.',full:'Интеллект',icon:'bulb'},{k:'AGI',l:'Ловк.',full:'Ловкость',icon:'bolt'},{k:'LCK',l:'Удача',full:'Удача',icon:'clover'}];
 const MOODS = [{v:1,i:'f1',l:'тяжело'},{v:2,i:'f2',l:'так себе'},{v:3,i:'f3',l:'ровно'},{v:4,i:'f4',l:'хорошо'},{v:5,i:'f5',l:'отлично'}];
 const TAGS = ['усталость','тревога','раздражение','скука','спокойствие','энергия','радость'];
 const XP_D=15, XP_W=50, XP_MOOD=5, CAP=50;
@@ -663,7 +915,7 @@ const PERKS = [
  ['Железные лёгкие','steps','Даже 10–15 минут ходьбы после еды сглаживают скачок сахара в крови. Короткая прогулка после ужина работает лучше, чем кажется.',{walk:5}],
  ['Ясный ум','bulb','Выгрузка мыслей: выпиши всё, что крутится в голове, без порядка и оценок. Когда мысли на бумаге, голова перестаёт держать их в фоне.',{note:5}],
  ['Если-то','target','Планы вида «если X, то Y» (Гольвитцер) заметно повышают шанс довести дело до конца. Пример: «Если в пятницу вечером захочется выпить, иду гулять или звоню другу».',{sober:5}],
- ['Волна тяги','shield','Тяга приходит волной: нарастает, достигает пика и спадает, обычно за считанные минуты. Навык «сёрфинг по тяге»: заметь её, назови и пережди пик за делом.',{sober:5}],
+ ['Волна тяги','wave','Тяга приходит волной: нарастает, достигает пика и спадает, обычно за считанные минуты. Навык «сёрфинг по тяге»: заметь её, назови и пережди пик за делом.',{sober:5}],
  ['Смена среды','broom','Окружение сильнее силы воли. Убери триггер с глаз, а нужное положи на видное место: гантели у дивана, книгу на подушку.',{sober:3}],
  ['Кузнец тела','dumbbell','Мышцы растут не во время тренировки, а в восстановлении. Сон и достаточно белка важны так же, как сами подходы.',{train:5}],
  ['Мастер дыхания','lungs','Физиологический вздох: два коротких вдоха носом и долгий выдох ртом. В исследовании Стэнфорда (2023) пять минут такого дыхания в день улучшали настроение.',{note:3}],
@@ -675,7 +927,7 @@ const PERKS = [
  ['Ближайший шаг','target','Проект не делается, делается следующий шаг. Дроби задачу, пока первое действие не займёт 10–15 минут.',{project:5}],
  ['Закрытый гештальт','hourglass','Незавершённые дела крутятся в голове. В исследовании Масикампо и Баумайстера (2011) конкретный план «когда и где» снимал это навязчивое кручение.',{project:3}],
  ['Зелёная пауза','tree','20–30 минут на природе заметно снижают уровень кортизола, гормона стресса (Хантер и соавторы, 2019).',{walk:3, nature:5}],
- ['Ходячие идеи','steps','В экспериментах Стэнфорда (2014) во время ходьбы люди генерировали заметно больше творческих идей, чем сидя. Застрял, иди гулять.',{hobby:3}],
+ ['Ходячие идеи','bulb','В экспериментах Стэнфорда (2014) во время ходьбы люди генерировали заметно больше творческих идей, чем сидя. Застрял, иди гулять.',{hobby:3}],
  ['Прогрессия','dumbbell','Прогресс идёт от постепенного роста нагрузки: чуть больше повторов, веса или времени под нагрузкой. Техника важнее цифр. Всё, что касается спины, сверяй с врачом или тренером.',{train:5}],
  ['Железный график','calendar','Тренировка в календаре как встреча с человеком: её не отменяют из-за настроения, только переносят.',{train:3}],
  ['Корка Майяра','pan','Румяная корочка это реакция Майяра, она идёт активно примерно от 140 °C. Подсуши продукт и не перегружай сковороду, иначе всё потушится.',{cook:5}],
@@ -683,10 +935,10 @@ const PERKS = [
  ['Письмо благодарности','mail','Напиши человеку конкретное «спасибо» за то, что он сделал. В исследовании Селигмана такой визит благодарности поднимал настроение примерно на месяц.',{call:5, meet:3}],
  ['Активный отдых','palette','Отдых с занятием (прогулка, хобби, готовка) обычно восстанавливает лучше, чем лента. После ленты чаще остаётся пустота, после дела остаётся результат.',{hobby:5}],
  ['Мастер баланса','scales','Колесо баланса: оцени от 1 до 10 здоровье, работу, отношения, отдых, развитие и финансы. Подтягивай одну сферу за раз, самую низкую.',{review:5, skill:3}],
- ['Скука как ресурс','hourglass','Мозг рождает идеи, когда ему ничего не подсовывают. Оставляй в дне окна без экрана: в очереди, в дороге, перед сном.',{hobby:3}],
+ ['Скука как ресурс','eye','Мозг рождает идеи, когда ему ничего не подсовывают. Оставляй в дне окна без экрана: в очереди, в дороге, перед сном.',{hobby:3}],
  ['Три главных','notebook','Три главных дела на день, остальное бонус. Если три сделаны, день удался, даже если список не закрыт.',{project:3}],
  ['Якорь','anchor','Привязывай новую привычку к существующей: «после душа растяжка», «после ужина 20 минут чтения». Старая привычка становится триггером для новой.',{read:3, sleep:3}],
- ['Ритуал старта','spark','Одни и те же 2–3 действия перед тренировкой или делом: вода, плейлист, форма. Ритуал снимает вопрос «начинать или нет».',{train:3}],
+ ['Ритуал старта','boot','Одни и те же 2–3 действия перед тренировкой или делом: вода, плейлист, форма. Ритуал снимает вопрос «начинать или нет».',{train:3}],
  ['Голос со стороны','figure','В трудный момент обращайся к себе по имени или на «ты»: «Ты справишься». Исследования Итана Кросса показывают, что такая дистанция снижает накал эмоций.',{sober:3}],
  ['Слушатель','people','Активное слушание: открытые вопросы и короткий пересказ услышанного. Собеседник чувствует, что его поняли, и разговор становится глубже.',{meet:5}],
  ['Правило паузы','hourglass','Перед импульсивным решением (покупка, выпивка, бесконечный скролл) возьми 10 минут паузы. Часто за это время желание теряет остроту.',{sober:5}],
@@ -695,8 +947,8 @@ const PERKS = [
  ['Несгибаемый','shield','Срыв не отменяет пройденного пути. Правило: не пропускать дважды подряд. Вернись в план в течение суток.',{sober:5}],
  ['Мелочи копятся','chart','Математически 1% улучшения в день даёт рост в 37 раз за год. В жизни так ровно не бывает, но идея верна: маленькие шаги складываются.',{skill:5}],
  ['Письмо себе','mail','Напиши письмо себе через три месяца: каким хочешь быть, что изменить, от чего отказаться. Потом открой и сравни.',{review:3}],
- ['Свой темп','hourglass','Сравнивай себя только с собой прежним. Твой журнал это лучшая мерка: открой неделю месячной давности и посмотри, что изменилось.',{stretch:5, sleep:3}],
- ['Легенда','crown','Итог пути: оцени от 1 до 10 тонус в теле, свободу мыслей и тягу к алкоголю, и сравни со стартом. Ты уже не тот, кем начинал.',{'*':5}],
+ ['Свой темп','stretch','Сравнивай себя только с собой прежним. Твой журнал это лучшая мерка: открой неделю месячной давности и посмотри, что изменилось.',{stretch:5, sleep:3}],
+ ['Легенда','crown','Итог пути: оцени от 1 до 10 тонус в теле, свободу мыслей и тягу к алкоголю, и сравни со стартом. Путь уже изменил тебя.',{'*':5}],
 ].map(([name,icon,fact,b],i)=>({name,icon,fact,b,lvl:i+2}));
 
 const ENERGY=[{v:1,l:'мало'},{v:2,l:'средне'},{v:3,l:'много'}];
@@ -717,20 +969,20 @@ let HP_FLAGS={ironSkin:false, phoenix:false, maxNoHit:0};
 let ACH_LAST=[];
 const ACH=[
  {id:'a1',name:'Сёрфер',icon:'wave',key:'rew',target:1,cond:'Пройди первую полную «Тягу»',b:{sober:5},fact:'Тяга устроена как волна: нарастает, достигает пика и спадает, если её не «кормить». Каждый раз, когда ты пережидаешь пик, мозг получает доказательство: можно и без этого.'},
- {id:'a2',name:'Укротитель волн',icon:'shield',key:'rew',target:10,cond:'Пройди 10 полных «Тяг»',hpfx:'«Тяга» даёт 8 HP вместо 5',fact:'Когда тяга раз за разом проходит без выпивки, связь «триггер → бокал» ослабевает. В психологии это называют угасанием: реакция без подкрепления теряет силу.'},
- {id:'a3',name:'Штиль',icon:'lungs',key:'calm',target:5,cond:'5 сессий «Тяги», где сила упала на 4 пункта и больше',b:{note:5},fact:'Назвать чувство словами и оценить его по шкале уже снижает накал. В исследованиях Мэттью Либермана называние эмоции снижало активность миндалевидного тела, центра тревоги.'},
+ {id:'a2',name:'Укротитель волн',icon:'bolt',key:'rew',target:10,cond:'Пройди 10 полных «Тяг»',hpfx:'«Тяга» даёт 8 HP вместо 5',fact:'Когда тяга раз за разом проходит без выпивки, связь «триггер → бокал» ослабевает. В психологии это называют угасанием: реакция без подкрепления теряет силу.'},
+ {id:'a3',name:'Штиль',icon:'drop',key:'calm',target:5,cond:'5 сессий «Тяги», где сила упала на 4 пункта и больше',b:{note:5},fact:'Назвать чувство словами и оценить его по шкале уже снижает накал. В исследованиях Мэттью Либермана называние эмоции снижало активность миндалевидного тела, центра тревоги.'},
  {id:'a4',name:'Честный счёт',icon:'notebook',key:'slipsDone',target:3,cond:'Разбери 3 срыва',hpfx:'Стимпак даёт 15 HP вместо 10',fact:'В исследовании Брайнс и Чен (2012) люди, которые отнеслись к своей ошибке с пониманием, а не с самобичеванием, потом больше старались её исправить.'},
  {id:'a5',name:'Трезвая неделя',icon:'sun',key:'soberW',target:1,cond:'Неделя 7 из 7 без алкоголя',b:{sober:5},fact:'Пятничный вечер без алкоголя это навык, а не запрет. Спланируй его заранее: встреча, кино, вкусный ужин, тренировка. Пустой вечер тянет к старому сценарию.'},
  {id:'a6',name:'Трезвый месяц',icon:'moon',key:'soberW',target:4,cond:'4 трезвые недели, не обязательно подряд',hpfx:'Восстановление +15 HP в день вместо 10',fact:'Алкоголь помогает быстрее уснуть, но ухудшает сон во второй половине ночи. Без него сон обычно становится глубже, а утро бодрее.'},
- {id:'a7',name:'Антискука',icon:'compass',key:'ideasDone',target:1,cond:'Сделай первое дело из «Нечего делать»',b:{hobby:3},fact:'Скука это сигнал «нужно что-то новое и значимое», а не «срочно нужен дофамин». Если ответить на неё делом, а не лентой, она становится топливом.'},
- {id:'a8',name:'Человек дела',icon:'target',key:'ideasDone',target:10,cond:'Сделай 10 дел из «Нечего делать»',b:{hobby:5,cook:5},fact:'В исследованиях Сабины Зоннентаг занятия, где ты осваиваешь новое, восстанавливают после работы лучше пассивного отдыха: мозг переключается, а не просто отключается.'},
+ {id:'a7',name:'Антискука',icon:'compass',key:'ideasDone',target:1,cond:'Сделай первое дело из «Чем себя занять?»',b:{hobby:3},fact:'Скука это сигнал «нужно что-то новое и значимое», а не «срочно нужен дофамин». Если ответить на неё делом, а не лентой, она становится топливом.'},
+ {id:'a8',name:'Человек дела',icon:'target',key:'ideasDone',target:10,cond:'Сделай 10 дел из «Чем себя занять?»',b:{hobby:5,cook:5},fact:'В исследованиях Сабины Зоннентаг занятия, где ты осваиваешь новое, восстанавливают после работы лучше пассивного отдыха: мозг переключается, а не просто отключается.'},
  {id:'a9',name:'Душа компании',icon:'people',key:'socDone',target:5,cond:'5 дел «с людьми»',b:{meet:5},fact:'Конкретное приглашение («в четверг в 19:00, кофе на набережной?») принять легче, чем «надо как-нибудь увидеться». Чем меньше решений нужно собеседнику, тем выше шанс встречи.'},
  {id:'a10',name:'Коллекционер',icon:'palette',key:'myIdeas',target:5,cond:'Добавь 5 своих идей в банк',b:{skill:3},fact:'Решения, принятые заранее, снимают усталость от выбора в моменте. Банк идей это готовые ответы на «чем заняться» для вечера, когда голова пустая.'},
  {id:'a11',name:'Аналитик',icon:'calendar',key:'revs',target:1,cond:'Пройди первый субботний разбор',b:{review:5},fact:'В исследовании Гарвардской школы бизнеса (Ди Стефано и соавторы) сотрудники, которые тратили 15 минут в конце дня на рефлексию, работали заметно лучше коллег.'},
  {id:'a12',name:'Стратег',icon:'scales',key:'revs',target:4,cond:'Пройди 4 субботних разбора',b:{project:5},fact:'Планируй неделю от приоритетов, а не от списка дел: сначала в календарь ставятся главные вещи, а мелкие заполняют промежутки.'},
  {id:'a13',name:'Держу курс',icon:'anchor',key:'course',target:1,cond:'Выполни все приоритеты недели',b:{skill:5},fact:'Три приоритета работают лучше десяти: когда важного мало, его видно, и оно не тонет в мелочах.'},
- {id:'a14',name:'Железная шкура',icon:'shield',key:'noHit',target:14,cond:'14 дней подряд без ударов',hpfx:'Первый удар за пропуски в каждой неделе прощается',fact:'Правило «не пропускать дважды»: один пропуск это случайность, два подряд это начало новой привычки. Щит прощает первую оплошность недели, второй раз уже на тебе.'},
- {id:'a15',name:'Феникс',icon:'spark',key:'phoenix',target:1,cond:'Выберись из нуля HP до 50 и выше',hpfx:'В режиме восстановления +20 HP вместо 15',fact:'Эффект нового старта (Дай, Милкман и Риис, 2014): люди чаще берутся за цели после «временных отметок», вроде понедельника или нового месяца. Возвращение из нуля тоже такая отметка.'},
+ {id:'a14',name:'Железная шкура',icon:'heart',key:'noHit',target:14,cond:'14 дней подряд без ударов',hpfx:'Первый удар за пропуски в каждой неделе прощается',fact:'Правило «не пропускать дважды»: один пропуск это случайность, два подряд это начало новой привычки. Щит прощает первую оплошность недели, второй раз уже на тебе.'},
+ {id:'a15',name:'Феникс',icon:'clover',key:'phoenix',target:1,cond:'Выберись из нуля HP до 50 и выше',hpfx:'В режиме восстановления +20 HP вместо 15',fact:'Эффект нового старта (Дай, Милкман и Риис, 2014): люди чаще берутся за цели после «временных отметок», вроде понедельника или нового месяца. Возвращение из нуля тоже такая отметка.'},
  {id:'a16',name:'Ранний отбой',icon:'moon',key:'sleep',target:14,cond:'14 отбоев до 23:00',b:{sleep:5},fact:'Регулярное время отхода ко сну связано с лучшим самочувствием и настроением, иногда даже сильнее, чем общая длительность сна.'},
  {id:'a17',name:'Ходок',icon:'steps',key:'walk',target:30,cond:'30 прогулок',b:{walk:5},fact:'Регулярная ходьба связана с более низким риском депрессии. В крупном обзоре 2022 года заметный эффект появлялся уже при половине рекомендованной нормы активности.'},
  {id:'a18',name:'Летописец',icon:'mail',key:'note',target:30,cond:'30 вечерних заметок',b:{note:5},fact:'В экспериментах Джеймса Пеннебейкера 15–20 минут письма о переживаниях несколько дней подряд улучшали самочувствие и даже снижали число визитов к врачу.'},
@@ -772,7 +1024,7 @@ let weekStart = monday(ds());
 /* ================= STATE ================= */
 function normalize(s){
   s = (s && typeof s==='object') ? s : {};
-  return {version:5, days:s.days||{}, weeks:s.weeks||{}, active:s.active||{}, slips:s.slips||{}, hpStart:s.hpStart||ds(), ideas:Array.isArray(s.ideas)?s.ideas:SEED_IDEAS.map(x=>({...x})), ideaLog:s.ideaLog||{}, cravings:Array.isArray(s.cravings)?s.cravings:[], reviews:s.reviews||{}, names:s.names||{}, custom:Array.isArray(s.custom)?s.custom:[], keyHabits:Array.isArray(s.keyHabits)?s.keyHabits:null, settings:{skin:(s.settings&&s.settings.skin)||'green', title:(s.settings&&s.settings.title)||'Терминал баланса', onboarded:(s.settings&&s.settings.onboarded!=null)?!!s.settings.onboarded:!!(s.days&&Object.keys(s.days).length)}};
+  return {version:5, days:s.days||{}, weeks:s.weeks||{}, active:s.active||{}, slips:s.slips||{}, hpStart:s.hpStart||ds(), ideas:Array.isArray(s.ideas)?s.ideas:SEED_IDEAS.map(x=>({...x})), ideaLog:s.ideaLog||{}, cravings:Array.isArray(s.cravings)?s.cravings:[], reviews:s.reviews||{}, names:s.names||{}, deleted:s.deleted||{}, order:(s.order&&typeof s.order==='object')?{d:s.order.d||[],w:s.order.w||[]}:{d:[],w:[]}, custom:Array.isArray(s.custom)?s.custom:[], keyHabits:Array.isArray(s.keyHabits)?s.keyHabits:null, settings:{skin:(s.settings&&s.settings.skin)||'green', title:(s.settings&&s.settings.title)||'Терминал баланса', onboarded:(s.settings&&s.settings.onboarded!=null)?!!s.settings.onboarded:!!(s.days&&Object.keys(s.days).length), accent:(s.settings&&s.settings.accent)||((s.settings&&s.settings.skin==='amber')?'amber':'green'), statStyle:(s.settings&&s.settings.statStyle)||'text', fx:!(s.settings&&s.settings.fx===false), volume:(s.settings&&typeof s.settings.volume==='number')?s.settings.volume:.8, word:(s.settings&&s.settings.word)||'тяга', coachSeen:!!(s.settings&&s.settings.coachSeen), hide:Array.isArray(s.settings&&s.settings.hide)?s.settings.hide:[], userName:(s.settings&&s.settings.userName)||'', gender:(s.settings&&s.settings.gender)||'n', persDismissed:!!(s.settings&&s.settings.persDismissed), tone:(s.settings&&s.settings.tone)||'direct', adult:!!(s.settings&&s.settings.adult), toneSlips:!!(s.settings&&s.settings.toneSlips), tc:(s.settings&&s.settings.tc)||0}};
 }
 let state = normalize(null);
 try{ const raw=localStorage.getItem(LOCAL_KEY); if(raw) state=normalize(JSON.parse(raw)); }catch(e){}
@@ -873,7 +1125,7 @@ function tone(f,dur=.05,type='square',vol=.05,when=0){
   if(!soundOn) return; const a=ac(); if(!a) return;
   const t=a.currentTime+when, o=a.createOscillator(), g=a.createGain();
   o.type=type; o.frequency.setValueAtTime(f,t); g.gain.setValueAtTime(vol,t); g.gain.exponentialRampToValueAtTime(.0001,t+dur);
-  o.connect(g).connect(a.destination); o.start(t); o.stop(t+dur+.02);
+  o.connect(g).connect(MST(a)); o.start(t); o.stop(t+dur+.02);
 }
 function noise(dur=.15,vol=.06,when=0){
   if(!soundOn) return; const a=ac(); if(!a) return;
@@ -882,7 +1134,7 @@ function noise(dur=.15,vol=.06,when=0){
   const src=a.createBufferSource(), bp=a.createBiquadFilter(), g=a.createGain(), t=a.currentTime+when;
   src.buffer=buf; bp.type='bandpass'; bp.frequency.value=2200; bp.Q.value=.8;
   g.gain.setValueAtTime(vol,t); g.gain.exponentialRampToValueAtTime(.0001,t+dur);
-  src.connect(bp).connect(g).connect(a.destination); src.start(t);
+  src.connect(bp).connect(g).connect(MST(a)); src.start(t);
 }
 const sfx={
   check(){ tone(1320,.04,'square',.04); tone(1760,.05,'square',.035,.045); },
@@ -893,15 +1145,7 @@ const sfx={
   bonus(){ [784,988,1175].forEach((f,i)=>tone(f,.08,'triangle',.05,i*.07)); },
   levelup(){ noise(.18,.07); [523,659,784,1046].forEach((f,i)=>tone(f,.12,'square',.045,.15+i*.09)); noise(.1,.04,.55); },
 };
-function renderSound(){
-  const b=document.getElementById('soundBtn');
-  b.classList.toggle('off',!soundOn); b.setAttribute('aria-pressed',soundOn);
-  b.innerHTML=svg(soundOn?'speaker':'mute')+`<span>${soundOn?'звук':'тихо'}</span>`;
-}
-document.getElementById('soundBtn').addEventListener('click',()=>{
-  soundOn=!soundOn; try{localStorage.setItem(SOUND_KEY,soundOn?'on':'off');}catch(e){}
-  renderSound(); if(soundOn) sfx.check();
-});
+function renderSound(){ document.querySelectorAll('#soundRow .chip').forEach(c=>{ const on=(c.dataset.v==='on')===soundOn; c.classList.toggle('sel',on); c.setAttribute('aria-pressed',on); }); }
 
 /* ================= RENDER ================= */
 let C = compute();
@@ -912,9 +1156,11 @@ function render(){
   ACHS = achStatus();
   document.getElementById('lvl').textContent=C.l;
   document.getElementById('xpFill').style.width=Math.min(100,C.into/C.need*100)+'%';
-  document.getElementById('xpNum').textContent=`${C.into} / ${C.need} XP до уровня ${C.l+1}`;
+  document.getElementById('xpNum').innerHTML=`<span class="full">${svg('spark')}XP ${C.into} / ${C.need} · до ур. ${C.l+1}</span><span class="short">${svg('spark')}XP ${C.into}/${C.need}</span>`;
   renderAvatar(); renderStats(); renderHP(); renderToday(); renderWeekPanel(); renderMoods(); renderLog();
-  renderJournal(); renderPerks(); renderLibrary(); renderSat(); renderPrio(); renderIdeasAdmin(); renderAppearance(); renderAch(); checkAch();
+  renderJournal(); renderPerks(); renderLibrary(); renderSat(); renderPrio(); renderIdeasAdmin(); renderAppearance(); renderAch(); renderBlocks(); renderPersonal(); renderTone(); renderSound(); checkAch();
+  applyWord(document.body);
+  if(state.settings.coachSeen){ const c=document.getElementById('coach'); if(c&&!c.hidden){ c.hidden=true; document.getElementById('fab').classList.remove('hl'); } }
 }
 function renderAvatar(){
   const a=document.getElementById('avatar'), inner=document.getElementById('avIn');
@@ -923,15 +1169,16 @@ function renderAvatar(){
   inner.style.cssText = avatar.img ? 'position:absolute;inset:0;' : '';
 }
 function renderStats(){
-  const t=statTotals(C.l), max=Math.max(5,...Object.values(t));
-  document.getElementById('stats').innerHTML=STATS.map(s=>`<div class="stat"><b>${t[s.k]}</b><small>${s.l}</small><div class="bar"><i style="width:${t[s.k]/max*100}%"></i></div></div>`).join('');
+  const t=statTotals(C.l), max=Math.max(5,...Object.values(t)), icons=(state.settings.statStyle==='icons');
+  const el=document.getElementById('stats'); el.classList.toggle('ic',icons);
+  el.innerHTML=STATS.map(s=>`<div class="stat" title="${s.full}" aria-label="${s.full}: ${t[s.k]}">${icons?`<span class="si">${svg(s.icon)}</span>`:''}<b>${t[s.k]}</b>${icons?'':`<small>${s.l}</small>`}<div class="bar"><i style="width:${t[s.k]/max*100}%"></i></div></div>`).join('');
   const list=ALLH.filter(h=>C.bm[h.id]);
   document.getElementById('bonuses').innerHTML = list.length
     ? list.map(h=>`<div class="bonus ${C.bm[h.id]>=CAP?'cap':''}" title="${h.name}"><span class="hi">${svg(h.icon)}</span>${h.name} <b>+${C.bm[h.id]}%</b></div>`).join('')
-    : '<div class="hint" style="margin:0">Бонусы от перков появятся здесь, начиная со 2-го уровня.</div>';
+    : empty('Бонусы от перков появятся здесь, начиная со 2-го уровня.','spark');
 }
 function habitRow(h, on, meta, hot, attr){
-  return `<button class="trow ${on?'on':''}" ${attr} aria-pressed="${on}"><span class="hi">${svg(h.icon)}</span><span>${h.name}</span><span class="meta ${hot?'hot':''}">${meta}</span><span class="box">✓</span></button>`;
+  return `<button class="trow ${on?'on':''} ${(meta&&String(meta).trim())?'hm':''}" ${attr} aria-pressed="${on}"><span class="hi">${svg(h.icon)}</span><span>${h.name}</span><span class="meta ${hot?'hot':''}">${meta}</span><span class="box">✓</span></button>`;
 }
 function renderToday(){
   const s=TODAY(), d=peek(s);
@@ -974,7 +1221,7 @@ function renderWeekPanel(){
     document.getElementById('rewardInput').addEventListener('keydown',e=>{ if(e.key==='Enter') save_(); });
   } else {
     r.innerHTML=`<div class="reward open"><h3>Награда недели</h3><p class="got">${esc(wo.reward)}</p>
-      <div class="inrow">${wo.rewardDone?'<span class="hint" style="margin:6px 0 0">Получено. Заслужил.</span>':'<button class="btn" id="rewardDone">Получил награду</button>'}<button class="btn ghost" id="rewardEdit">Изменить</button></div></div>`;
+      <div class="inrow">${wo.rewardDone?`<span class="hint" style="margin:6px 0 0">${gf('Получено. Заслужил.','Получено. Заслужила.','Получено. Заслуженно.')}</span>`:`<button class="btn" id="rewardDone">${gf('Получил награду','Получила награду','Награда получена')}</button>`}<button class="btn ghost" id="rewardEdit">Изменить</button></div></div>`;
     const rd=document.getElementById('rewardDone'); rd&&rd.addEventListener('click',()=>{ week(w).rewardDone=true; sfx.bonus(); save(); render(); toast('Награда получена'); });
     document.getElementById('rewardEdit').addEventListener('click',()=>{ week(w).reward=''; week(w).rewardDone=false; save(); render(); });
   }
@@ -996,13 +1243,13 @@ function renderLog(){
   const items=Object.entries(state.days).filter(([,d])=>d.note||d.tag).sort((a,b)=>a[0]<b[0]?1:-1).slice(0,30);
   document.getElementById('log').innerHTML = items.length
     ? items.map(([k,d])=>`<div><b>${fmt(k)}</b>${d.mood?`<span class="f">${svg(MOODS[d.mood-1].i)}</span>`:''}<span>${d.tag?`[${d.tag}] `:''}${esc(d.note||'')}</span></div>`).join('')
-    : '<div>Здесь будут твои заметки. Начни с одной фразы о сегодняшнем дне.</div>';
+    : empty('Здесь будут твои заметки. Начни с одной фразы о сегодняшнем дне.','notebook');
 }
 function renderJournal(){
   const days=[...Array(7)].map((_,i)=>addDays(weekStart,i)), today=TODAY(), names=['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
   document.getElementById('range').textContent=`${fmt(days[0])} — ${fmt(days[6])}`;
-  const shown=DAILY.filter(h=>isActive(h,C.l) || days.some(d=>peek(d).habits[h.id]));
-  let h='<thead><tr><th></th>'+days.map((d,i)=>`<th class="${d===today?'today':''}">${names[i]}<br>${fmt(d)}</th>`).join('')+'</tr></thead><tbody>';
+  const shown=DAILY.filter(h=>!h.archived && (isActive(h,C.l) || days.some(d=>peek(d).habits[h.id])));
+  let h='<thead><tr><th></th>'+days.map((d,i)=>`<th class="${d===today?'today':''}">${names[i]}<br>${d.slice(8)}</th>`).join('')+'</tr></thead><tbody>';
   shown.forEach(H=>{
     h+=`<tr class="${isActive(H,C.l)?'':'off'}"><td class="name" title="${H.name}"><span><span class="hi">${svg(H.icon)}</span><span class="nm">${H.name}</span></span></td>`;
     days.forEach(d=>{ const on=!!peek(d).habits[H.id];
@@ -1014,7 +1261,7 @@ function renderJournal(){
   t.querySelectorAll('.chk:not(:disabled)').forEach(b=>b.addEventListener('click',()=>toggleDay(b.dataset.d,b.dataset.h)));
 
   const wo=wpeek(weekStart), st=weekStatus(weekStart), future=weekStart>today;
-  const wh=WEEKLY.filter(x=>rawActive(x)||wo.habits[x.id]);
+  const wh=WEEKLY.filter(x=>!x.archived && (rawActive(x)||wo.habits[x.id]));
   document.getElementById('wkLog').innerHTML = wh.map(x=>{ const v=wo.habits[x.id];
     return `<div class="wk-item ${v?'on':''}"><span class="hi">${svg(x.icon)}</span><span>${x.name}${x.id==='skill'&&wo.skill?`: ${esc(wo.skill)}`:''}</span><span class="st">${v?'выполнено':'—'}</span>
       ${future?'':`<button class="chk ${v?'on':''}" data-w="${weekStart}" data-h="${x.id}" aria-label="${x.name}" aria-pressed="${!!v}">✓</button>`}</div>`; }).join('')
@@ -1031,13 +1278,13 @@ function renderChart(days,names,max){
     const p=peek(d), n=Math.min(max,DAILY.filter(h=>p.habits[h.id]).length), x=pad+i*(bw+gap);
     for(let s=0;s<max;s++){ const sy=H-18-(s+1)*seg+1, f=s<n;
       bars+=`<rect x="${x}" y="${sy}" width="${bw}" height="${Math.max(1,seg-2)}" rx="1" style="fill:${f?'var(--ink)':'var(--ink-dark)'};opacity:${f?1:.5}"/>`; }
-    bars+=`<text x="${x+bw/2}" y="${H-4}" text-anchor="middle" font-size="10" style="fill:var(--text-dim)" font-family="PT Mono, monospace">${names[i]}</text>`;
+    bars+=`<text x="${x+bw/2}" y="${H-4}" text-anchor="middle" font-size="13" style="fill:var(--text-dim)" font-family="PT Mono, monospace">${names[i]}</text>`;
     if(p.mood) pts.push([x+bw/2, H-18-(H-34)*(p.mood/5)]);
   });
   const line=pts.length>1?`<polyline points="${pts.map(p=>p.join(',')).join(' ')}" style="fill:none;stroke:var(--amber);stroke-width:2" stroke-dasharray="4 3"/>`:'';
   const dots=pts.map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="4" style="fill:var(--amber)"/>`).join('');
   const total=days.reduce((a,d)=>a+DAILY.filter(h=>peek(d).habits[h.id]).length,0);
-  document.getElementById('chart').innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="За неделю ${total} отметок">${bars}${line}${dots}<text x="${W-pad}" y="10" text-anchor="end" font-size="11" style="fill:var(--ink-bright)" font-family="PT Mono, monospace">за неделю: ${total} / ${max*7}</text></svg>`;
+  document.getElementById('chart').innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="За неделю ${total} отметок">${bars}${line}${dots}<text x="${W-pad}" y="10" text-anchor="end" font-size="13" style="fill:var(--ink-bright)" font-family="PT Mono, monospace">за неделю: ${total} / ${max*7}</text></svg>`;
 }
 function bonusText(p){
   const parts=Object.entries(p.b||{}).map(([h,v])=>h==='*'?`+${v}% XP ко всем привычкам`:h==='*W'?`+${v}% XP ко всем недельным`:h==='custom'?`+${v}% XP к своим привычкам`:`+${v}% XP: ${HMAP[h]?HMAP[h].name:h}`);
@@ -1049,9 +1296,9 @@ function renderPerks(){
   if(next){
     const target=xpToReach(next.lvl), left=Math.max(0,target-C.xp), pct=Math.min(100,C.xp/target*100);
     document.getElementById('nextPerk').innerHTML=`<div class="next"><div class="perk locked" style="border:0;padding:0;background:none;cursor:default"><div class="medal">${svg(next.icon)}</div></div>
-      <div style="flex:1"><h2 style="margin:0">Следующий перк: «${next.name}»</h2>
-      <div style="font-size:12px;color:var(--text-dim)">Уровень ${next.lvl}, осталось ${left} XP. Открыто ${opened} из ${PERKS.length}.</div>
-      <div style="font-size:12px;color:var(--amber);margin-top:2px">${bonusText(next)}</div>
+      <div style="flex:1"><h2 style="margin:0">Следующий перк: «${next.name.includes('-')?`<span class="nw">${next.name}</span>`:next.name}»</h2>
+      <div style="font-size:0.75rem;color:var(--text-dim)">Уровень ${next.lvl}, осталось ${left} XP. Открыто ${opened} из ${PERKS.length}.</div>
+      <div style="font-size:0.75rem;color:var(--amber);margin-top:2px">${bonusText(next)}</div>
       <div class="bar"><i style="width:${pct}%"></i></div></div></div>`;
   } else document.getElementById('nextPerk').innerHTML='<h2 style="margin:0">Все 40 перков открыты. Легенда.</h2>';
   const el=document.getElementById('perks');
@@ -1068,16 +1315,16 @@ function openPerk(i){
     <button class="btn close" data-close>Закрыть</button>`);
 }
 function renderLibrary(){
-  const row=(h)=>{ const av=available(h,C.l), on=isActive(h,C.l);
-    return `<div class="lrow"><span class="hi">${svg(h.icon)}</span><div>${esc(h.name)}${h.custom?'<span class="badge">своя</span>':''}<small>${av?(isWeekly(h.id)?'раз в неделю, +50 XP':'каждый день, +15 XP'):`откроется на уровне ${h.unlock}`}</small></div>
-      <div class="lctl"><button class="btn ghost sm" type="button" data-ed="${h.id}" aria-label="Изменить ${esc(h.name)}">✎</button><button class="sw ${on?'on':''}" type="button" data-h="${h.id}" ${av?'':'disabled'} aria-label="${esc(h.name)}" aria-pressed="${on}"></button></div></div>`; };
   const live=(a)=>a.filter(h=>!h.archived), arch=ALLH.filter(h=>h.archived), keys=state.keyHabits||KEY_HABITS;
+  const row=(h)=>{ const av=available(h,C.l), on=isActive(h,C.l);
+    return `<div class="lrow" data-id="${h.id}"><button class="dh" type="button" aria-label="Перетащить: ${esc(h.name)}" title="Зажми и перетащи, чтобы изменить порядок">≡</button><span class="hi">${svg(h.icon)}</span><div>${esc(h.name)}${h.custom?'<span class="badge">своя</span>':''}<small>${av?(isWeekly(h.id)?'+50 XP/нед.':'+15 XP/день'):`откроется на уровне ${h.unlock}`}</small></div>
+      <div class="lctl"><button class="btn ghost sm" type="button" data-ed="${h.id}" aria-label="Изменить ${esc(h.name)}">✎</button><button class="sw ${on?'on':''}" type="button" data-h="${h.id}" ${av?'':'disabled'} aria-label="${esc(h.name)}" aria-pressed="${on}"></button></div></div>`; };
   const el=document.getElementById('library');
-  el.innerHTML=`<div class="grouph">Ежедневные</div>${live(DAILY).map(row).join('')}<div class="grouph">Еженедельные</div>${live(WEEKLY).map(row).join('')}
+  el.innerHTML=`<div class="grouph">Ежедневные</div><div id="libD">${live(DAILY).map(row).join('')}</div><div class="grouph">Еженедельные</div><div id="libW">${live(WEEKLY).map(row).join('')}</div>
     <button class="btn" id="habAdd" type="button" style="margin-top:12px">Добавить свою привычку</button>
     <div class="grouph">Ключевые для HP (две-три)</div><p class="hint" style="margin:0 0 4px">Два дня подряд без ключевой привычки отнимают HP. Первые две нужны в режиме восстановления.</p>
     <div class="chips" style="margin-top:0">${DAILY.filter(h=>!h.archived&&rawActive(h)&&available(h,C.l)).map(h=>`<button class="chip ${keys.includes(h.id)?'sel':''}" type="button" data-key="${h.id}">${esc(h.name)}</button>`).join('')}</div>
-    ${arch.length?`<div class="grouph">Архив</div>${arch.map(h=>`<div class="lrow"><span class="hi">${svg(h.icon)}</span><div>${esc(h.name)}<small>в архиве, история и опыт сохранены</small></div><button class="btn ghost sm" type="button" data-un="${h.id}">Вернуть</button></div>`).join('')}`:''}`;
+    ${arch.length?`<details class="inl" style="margin-top:14px"><summary>Удалённые (${arch.length})</summary>${arch.map(h=>`<div class="lrow"><span class="hi">${svg(h.icon)}</span><div>${esc(h.name)}<small>скрыта, история и опыт сохранены</small></div><button class="btn ghost sm" type="button" data-un="${h.id}">Вернуть</button></div>`).join('')}</details>`:''}`;
   el.querySelectorAll('.sw:not(:disabled)').forEach(b=>b.addEventListener('click',()=>{
     const h=HMAP[b.dataset.h]; state.active[h.id]=!rawActive(h); sfx.tab(); save(); render();
     const n=ALLH.filter(x=>rawActive(x)&&!x.def&&available(x,C.l)).length;
@@ -1086,16 +1333,45 @@ function renderLibrary(){
   el.querySelectorAll('[data-ed]').forEach(b=>b.addEventListener('click',()=>openHabitEditor(b.dataset.ed)));
   document.getElementById('habAdd').addEventListener('click',()=>openHabitEditor(null));
   el.querySelectorAll('[data-key]').forEach(b=>b.addEventListener('click',()=>{ if(toggleKey(b.dataset.key)){ save(); render(); sfx.tab(); } }));
-  el.querySelectorAll('[data-un]').forEach(b=>b.addEventListener('click',()=>{ const c=state.custom.find(x=>x.id===b.dataset.un); if(c){ c.archived=false; save(); render(); toast('Привычка вернулась'); } }));
+  el.querySelectorAll('[data-un]').forEach(b=>b.addEventListener('click',()=>{ const id=b.dataset.un, c=(state.custom||[]).find(x=>x.id===id); if(c) c.archived=false; else delete state.deleted[id]; save(); render(); toast('Привычка вернулась'); }));
+  initDrag(document.getElementById('libD'),'d'); initDrag(document.getElementById('libW'),'w');
+}
+function setOrder(key,ids){ state.order[key]=ids; save(); render(); sfx.tab(); }
+function initDrag(box,key){
+  if(!box) return;
+  box.querySelectorAll('.dh').forEach(h=>{
+    h.addEventListener('pointerdown',e=>{
+      if(e.button!==undefined&&e.button!==0) return;
+      e.preventDefault(); const row=h.closest('.lrow'), rows=[...box.querySelectorAll('.lrow[data-id]')];
+      const startY=e.clientY, idx0=rows.indexOf(row), rects=rows.map(r=>r.getBoundingClientRect()); let cur=idx0;
+      row.classList.add('drag'); try{ h.setPointerCapture(e.pointerId); }catch(_){}
+      const move=ev=>{
+        const dy=ev.clientY-startY; row.style.transform=`translateY(${dy}px)`;
+        const mid=rects[idx0].top+rects[idx0].height/2+dy; let t=0; rects.forEach((r,i)=>{ if(mid>r.top+r.height/2) t=i; });
+        if(t!==cur){ cur=t; rows.forEach((r,i)=>{ if(r===row) return; let sh=0; if(idx0<cur&&i>idx0&&i<=cur) sh=-rects[idx0].height; if(idx0>cur&&i<idx0&&i>=cur) sh=rects[idx0].height; r.style.transition='transform .12s'; r.style.transform=sh?`translateY(${sh}px)`:''; }); }
+      };
+      const up=()=>{ h.removeEventListener('pointermove',move); h.removeEventListener('pointerup',up); h.removeEventListener('pointercancel',up);
+        rows.forEach(r=>{ r.style.transform=''; r.style.transition=''; r.classList.remove('drag'); });
+        if(cur!==idx0){ const ids=rows.map(r=>r.dataset.id); ids.splice(cur,0,ids.splice(idx0,1)[0]); setOrder(key,ids); } };
+      h.addEventListener('pointermove',move); h.addEventListener('pointerup',up); h.addEventListener('pointercancel',up);
+    });
+    h.addEventListener('keydown',e=>{
+      if(e.key!=='ArrowUp'&&e.key!=='ArrowDown') return; e.preventDefault();
+      const rows=[...box.querySelectorAll('.lrow[data-id]')], i=rows.indexOf(h.closest('.lrow')), j=i+(e.key==='ArrowUp'?-1:1);
+      if(j<0||j>=rows.length) return; const ids=rows.map(r=>r.dataset.id); ids.splice(j,0,ids.splice(i,1)[0]); setOrder(key,ids);
+      setTimeout(()=>{ const nr=document.querySelectorAll('#'+box.id+' .lrow[data-id]')[j]; nr&&nr.querySelector('.dh').focus(); },0);
+    });
+  });
 }
 const esc=(s)=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 /* ================= MODAL ================= */
 function openModal(html){
   const m=document.getElementById('modal'), c=document.getElementById('modalCard');
-  c.innerHTML=html; m.classList.add('show'); document.body.classList.add('mo');
-  c.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',closeModal));
-  const f=c.querySelector('button,label'); f&&f.focus();
+  c.innerHTML='<button class="mclose" type="button" aria-label="Закрыть">×</button>'+html; m.classList.add('show'); document.body.classList.add('mo');
+  c.querySelectorAll('[data-close],.mclose').forEach(b=>b.addEventListener('click',closeModal));
+  applyWord(c);
+  const f=c.querySelector('button:not(.mclose),label'); f&&f.focus();
 }
 function closeModal(){ const m=document.getElementById('modal'); m.classList.remove('show'); delete m.dataset.lock; document.body.classList.remove('mo'); stopTimer(); }
 document.getElementById('modal').addEventListener('click',e=>{ if(e.target.id==='modal' && !document.getElementById('modal').dataset.lock) closeModal(); });
@@ -1109,36 +1385,37 @@ function withChange(fn){
   fn(); save(); render();
   const nk=bonusKeys(); let gotBonus=null;
   nk.forEach(k=>{ if(!bk.has(k)) gotBonus=k; });
-  if(gotBonus){ const t=Object.keys(AUTO_NAMES).find(a=>gotBonus.endsWith(a)); setTimeout(()=>{ toast(AUTO_NAMES[t]); sfx.bonus(); },350);
-    if(t==='weekly') setTimeout(()=>toast('Награда недели открыта'),1700); }
+  if(gotBonus){ const t=Object.keys(AUTO_NAMES).find(a=>gotBonus.endsWith(a)); setTimeout(()=>{ toast(AUTO_NAMES[t]+'. '+phrase('bonus')); sfx.bonus(); },350);
+    if(t==='weekly') setTimeout(()=>toast('Награда недели открыта. '+phrase('reward')),1700); }
   afterChange(before);
 }
 function toggleDay(d,h){
   if(h==='sober' && state.slips[d]){ openSlip(d); return; }
   let on;
   withChange(()=>{ const o=day(d); o.habits[h]=!o.habits[h]; on=o.habits[h]; on?sfx.check():sfx.uncheck(); });
-  const b=C.bm[h]||0; toast(on?`+${Math.round(XP_D*(1+b/100))} XP`:'Отметка снята');
+  const b=C.bm[h]||0; let _t=on?`+${Math.round(XP_D*(1+b/100))} XP`:'Отметка снята'; if(on){ const S=state.settings; S.tc=(S.tc||0)+1; save(); if(S.tc%3===0) _t+='. '+phrase('check'); } toast(_t);
 }
 function toggleWeek(w,h){
   let on;
   withChange(()=>{ const o=week(w); if(o.habits[h]) delete o.habits[h]; else o.habits[h]=(w===monday(TODAY())?TODAY():addDays(w,6)); on=!!o.habits[h]; on?sfx.check():sfx.uncheck(); });
-  const b=C.bm[h]||0; toast(on?`+${Math.round(XP_W*(1+b/100))} XP`:'Отметка снята');
+  const b=C.bm[h]||0; toast(on?`+${Math.round(XP_W*(1+b/100))} XP. ${phrase('weekly')}`:'Отметка снята');
 }
 function afterChange(before){ if(C.l>before) showLevelUp(before, C.l); }
 let tt;
-function toast(m){ const t=document.getElementById('toast'); t.textContent=m; t.classList.add('show'); clearTimeout(tt); tt=setTimeout(()=>t.classList.remove('show'),1500); }
+function toast(m){ const t=document.getElementById('toast'); t.textContent=tw(m); t.classList.add('show'); clearTimeout(tt); tt=setTimeout(()=>t.classList.remove('show'),Math.max(1500,900+String(m).length*45)); }
 function showLevelUp(from,to){
   const box=document.getElementById('lvlup'), txt=document.getElementById('lvlText');
-  const label=`УРОВЕНЬ ${to}`; txt.textContent=label; txt.dataset.text=label;
+  const label=`УРОВЕНЬ ${to}`; txt.textContent=label; txt.dataset.text=label; document.querySelector('#lvlup .sub').textContent=phrase('levelup');
   const gained=PERKS.filter(p=>p.lvl>from&&p.lvl<=to);
   document.getElementById('lvlPerk').innerHTML=gained.map(p=>`<div class="medal">${svg(p.icon)}</div><span>Новый перк: «${p.name}»<br><small style="color:#bdf7cf">${bonusText(p)}</small></span>`).join('');
   const newH=DAILY.filter(h=>h.unlock&&h.unlock>from&&h.unlock<=to);
   document.getElementById('lvlExtra').textContent = (newH.length?`Открыта привычка: «${newH.map(h=>h.name).join('», «')}». `:'') + (gained.length?'Факт перка ждёт во вкладке «Перки».':'');
-  box.classList.remove('show'); void box.offsetWidth; box.classList.add('show');
+  applyWord(box); box.classList.remove('show'); void box.offsetWidth; box.classList.add('show');
   const w=document.getElementById('wrap'); w.classList.remove('shake'); void w.offsetWidth; w.classList.add('shake');
   sfx.levelup(); document.getElementById('lvlOk').focus();
 }
 document.getElementById('lvlOk').addEventListener('click',()=>{ document.getElementById('lvlup').classList.remove('show'); sfx.tab(); });
+document.getElementById('lvlup').addEventListener('click',()=>{ document.getElementById('lvlup').classList.remove('show'); });
 document.getElementById('noteSave').addEventListener('click',()=>{
   const i=document.getElementById('noteInput'), v=i.value.trim(); if(!v) return;
   day(TODAY()).note=v; i.value=''; sfx.check(); save(); renderLog(); toast('Записано');
@@ -1243,22 +1520,23 @@ function renderHP(){
   const h=HPS, cls=hpClass(h.hp);
   document.getElementById('hpBarHdr').className='hpbar '+cls;
   document.getElementById('hpFillHdr').style.width=h.hp+'%';
-  document.getElementById('hpNum').textContent=`HP ${h.hp} / ${HP_MAX}${h.recovering?' · восстановление':''}`;
+  document.getElementById('hpNum').innerHTML=`<span class="full">${svg('heart')}HP ${h.hp} / ${HP_MAX}${h.recovering?' · восстановление':''}</span><span class="short">${svg('heart')}HP ${h.hp}</span>`;
   const names=keyHabits().map(id=>HMAP[id].name.toLowerCase()).join(', ');
+  const lead=(k)=>phrase(k,{seed:TODAY()+':'+k+':'+effTone(k)});
   const status = h.recovering
-    ? `Режим восстановления до ${fmt(h.recUntil)}. Нужны только ${keyHabits().slice(0,2).map(id=>HMAP[id].name.toLowerCase()).join(' и ')}: каждый день с ними даёт +${HP_REC+(HP_FLAGS.phoenix?5:0)} HP, за пропуски удара нет.`
-    : h.hp<=40 ? 'Ослаблен. Спокойный день с отметками, и шкала пойдёт вверх.'
-    : `В норме. Ключевые привычки: ${names}.`;
+    ? `${lead('hpRec')} Режим восстановления до ${fmt(h.recUntil)}. Нужны только ${keyHabits().slice(0,2).map(id=>HMAP[id].name.toLowerCase()).join(' и ')}: каждый день с ними даёт +${HP_REC+(HP_FLAGS.phoenix?5:0)} HP, за пропуски удара нет.`
+    : h.hp<=40 ? `${lead('hpLow')} Спокойный день с отметками, и шкала пойдёт вверх.`
+    : `${lead('hpOk')} Ключевые привычки: ${names}.`;
   const rows=h.log.slice(-8).reverse().map(e=>{
     const needs=e.slip && e.amt<0 && state.slips[e.slip] && !state.slips[e.slip].done;
     const amt=`<span style="margin-left:auto;flex:none;color:var(${e.amt<0?'--red':'--ink'})">${e.amt>0?'+':e.amt<0?'−':''}${e.amt===0?'щит':Math.abs(e.amt)}</span>`;
     const inner=`<b>${fmt(e.d)}</b><span>${e.why}${needs?' · нужен разбор':''}</span>${amt}`;
     return e.slip ? `<button type="button" data-slip="${e.slip}">${inner}</button>` : `<div>${inner}</div>`;
-  }).join('') || '<div>Ударов нет. Так держать.</div>';
+  }).join('') || empty('Ударов нет. Так держать.','shield');
   const p=document.getElementById('hpPanel');
-  p.innerHTML=`<h2>Здоровье</h2>
+  p.innerHTML=`<h2>Здоровье<button class="qm" type="button" data-help="hp" aria-label="Справка: HP">?</button></h2>
     <div class="hpbar big ${cls}"><i style="width:${h.hp}%"></i></div>
-    <div class="xpnum" style="font-size:12px;margin-top:4px">HP ${h.hp} / ${HP_MAX}</div>
+    <div class="xpnum" style="font-size:0.75rem;margin-top:4px">HP ${h.hp} / ${HP_MAX}</div>
     <p class="hint" style="margin:8px 0">${status}</p>
     <div class="rowbtns"><button class="btn ghost" id="slipBtn" type="button">Записать срыв</button></div>
     <div class="hitlog">${rows}</div>`;
@@ -1319,7 +1597,7 @@ function saveSlip(date,f,done,isNew,wasDone,quiet){
   const d=day(date); delete d.habits.sober;
   state.slips[date]={...f,done};
   save(); render(); closeModal();
-  if(isNew){ const _m=done?`−${HIT_ALC} HP, стимпак +${HP_STIM}`:`−${HIT_ALC} HP. Разбор можно сделать позже`; if(quiet){ flashHit(); toast(_m); } else critHit(()=>toast(_m)); }
+  if(isNew){ const _m=(done?`−${HIT_ALC} HP, стимпак +${HP_STIM}`:`−${HIT_ALC} HP. Разбор можно сделать позже`)+'. '+phrase('slip'); if(quiet){ flashHit(); toast(_m); } else critHit(()=>toast(_m)); }
   else if(done&&!wasDone){ sfx.bonus(); toast(`Стимпак: +${HP_STIM} HP`); }
   else toast('Сохранено');
 }
@@ -1336,7 +1614,7 @@ function checkNewHits(){
   if(!fresh.length) return;
   remember([...new Set([...seen,...ids])]);
   const total=miss.filter(e=>fresh.includes(e.d+'|'+e.why)).reduce((a,e)=>a+e.amt,0);
-  flashHit(); toast(`Пропуски без отметок: ${total} HP`);
+  flashHit(); toast(`Пропуски без отметок: ${total} HP. ${phrase('miss')}`);
 }
 
 function hitsLine(w){
@@ -1344,7 +1622,7 @@ function hitsLine(w){
   const sum=hs.reduce((x,e)=>x+e.amt,0);
   return `<div class="wk-item"><span class="hi">${svg('heart')}</span><span>Ударов за неделю: ${hs.length}${hs.length?` (${sum} HP)`:''}</span></div>`;
 }
-/* ================= v2.2: «Нечего делать», «Тяга», субботний разбор ================= */
+/* ================= v2.2: «Чем себя занять?», «Тяга», субботний разбор ================= */
 const fv=(id)=>{ const e=document.getElementById(id); return e?e.value.trim():''; };
 const lockModal=()=>{ document.getElementById('modal').dataset.lock='1'; };
 let TMR=null;
@@ -1359,13 +1637,13 @@ const mmss=(s)=>`${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;
 function critHit(cb){
   const o=document.getElementById('crit');
   if(matchMedia('(prefers-reduced-motion: reduce)').matches){ flashHit(); cb&&cb(); return; }
-  const g=o.querySelector('.gt'), t=isCute()?'ой… срыв':'СРЫВ'; g.textContent=t; g.dataset.text=t; o.querySelector('.sub').textContent=isCute()?'бывает. разберёмся вместе':'критический урон';
+  const g=o.querySelector('.gt'), t=({tender:'Ой, срыв',direct:'СРЫВ',ironic:'Ну вот',hard:'СРЫВ'})[effTone('slipSub')]; g.textContent=t; g.dataset.text=t; o.querySelector('.sub').textContent=phrase('slipSub');
   o.classList.remove('show'); void o.offsetWidth; o.classList.add('show');
   flashHit(); setTimeout(()=>{ if(isCute()) return; noise(.35,.08); tone(70,.55,'sawtooth',.08); },160);
   setTimeout(()=>{ o.classList.remove('show'); cb&&cb(); },1350);
 }
 
-/* ---- «Нечего делать» ---- */
+/* ---- «Чем себя занять?» ---- */
 function pickIdeas(e,m){
   const bank=state.ideas||[]; const sc=new Map();
   bank.forEach(x=>sc.set(x,(x.e.includes(e)?2:0)+(x.m.includes(m)?1:0)+Math.random()*0.9));
@@ -1380,7 +1658,7 @@ function openIdle(){
   sfx.tab(); let e=null, m=null;
   const row=(arr,key,id)=>`<div class="chips" id="${id}">${arr.map(x=>`<button class="chip" type="button" data-v="${x[key]}">${x.l}</button>`).join('')}</div>`;
   const ask=()=>{
-    openModal(`<h3 style="margin-top:0">Нечего делать</h3><p class="hint" style="text-align:center;margin:6px 0 4px">Два вопроса, и подберу 2–3 дела с первым шагом на 15 минут.</p>
+    openModal(`<h3 style="margin-top:0">Чем себя занять?</h3><p class="hint" style="text-align:center;margin:6px 0 4px">Два вопроса, и подберу 2–3 дела с первым шагом на 15 минут.</p>
       <div class="fl">Сколько энергии?</div>${row(ENERGY,'v','iE')}<div class="fl">Какое настроение?</div>${row(MOODSEL,'k','iM')}
       <div class="navbtns"><button class="btn ghost" data-close type="button">Закрыть</button><button class="btn" id="iGo" type="button" disabled>Подобрать</button></div>`);
     const go=document.getElementById('iGo'), upd=()=>{ go.disabled=!(e&&m); };
@@ -1404,7 +1682,7 @@ function startIdea(idea){
   sfx.check();
   openModal(`<h3 style="margin-top:0">${esc(idea.t)}</h3><p class="fact" style="text-align:center;margin-top:6px">Первый шаг: ${esc(idea.s)}</p>
     <div class="timer"><div class="tt" id="tmT">${IDEA_MIN}:00</div><div class="tbar"><i id="tmB"></i></div><p class="hint" style="text-align:center;margin:0">Просто начни. Через 15 минут решишь, продолжать или нет.</p></div>
-    <div class="menu"><button class="btn" id="tmDone" type="button">Сделал</button><button class="btn ghost" data-close type="button">Не сейчас</button></div>`);
+    <div class="menu"><button class="btn" id="tmDone" type="button">${gf('Сделал','Сделала','Готово')}</button><button class="btn ghost" data-close type="button">Не сейчас</button></div>`);
   lockModal();
   const secs=IDEA_MIN*60;
   countdown(secs,(left)=>{ const t=document.getElementById('tmT'), b=document.getElementById('tmB'); if(!t) return; t.textContent=mmss(left); b.style.width=(100-left/secs*100)+'%'; },
@@ -1414,7 +1692,7 @@ function startIdea(idea){
     (state.ideaLog[d] ||= []).push({id:idea.id, t:idea.t, soc:!!idea.soc, ts:Date.now()});
     stopTimer(); save(); render(); closeModal(); sfx.check();
     const gain=HPS.hp-hpB;
-    toast(gain>0?`+${gain} HP. Отличный выбор вместо скуки`:(hpB>=HP_MAX?'HP полный. Просто молодец':(already?'Записано. HP за дело уже был сегодня':'Записано')));
+    toast(gain>0?`+${gain} HP. ${phrase('idle')}`:(hpB>=HP_MAX?phrase('idle'):(already?'Записано. HP за дело уже был сегодня':'Записано')));
   });
 }
 
@@ -1436,7 +1714,7 @@ function openCrave(){
   const s={ts:Date.now(), date:TODAY(), before:5, trigger:'', need:'', swap:'', after:null, rewarded:false, slipped:false};
   let early=false;
   const head=(n,t)=>`<div class="stepn">Тяга · шаг ${n} из 6</div><h3 style="margin-top:0">${t}</h3>`;
-  const slipBtn='<button class="btn danger" id="cvSlip" type="button">Всё-таки сорвался</button>';
+  const slipBtn=`<button class="btn danger" id="cvSlip" type="button">${gf('Всё-таки сорвался','Всё-таки сорвалась','Всё-таки срыв')}</button>`;
   const bindSlip=()=>{ const b=document.getElementById('cvSlip'); b&&b.addEventListener('click',()=>{
     stopTimer(); s.slipped=true; s.rewarded=false; if(s.after==null) s.after=s.before; state.cravings.push(s); save(); closeModal(); render();
     critHit(()=>{ if(state.slips[s.date]){ openSlip(s.date); toast('Срыв за сегодня уже записан. Можно дополнить разбор'); } else openSlip(null,{trigger:s.trigger, need:s.need, swap:s.swap, done:false, quiet:true}); }); }); };
@@ -1452,8 +1730,8 @@ function openCrave(){
   };
   const steps=[
     ()=>{ openModal(head(1,'Насколько сильная тяга?')+`<div class="bignum" id="cvNum">${s.before}</div>
-        <input class="range" type="range" min="0" max="10" step="1" value="${s.before}" id="cvR" aria-label="Сила тяги от 0 до 10">
-        <p class="hint" style="text-align:center;margin:4px 0 0">0 почти нет, 10 очень сильная. Ты уже делаешь правильную вещь: остановился и смотришь на неё.</p>${craveStats()}
+        <input class="slider" type="range" min="0" max="10" step="1" value="${s.before}" id="cvR" aria-label="Сила тяги от 0 до 10">
+        <p class="hint" style="text-align:center;margin:4px 0 0">0 почти нет, 10 очень сильная. Ты уже делаешь правильную вещь: ${gf('остановился и смотришь на неё','остановилась и смотришь на неё','пауза сделана, и ты смотришь на неё')}.</p><details class="inl"><summary>Как это работает</summary><p>Шесть коротких шагов и пять минут дыхания. Желание идёт волной и обычно спадает. За полные пять минут +5 HP и +10 XP. Закрыть можно в любой момент, ничего не теряется.</p></details>${craveStats()}
         <div class="navbtns"><button class="btn ghost" data-close type="button">Закрыть</button><button class="btn" id="cvN" type="button">Далее</button></div>`);
       const r=document.getElementById('cvR'); r.addEventListener('input',()=>{ s.before=+r.value; document.getElementById('cvNum').textContent=r.value; });
       document.getElementById('cvN').addEventListener('click',()=>go(1)); },
@@ -1472,7 +1750,7 @@ function openCrave(){
       document.getElementById('cvE').addEventListener('click',()=>{ early=true; go(5); }); },
     ()=>{ if(s.after==null) s.after=s.before;
       openModal(head(6,'А сейчас насколько сильно?')+`<div class="bignum" id="cvNum">${s.after}</div>
-        <input class="range" type="range" min="0" max="10" step="1" value="${s.after}" id="cvR" aria-label="Сила тяги после">
+        <input class="slider" type="range" min="0" max="10" step="1" value="${s.after}" id="cvR" aria-label="Сила тяги после">
         <p class="hint" style="text-align:center;margin:4px 0 0">${early?'Награда даётся за полные 5 минут, но запись всё равно ценна.':'Пять минут позади. Это и есть навык.'}</p>
         <div class="menu" style="margin-top:14px"><button class="btn" id="cvF" type="button">Готово</button>${slipBtn}</div>`);
       bindSlip();
@@ -1482,8 +1760,8 @@ function openCrave(){
         s.rewarded=!early && n<CRAVE_MAX;
         const lv=C.l, hpB=HPS.hp;
         state.cravings.push(s); save(); render(); closeModal();
-        if(s.rewarded){ sfx.bonus(); const g=HPS.hp-hpB; toast(`Тяга пройдена: ${s.before} → ${s.after}. ${g>0?`+${g} HP, `:''}+${XP_CRAVE} XP`); }
-        else toast(early?'Записано. Награда даётся за полные 5 минут':'Записано. Лимит наград на сегодня исчерпан');
+        if(s.rewarded){ sfx.bonus(); const g=HPS.hp-hpB; toast(`Тяга пройдена: ${s.before} → ${s.after}. ${g>0?`+${g} HP, `:''}+${XP_CRAVE} XP. ${phrase('crave')}`); }
+        else toast(early?phrase('craveEarly'):'Записано. Лимит наград на сегодня исчерпан');
         afterChange(lv);
       }); },
   ];
@@ -1507,7 +1785,7 @@ function weekStats(w){
   const ideas=past.reduce((a,d)=>a+((state.ideaLog||{})[d]||[]).length,0);
   const hs=HPS.log.filter(e=>e.d>=days[0]&&e.d<=days[6]&&e.amt<0);
   const lines=[`Ежедневные привычки: ${done} из ${poss}`,`Недельные: ${wdone.length?wdone.join(', '):'пока нет'}`,`Тренировок: ${st.train}`,
-    `Отметок «без алкоголя»: ${st.sober} из ${past.length}`,`Дел вместо скуки («Нечего делать»): ${ideas}`,
+    `Отметок «без алкоголя»: ${st.sober} из ${past.length}`,`Дел вместо скуки («Чем себя занять?»): ${ideas}`,
     `Настроение в среднем: ${avg} из 5${tags.length?'; теги: '+tags.join(', '):''}`,`HP сейчас: ${HPS.hp} из ${HP_MAX}; ударов за неделю: ${hs.length}`];
   if(wo.reward) lines.push(`Награда недели: ${wo.reward}${wo.rewardDone?' (получена)':''}`);
   const lines2=slips.length?slips.map(d=>{ const s=state.slips[d]; return `Срыв ${fmt(d)}: триггер: ${s.trigger||'?'}; хотелось: ${s.need||'?'}; замена: ${s.swap||'?'}`; }):['Срывов не записано'];
@@ -1583,7 +1861,7 @@ function reviewLine(w){
 function renderSat(){
   const el=document.getElementById('satBanner'), dow=new Date().getDay(), w=monday(TODAY()), rv=state.reviews[w];
   if((dow===6||dow===0) && !(rv&&rv.done)){
-    el.innerHTML=`<div class="bk"><span>${dow===6?'Суббота':'Выходные'}: время разобрать неделю. Десять минут, и заметка для Obsidian готова.</span><button class="btn" id="satGo" type="button">Начать</button></div>`;
+    el.innerHTML=`<div class="bk"><span>${phrase('review',{seed:TODAY()+':'+effTone('review')})}</span><button class="btn" id="satGo" type="button">Начать</button></div>`;
     document.getElementById('satGo').addEventListener('click',()=>openReview(w));
   } else el.innerHTML='';
 }
@@ -1603,7 +1881,7 @@ function renderPrio(){
 /* ---- Банк идей и старт HP (вкладка «Данные») ---- */
 function renderIdeasAdmin(){
   const el=document.getElementById('ideasList');
-  el.innerHTML=(state.ideas||[]).map(x=>`<div class="lrow"><span class="hi">${svg(x.soc?'people':'compass')}</span><div>${esc(x.t)}<small>${esc(x.s)}</small><small>энергия: ${x.e.map(v=>ENERGY[v-1].l).join(', ')}</small></div><button class="btn ghost sm" type="button" data-del="${x.id}" aria-label="Удалить ${esc(x.t)}">✕</button></div>`).join('') || '<p class="hint" style="margin:0">Банк пуст. Добавь первую идею ниже.</p>';
+  el.innerHTML=(state.ideas||[]).map(x=>`<div class="lrow"><span class="hi">${svg(x.soc?'people':'compass')}</span><div>${esc(x.t)}<small>${esc(x.s)}</small><small>энергия: ${x.e.map(v=>ENERGY[v-1].l).join(', ')}</small></div><button class="btn ghost sm" type="button" data-del="${x.id}" aria-label="Удалить ${esc(x.t)}">✕</button></div>`).join('') || empty('Банк пуст. Добавь первую идею ниже.','compass');
   el.querySelectorAll('[data-del]').forEach(b=>b.addEventListener('click',()=>{
     if(b.dataset.armed!=='1'){ b.dataset.armed='1'; b.textContent='точно?'; return; }
     state.ideas=state.ideas.filter(x=>x.id!==b.dataset.del); save(); renderIdeasAdmin(); toast('Идея удалена'); }));
@@ -1629,28 +1907,32 @@ function renderIdeasAdmin(){
     state.hpStart=TODAY(); save(); render(); toast('HP считается заново с сегодняшнего дня');
   });
   document.getElementById('qIdle').addEventListener('click',openIdle);
-  document.getElementById('qCrave').addEventListener('click',openCrave);
-  document.getElementById('fab').addEventListener('click',openCrave);
+    document.getElementById('fab').addEventListener('click',openCrave);
   document.getElementById('revBtn').addEventListener('click',()=>openReview(weekStart));
 })();
 
 /* ================= v2.3: темы, название, свои привычки, знакомство ================= */
 const isCute=()=>state.settings&&state.settings.skin==='cute';
-const SKINS=[{k:'green',l:'Терминал',bg:'#050a05',fg:'#3ef07a'},{k:'amber',l:'Янтарь',bg:'#0b0702',fg:'#ffb642'},{k:'cute',l:'Милая',bg:'#fff5fa',fg:'#e8619d'}];
+const SKINS=[{k:'green',l:'Терминал',bg:'#050a05',fg:'#3ef07a'},{k:'cute',l:'Милая',bg:'#fff5fa',fg:'#e8619d'},{k:'std',l:'Стандартная',bg:'#f3f4f6',fg:'#2563eb'}];
 const DEFAULT_TITLE='Терминал баланса';
 function applySkin(){
   const s=state.settings||{};
-  document.documentElement.dataset.skin=s.skin||'green';
+  document.documentElement.dataset.skin=s.skin||'green'; document.documentElement.dataset.fx=(s.fx===false)?'off':'on'; document.documentElement.dataset.hide=(s.hide||[]).join(' ');
   const t=s.title||DEFAULT_TITLE, h=document.getElementById('ttl');
   if(h && h.textContent!==t) h.textContent=t;
   document.title=t;
   requestAnimationFrame(()=>{ const bg=getComputedStyle(document.documentElement).getPropertyValue('--bg').trim(); if(bg) document.querySelectorAll('meta[name="theme-color"]').forEach(m=>m.setAttribute('content',bg)); });
 }
-const skinsHtml=(sel)=>SKINS.map(s=>`<button class="skin ${s.k===sel?'sel':''}" type="button" data-skin="${s.k}"><i style="background:linear-gradient(135deg,${s.bg} 50%,${s.fg} 50%)"></i>${s.l}</button>`).join('');
+const skinsHtml=(sel)=>SKINS.map(s=>{ const acc=(state.settings&&state.settings.accent)||'green', term=s.k==='green', key=term?acc:s.k, on=term?(sel==='green'||sel==='amber'):sel===s.k, bg=term&&acc==='amber'?'#0b0702':s.bg, fg=term&&acc==='amber'?'#ffb642':s.fg; return `<button class="skin ${on?'sel':''}" type="button" data-skin="${key}" aria-pressed="${on}"><i style="background:linear-gradient(135deg,${bg} 50%,${fg} 50%)"></i>${s.l}</button>`; }).join('');
 function renderAppearance(){
-  const el=document.getElementById('skins'); el.innerHTML=skinsHtml(state.settings.skin);
-  el.querySelectorAll('.skin').forEach(b=>b.addEventListener('click',()=>{ state.settings.skin=b.dataset.skin; save(); render(); sfx.check(); toast('Тема: '+SKINS.find(s=>s.k===b.dataset.skin).l); }));
-  const ti=document.getElementById('titleIn'); if(document.activeElement!==ti) ti.value=state.settings.title||DEFAULT_TITLE;
+  const S=state.settings, el=document.getElementById('skins'); el.innerHTML=skinsHtml(S.skin);
+  el.querySelectorAll('.skin').forEach(b=>b.addEventListener('click',()=>{ S.skin=b.dataset.skin; if(S.skin==='green'||S.skin==='amber') S.accent=S.skin; save(); render(); sfx.check(); toast('Тема: '+(b.dataset.skin==='cute'?'Милая':b.dataset.skin==='std'?'Стандартная':'Терминал')); }));
+  const term=(S.skin==='green'||S.skin==='amber');
+  ['accentRow','fxRow','accLbl','fxLbl'].forEach(id=>{ document.getElementById(id).hidden=!term; });
+  const mark=(sel,attr,val)=>document.querySelectorAll(sel).forEach(c=>{ const on=c.dataset[attr]===val; c.classList.toggle('sel',on); c.setAttribute('aria-pressed',on); });
+  mark('#accentRow .chip','acc',S.accent); mark('#statStyle .chip','v',S.statStyle); mark('#fxRow .chip','v',S.fx===false?'off':'on'); mark('#wordRow .chip','w',S.word);
+  const ti=document.getElementById('titleIn'); if(document.activeElement!==ti) ti.value=S.title||DEFAULT_TITLE;
+  const vi=document.getElementById('volIn'); if(document.activeElement!==vi) vi.value=Math.round((typeof S.volume==='number'?S.volume:.8)*100);
 }
 function setTitle(v){ state.settings.title=(v||'').trim().slice(0,24)||DEFAULT_TITLE; save(); render(); toast('Название сохранено'); sfx.check(); }
 function openRename(){
@@ -1678,7 +1960,7 @@ function meow(p=1,dur=.32,vol=.06,when=0){
   const lp=a.createBiquadFilter(); lp.type='lowpass'; lp.frequency.setValueAtTime(1200,t); lp.frequency.linearRampToValueAtTime(3600,t+dur*.3); lp.frequency.linearRampToValueAtTime(1400,end);
   const env=a.createGain();
   env.gain.setValueAtTime(.0001,t); env.gain.exponentialRampToValueAtTime(vol*.35,t+.035); env.gain.exponentialRampToValueAtTime(vol,t+dur*.3); env.gain.exponentialRampToValueAtTime(vol*.55,t+dur*.72); env.gain.exponentialRampToValueAtTime(.0001,end);
-  body.connect(gb).connect(lp); harm.connect(f1).connect(g1).connect(lp); harm.connect(f2).connect(g2).connect(lp); lp.connect(env).connect(a.destination);
+  body.connect(gb).connect(lp); harm.connect(f1).connect(g1).connect(lp); harm.connect(f2).connect(g2).connect(lp); lp.connect(env).connect(MST(a));
   [body,harm,lfo].forEach(o=>{ o.start(t); o.stop(end+.05); });
 }
 function purr(dur=.7,vol=.05,when=0){
@@ -1688,17 +1970,17 @@ function purr(dur=.7,vol=.05,when=0){
   const src=a.createBufferSource(), lp=a.createBiquadFilter(), g=a.createGain(), lfo=a.createOscillator(), lg=a.createGain();
   src.buffer=buf; lp.type='lowpass'; lp.frequency.value=380; lfo.frequency.value=26; lg.gain.value=vol*.8;
   g.gain.setValueAtTime(vol*.2,t); g.gain.linearRampToValueAtTime(.0001,t+dur);
-  lfo.connect(lg).connect(g.gain); src.connect(lp).connect(g).connect(a.destination); src.start(t); lfo.start(t); lfo.stop(t+dur);
+  lfo.connect(lg).connect(g.gain); src.connect(lp).connect(g).connect(MST(a)); src.start(t); lfo.start(t); lfo.stop(t+dur);
 }
 const MEOW={
   check:()=>meow(1.12,.3,.06), uncheck:()=>meow(.86,.22,.04), tab:()=>meow(1.35,.12,.025), mood:()=>meow(1,.28,.05),
   bonus:()=>{ meow(1.15,.22,.05); meow(1.3,.26,.05,.24); }, hit:()=>meow(.78,.55,.055),
   levelup:()=>{ meow(1,.34,.06); meow(1.25,.32,.06,.36); purr(.8,.045,.72); },
 };
-{ const base={...sfx}; Object.keys(base).forEach(k=>{ sfx[k]=(...a)=>isCute()?(MEOW[k]?MEOW[k](...a):null):base[k](...a); }); }
+{ const base={...sfx}; Object.keys(base).forEach(k=>{ sfx[k]=(...a)=>{ const sk=(state.settings&&state.settings.skin)||'green'; const pk=sk==='cute'?MEOW:sk==='std'?NEUTRAL:null; return pk?(pk[k]?pk[k](...a):null):base[k](...a); }; }); }
 
 /* ---- свои привычки ---- */
-const ICONS=['dumbbell','steps','notebook','book','moon','pan','pot','palette','people','target','spark','tree','broom','phone','stretch','heart','compass','bulb','calendar','chart','mail','anchor','lungs','sun','shield','scales','wave','figure'];
+const ICONS=['dumbbell','steps','notebook','book','moon','pan','pot','palette','people','target','spark','tree','broom','phone','stretch','heart','compass','bulb','calendar','chart','mail','anchor','lungs','sun','shield','scales','bath','eye','bolt','clover','drop','figure'];
 function openHabitEditor(id){
   const h=id?HMAP[id]:null, isNew=!h, cust=isNew||h.custom;
   let icon=isNew?'spark':h.icon, stats=isNew?['INT']:[...h.stats], type='d';
@@ -1708,9 +1990,9 @@ function openHabitEditor(id){
     ${isNew?`<div class="fl">Как часто</div><div class="chips" id="heT" style="margin-top:0"><button class="chip sel" type="button" data-v="d">каждый день, +15 XP</button><button class="chip" type="button" data-v="w">раз в неделю, +50 XP</button></div>`:''}
     ${cust?`<div class="fl">Иконка</div><div class="icgrid" id="heI">${ICONS.map(k=>`<button class="icb ${k===icon?'sel':''}" type="button" data-v="${k}" aria-label="Иконка ${k}">${svg(k)}</button>`).join('')}</div>
       <div class="fl">Характеристики (одна или две)</div><div class="chips" id="heS" style="margin-top:0">${STATS.map(s=>`<button class="chip ${stats.includes(s.k)?'sel':''}" type="button" data-v="${s.k}">${s.l}</button>`).join('')}</div>`
-      :'<p class="hint" style="margin:10px 0 0">Встроенную привычку можно переименовать или скрыть переключателем в библиотеке. Иконка и характеристики у неё связаны с перками.</p>'}
+      :'<p class="hint" style="margin:10px 0 0">Встроенную привычку можно переименовать, выключить переключателем в библиотеке или удалить. Иконка и характеристики у неё связаны с перками.</p>'}
     <div class="menu" style="margin-top:16px"><button class="btn" id="heSave" type="button">${isNew?'Добавить':'Сохранить'}</button>
-      ${!isNew&&h.custom?'<button class="btn ghost" id="heArch" type="button">В архив</button>':''}
+      ${!isNew?'<button class="btn danger" id="heDel" type="button">Удалить</button>':''}
       ${!isNew&&!h.custom&&state.names[id]?'<button class="btn ghost" id="heRes" type="button">Вернуть исходное название</button>':''}
       <button class="btn ghost" data-close type="button">Отмена</button></div>`);
   const card=document.getElementById('modalCard');
@@ -1729,10 +2011,12 @@ function openHabitEditor(id){
     else { if(name===h.base) delete state.names[id]; else state.names[id]=name; toast('Сохранено'); }
     save(); closeModal(); render(); sfx.check();
   });
-  const ar=document.getElementById('heArch'); ar&&ar.addEventListener('click',()=>{
-    if(ar.dataset.armed!=='1'){ ar.dataset.armed='1'; ar.textContent='Точно в архив? История сохранится'; return; }
-    state.custom.find(x=>x.id===id).archived=true; state.keyHabits=(state.keyHabits||[]).filter(x=>x!==id);
-    save(); closeModal(); render(); toast('Привычка в архиве');
+  const dl=document.getElementById('heDel'); dl&&dl.addEventListener('click',()=>{
+    if(dl.dataset.armed!=='1'){ dl.dataset.armed='1'; dl.textContent='Точно удалить? История и опыт останутся'; return; }
+    if(h.custom){ state.custom.find(x=>x.id===id).archived=true; } else { state.deleted[id]=true; }
+    state.keyHabits=(state.keyHabits||KEY_HABITS).filter(x=>x!==id);
+    rebuildHabits(); if(!keyHabits().length) state.keyHabits=DAILY.filter(x=>rawActive(x)).slice(0,2).map(x=>x.id);
+    save(); closeModal(); render(); toast('Привычка удалена. Вернуть можно в «Удалённых»');
   });
   const rs=document.getElementById('heRes'); rs&&rs.addEventListener('click',()=>{ delete state.names[id]; save(); closeModal(); render(); toast('Название возвращено'); });
 }
@@ -1756,20 +2040,23 @@ function openOnboard(){
   const weeklyChips=()=>WEEKLY.filter(h=>!h.archived).map(h=>`<button class="chip ${rawActive(h)?'sel':''}" type="button" data-h="${h.id}">${esc(h.name)}</button>`).join('');
   const keyChips=()=>DAILY.filter(h=>rawActive(h)&&!h.unlock).map(h=>`<button class="chip ${(state.keyHabits||KEY_HABITS).includes(h.id)?'sel':''}" type="button" data-k="${h.id}">${esc(h.name)}</button>`).join('');
   const steps=[
-    ()=>`<div class="stepn">Знакомство · 1 из 4</div><h3 style="margin-top:0">Привет!</h3><p class="fact" style="text-align:center;margin-top:6px">Это трекер привычек в духе ретро-игры: отмечаешь дела, копишь опыт, открываешь перки. Срывы бьют только по HP, опыт никогда не отнимается.</p><label class="fl" for="obT">Как назовём трекер?</label><input type="text" id="obT" maxlength="24" value="${esc(S.title||DEFAULT_TITLE)}">`,
-    ()=>`<div class="stepn">Знакомство · 2 из 4</div><h3 style="margin-top:0">Выбери вид</h3><div class="skins" id="obS">${skinsHtml(S.skin)}</div><p class="hint" style="text-align:center;margin:10px 0 0">Поменять можно в любой момент во вкладке «Данные».</p>`,
-    ()=>`<div class="stepn">Знакомство · 3 из 4</div><h3 style="margin-top:0">Привычки</h3><p class="hint" style="margin:0 0 6px">Начни с трёх-пяти ежедневных. Остальные можно включить позже, а свои добавить во вкладке «Данные».</p><div class="fl">Каждый день</div><div class="chips" id="obD" style="margin-top:0">${dailyChips()}</div><div class="fl">Раз в неделю</div><div class="chips" id="obW" style="margin-top:0">${weeklyChips()}</div>`,
-    ()=>`<div class="stepn">Знакомство · 4 из 4</div><h3 style="margin-top:0">Ключевые привычки</h3><p class="hint" style="margin:0 0 6px">Две-три самые важные. Если пропустить такую два дня подряд, уходит немного HP. Это мягкая страховка, а не штраф за жизнь.</p><div class="chips" id="obK" style="margin-top:0">${keyChips()}</div>`,
+    ()=>`<div class="stepn">Знакомство · 1 из 5</div><h3 style="margin-top:0">Привет!</h3><p class="fact" style="text-align:center;margin-top:6px">Это трекер привычек в духе ретро-игры: отмечаешь дела, копишь опыт, открываешь перки. Срывы бьют только по HP, опыт никогда не отнимается.</p><label class="fl" for="obT">Как назовём трекер?</label><input type="text" id="obT" maxlength="24" value="${esc(S.title||DEFAULT_TITLE)}"><label class="fl" for="obName">Как к тебе обращаться?</label><input type="text" id="obName" maxlength="24" value="${esc(S.userName||'')}" placeholder="Имя"><div class="chips" id="obG" style="margin-top:8px"><button class="chip ${S.gender==='m'?'sel':''}" type="button" data-g="m">Мужской</button><button class="chip ${S.gender==='f'?'sel':''}" type="button" data-g="f">Женский</button><button class="chip ${(S.gender||'n')==='n'?'sel':''}" type="button" data-g="n">Не указывать</button></div>`,
+    ()=>`<div class="stepn">Знакомство · 2 из 5</div><h3 style="margin-top:0">Выбери вид</h3><div class="skins" id="obS">${skinsHtml(S.skin)}</div><p class="hint" style="text-align:center;margin:10px 0 0">Поменять можно в любой момент во вкладке «Данные».</p>`,
+    ()=>`<div class="stepn">Знакомство · 3 из 5</div><h3 style="margin-top:0">Как назовём кнопку помощи?</h3><p class="hint" style="margin:0 0 8px">Это кнопка на случай, когда сильно хочется сорваться. Выбери слово, которое тебе ближе.</p><div class="chips" id="obWord" data-nowrd="1" style="margin-top:0"><button class="chip ${(S.word||'тяга')==='тяга'?'sel':''}" type="button" data-w="тяга">Тяга</button><button class="chip ${S.word==='соблазн'?'sel':''}" type="button" data-w="соблазн">Соблазн</button></div><p class="hint" style="margin:10px 0 0">Поменять можно в «Данных».</p>`,
+    ()=>`<div class="stepn">Знакомство · 4 из 5</div><h3 style="margin-top:0">Привычки</h3><p class="hint" style="margin:0 0 6px">Начни с трёх-пяти ежедневных. Остальные можно включить позже, а свои добавить во вкладке «Данные».</p><div class="fl">Каждый день</div><div class="chips" id="obD" style="margin-top:0">${dailyChips()}</div><div class="fl">Раз в неделю</div><div class="chips" id="obW" style="margin-top:0">${weeklyChips()}</div>`,
+    ()=>`<div class="stepn">Знакомство · 5 из 5</div><h3 style="margin-top:0">Ключевые привычки</h3><p class="hint" style="margin:0 0 6px">Две-три самые важные. Если пропустить такую два дня подряд, уходит немного HP. Это мягкая страховка, а не штраф за жизнь.</p><div class="chips" id="obK" style="margin-top:0">${keyChips()}</div>`,
   ];
-  const read=()=>{ if(i===0){ const t=fv('obT'); S.title=(t||DEFAULT_TITLE).slice(0,24); } };
+  const read=()=>{ if(i===0){ const t=fv('obT'); S.title=(t||DEFAULT_TITLE).slice(0,24); S.userName=fv('obName').slice(0,24); } };
   const show=()=>{
     openModal(steps[i]()+`<div class="navbtns"><button class="btn ghost" id="obB" type="button">${i?'Назад':'Пропустить'}</button><button class="btn" id="obN" type="button">${i<steps.length-1?'Далее':'Начать'}</button></div>`);
     lockModal();
     document.querySelectorAll('#obS .skin').forEach(b=>b.addEventListener('click',()=>{ S.skin=b.dataset.skin; applySkin(); document.querySelectorAll('#obS .skin').forEach(x=>x.classList.toggle('sel',x===b)); sfx.check(); }));
+    document.querySelectorAll('#obG .chip').forEach(b=>b.addEventListener('click',()=>{ S.gender=b.dataset.g; document.querySelectorAll('#obG .chip').forEach(x=>x.classList.toggle('sel',x===b)); sfx.tab(); }));
+    document.querySelectorAll('#obWord .chip').forEach(b=>b.addEventListener('click',()=>{ S.word=b.dataset.w; document.querySelectorAll('#obWord .chip').forEach(x=>x.classList.toggle('sel',x===b)); sfx.tab(); }));
     document.querySelectorAll('#obD .chip,#obW .chip').forEach(b=>b.addEventListener('click',()=>{ const h=HMAP[b.dataset.h]; state.active[h.id]=!rawActive(h); b.classList.toggle('sel',rawActive(h)); sfx.tab(); }));
     document.querySelectorAll('#obK .chip').forEach(b=>b.addEventListener('click',()=>{ if(toggleKey(b.dataset.k)){ b.classList.toggle('sel'); sfx.tab(); } }));
     document.getElementById('obB').addEventListener('click',()=>{ read(); if(i){ i--; show(); } else { S.onboarded=true; save(); closeModal(); render(); } });
-    document.getElementById('obN').addEventListener('click',()=>{ read(); if(i<steps.length-1){ i++; show(); } else { S.onboarded=true; state.keyHabits=(state.keyHabits||KEY_HABITS).filter(id=>HMAP[id]&&rawActive(HMAP[id])); if(!state.keyHabits.length) state.keyHabits=DAILY.filter(h=>rawActive(h)&&!h.unlock).slice(0,2).map(h=>h.id); save(); closeModal(); render(); sfx.bonus(); toast('Готово. Первая отметка ждёт на вкладке СТАТ'); } });
+    document.getElementById('obN').addEventListener('click',()=>{ read(); if(i<steps.length-1){ i++; show(); } else { S.onboarded=true; state.keyHabits=(state.keyHabits||KEY_HABITS).filter(id=>HMAP[id]&&rawActive(HMAP[id])); if(!state.keyHabits.length) state.keyHabits=DAILY.filter(h=>rawActive(h)&&!h.unlock).slice(0,2).map(h=>h.id); save(); closeModal(); render(); sfx.bonus(); toast('Готово. Первая отметка ждёт на вкладке СТАТ'); setTimeout(()=>maybeCoach(),1500); } });
   };
   show();
 }
@@ -1805,9 +2092,9 @@ function showAch(list){
   const box=document.getElementById('lvlup'), txt=document.getElementById('lvlText'), pk=document.getElementById('lvlPerk');
   const html=list.map(a=>`<div class="medal">${svg(a.icon)}</div><span>Достижение: «${a.name}»<br><small style="color:#bdf7cf">${bonusText(a)}</small></span>`).join('');
   if(box.classList.contains('show')){ pk.insertAdjacentHTML('beforeend',html); return; }
-  txt.textContent='ДОСТИЖЕНИЕ'; txt.dataset.text='ДОСТИЖЕНИЕ';
+  txt.textContent='ДОСТИЖЕНИЕ'; txt.dataset.text='ДОСТИЖЕНИЕ'; document.querySelector('#lvlup .sub').textContent=phrase('ach');
   pk.innerHTML=html; document.getElementById('lvlExtra').textContent='Факт ждёт во вкладке «Перки».';
-  box.classList.remove('show'); void box.offsetWidth; box.classList.add('show');
+  applyWord(box); box.classList.remove('show'); void box.offsetWidth; box.classList.add('show');
   sfx.levelup(); document.getElementById('lvlOk').focus();
 }
 
@@ -1817,15 +2104,279 @@ function showAch(list){
   document.getElementById('titleIn').addEventListener('keydown',e=>{ if(e.key==='Enter') setTitle(e.target.value); });
 })();
 
+/* ================= v2.4: справка, слово, подсказка, звук ================= */
+function empty(text,icon){ return `<div class="empty">${svg(icon||'spark')}<span>${text}</span></div>`; }
+const HELP={
+  hp:{t:'Как работает HP',h:'<ul class="rl"><li>Срыв с алкоголем: −25 HP. Разбор срыва (стимпак) возвращает +10 HP.</li><li>Два дня подряд без ключевой привычки: −10 HP за день. Первые три дня после старта без этого. Ключевые привычки выбираешь в «Данных».</li><li>День с отметками и без ударов: +10 HP.</li><li>Пройденная «Тяга»: +5 HP. Дело из «Чем себя занять?»: +5 HP раз в день.</li><li>При 0 HP включается режим восстановления на три дня: нужны только две первые ключевые привычки, они дают +15 HP за день.</li><li>Опыт и уровни HP не затрагивает.</li></ul>'},
+  xp:{t:'Как начисляется опыт',h:'<ul class="rl"><li>Ежедневная привычка: +15 XP. Недельная: +50 XP. Настроение: +5 XP.</li><li>Бонусы недели: семь дней без алкоголя +100 XP, две тренировки +30 XP, все недельные привычки +50 XP.</li><li>«Тяга», пройденная до конца: +10 XP, до трёх раз в день.</li><li>Перки и достижения добавляют проценты к XP за свои привычки, до +50% на привычку.</li><li>Это игровые бонусы: реальный результат дают сами привычки.</li></ul>'},
+  crave:{t:'Как работает «Тяга»',h:'<p class="fact">Кнопка на случай, когда сильно хочется того, от чего ты решил отказаться. Шесть коротких шагов: оценить силу, понять, что случилось и чего хочется, выбрать замену, пять минут дыхания, оценить снова.</p><ul class="rl"><li>Желание идёт волной и обычно спадает.</li><li>За полные пять минут: +5 HP и +10 XP.</li><li>Закрыть можно в любой момент, ничего не теряется.</li><li>Если всё-таки случится срыв, это тоже нормально: запишем без унижения и разберём, что запустило.</li></ul>'},
+  idle:{t:'Как работает «Чем себя занять?»',h:'<p class="fact">Отвечаешь на два вопроса (сколько энергии и какое настроение), и приложение подбирает два-три дела с первым шагом на 15 минут. Дела берутся из банка идей: пополняй его во вкладке «Данные». Сделанное даёт +5 HP раз в день, если шкала не полная.</p>'},
+  week:{t:'Недельные привычки и награда',h:'<ul class="rl"><li>Недельные привычки отмечаются один раз в любой день недели, +50 XP за каждую.</li><li>Когда выполнены все, открывается награда недели: ты сам вписываешь, чем порадуешь себя.</li><li>В субботу и воскресенье доступен разбор недели с заметкой для Obsidian.</li></ul>'},
+  stats:{t:'Характеристики и бонусы',h:'<p class="fact">Каждая отметка привычки качает одну-две характеристики: например, тренировка силу и выносливость, заметка интеллект. Это счётчики прогресса, на механику они не влияют. Подписи можно заменить значками в «Данных».</p><p class="fact">Ниже показаны бонусы перков и достижений: проценты к опыту за конкретные привычки.</p>'},
+};
+function openHelp(k){ const x=HELP[k]; if(!x) return; sfx.tab(); openModal(`<h3 style="margin-top:0">${x.t}</h3>${x.h}<button class="btn close" data-close type="button">Понятно</button>`); }
+document.addEventListener('click',e=>{ const b=e.target.closest&&e.target.closest('[data-help]'); if(b){ e.preventDefault(); openHelp(b.dataset.help); } });
+
+/* слово: тяга или соблазн */
+const ORIG=new WeakMap();
+const wordOf=()=>(state.settings&&state.settings.word)||'тяга';
+const SW_PH=[[/«Тяга» всегда доступна/g,'«Соблазн» всегда доступен'],[/заметь её, назови/g,'заметь его, назови'],[/Пройди первую полную «Тягу»/g,'Пройди первый полный «Соблазн»'],[/Пройди 10 полных «Тяг»/g,'Пройди 10 полных «Соблазнов»'],[/Пройденная «Тяга»/g,'Пройденный «Соблазн»'],[/«Тяга», пройденная до конца/g,'«Соблазн», пройденный до конца'],[/сёрфинг по тяге/g,'сёрфинг по соблазну'],[/тягу к алкоголю/g,'соблазн выпить'],[/Насколько сильная тяга/g,'Насколько сильный соблазн'],[/очень сильная\./g,'очень сильный.'],[/Тяга пройдена/g,'Соблазн пройден'],[/Тяга устроена/g,'Соблазн устроен']];
+const SW_RE=/(?<![А-Яа-яЁё])([Тт])яг(ой|а|и|у|е)(?![А-Яа-яЁё])/g;
+function tw(str){
+  if(wordOf()!=='соблазн') return str;
+  let r=String(str); SW_PH.forEach(([a,b])=>{ r=r.replace(a,b); });
+  return r.replace(SW_RE,(m,c,suf)=>(c==='Т'?'С':'с')+'облазн'+({'а':'','у':'','и':'а','ой':'ом','е':'е'}[suf]));
+}
+function applyWord(root){
+  root=root||document.body; const sw=wordOf()==='соблазн';
+  const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>{ const p=n.parentElement; if(!p) return NodeFilter.FILTER_REJECT; if(/^(SCRIPT|STYLE|TEXTAREA)$/.test(p.nodeName)||p.closest('[data-nowrd]')) return NodeFilter.FILTER_REJECT; return NodeFilter.FILTER_ACCEPT; }});
+  let n; while((n=w.nextNode())){ if(!ORIG.has(n)){ if(!/[Тт]яг|[Сс]облазн/.test(n.data)) continue; ORIG.set(n,n.data); } const o=ORIG.get(n), nv=sw?tw(o):o; if(n.data!==nv) n.data=nv; }
+  root.querySelectorAll('[aria-label],[title],[placeholder]').forEach(el=>{ if(el.closest('[data-nowrd]')) return; ['aria-label','title','placeholder'].forEach(a=>{ const v=el.getAttribute(a); if(v==null) return; el._o=el._o||{}; if(el._o[a]==null){ if(!/[Тт]яг/.test(v)) return; el._o[a]=v; } const nv=sw?tw(el._o[a]):el._o[a]; if(v!==nv) el.setAttribute(a,nv); }); });
+}
+
+/* нейтральный набор звуков, общая громкость */
+const NEUTRAL={
+  check:()=>{ tone(880,.08,'sine',.06); tone(1175,.1,'sine',.05,.07); },
+  uncheck:()=>tone(620,.1,'sine',.05),
+  tab:()=>tone(1500,.035,'sine',.035),
+  mood:()=>tone(740,.12,'sine',.06),
+  bonus:()=>{ [659,784,988].forEach((f,i)=>tone(f,.14,'sine',.055,i*.09)); },
+  hit:()=>{ tone(150,.28,'sine',.09); tone(95,.34,'sine',.08,.1); },
+  levelup:()=>{ [523,659,784,1046].forEach((f,i)=>tone(f,.2,'sine',.06,i*.11)); },
+};
+const PACK_GAIN={green:1,amber:1,cute:1.35,std:1.25};
+function MST(a){ if(!a._m){ a._m=a.createGain(); a._m.connect(a.destination); } const st=state.settings||{}; const v=(typeof st.volume==='number'?st.volume:.8); a._m.gain.value=Math.max(0,Math.min(1.5,v*(PACK_GAIN[st.skin]||1))); return a._m; }
+
+/* подсказка про кнопку помощи */
+function maybeCoach(tries){
+  tries=tries||0; const S=state.settings; if(S.coachSeen||!S.onboarded) return;
+  if(document.getElementById('boot')||document.getElementById('modal').classList.contains('show')||document.getElementById('lvlup').classList.contains('show')){ if(tries<12) setTimeout(()=>maybeCoach(tries+1),1500); return; }
+  const c=document.getElementById('coach'); c.hidden=false; document.getElementById('fab').classList.add('hl'); applyWord(c);
+}
+function closeCoach(more){ const c=document.getElementById('coach'); c.hidden=true; document.getElementById('fab').classList.remove('hl'); state.settings.coachSeen=true; save(); if(more) openHelp('crave'); }
+
+(function(){
+  document.querySelectorAll('#accentRow .chip').forEach(c=>c.addEventListener('click',()=>{ const S=state.settings; S.accent=c.dataset.acc; if(S.skin==='green'||S.skin==='amber') S.skin=S.accent; save(); render(); sfx.check(); }));
+  document.querySelectorAll('#statStyle .chip').forEach(c=>c.addEventListener('click',()=>{ state.settings.statStyle=c.dataset.v; save(); render(); sfx.tab(); }));
+  document.querySelectorAll('#fxRow .chip').forEach(c=>c.addEventListener('click',()=>{ state.settings.fx=(c.dataset.v==='on'); save(); render(); sfx.tab(); }));
+  document.querySelectorAll('#wordRow .chip').forEach(c=>c.addEventListener('click',()=>{ state.settings.word=c.dataset.w; save(); render(); sfx.tab(); toast('Слово: '+c.dataset.w); }));
+  const v=document.getElementById('volIn');
+  v.addEventListener('input',()=>{ state.settings.volume=v.value/100; });
+  v.addEventListener('change',()=>{ state.settings.volume=v.value/100; save(); sfx.check(); });
+  document.getElementById('coachOk').addEventListener('click',()=>closeCoach(false));
+  document.getElementById('coachMore').addEventListener('click',()=>closeCoach(true));
+})();
+{ const _rm=reviewMd; reviewMd=function(...a){ return tw(_rm(...a)); }; }
+
+/* ================= v2.6: блоки, личное ================= */
+const BLOCKS=[
+  ['Сегодня',[['hp','Здоровье (HP)','полоса и журнал ударов'],['mood','Состояние','настроение, теги и заметки'],['idle','«Чем себя занять?»','кнопка подбора дел']]],
+  ['Неделя',[['wprog','Бонусы недели','полосы прогресса'],['reward','Награда недели','слот награды'],['chart','График','столбики и настроение'],['prio','Приоритеты недели','появляются после субботнего разбора']]],
+  ['Прогресс',[['stats','Характеристики','счётчики'],['bonuses','Бонусы перков','проценты к XP'],['ach','Достижения','перки за действия']]],
+];
+function renderBlocks(){
+  const hide=state.settings.hide||[], el=document.getElementById('blocksList');
+  el.innerHTML=BLOCKS.map(([g,items])=>`<div class="grouph">${g}</div>`+items.map(([k,t,d])=>{ const on=!hide.includes(k); return `<div class="brow"><div>${t}<small>${d}</small></div><button class="sw ${on?'on':''}" type="button" data-b="${k}" aria-pressed="${on}" aria-label="${t}"></button></div>`; }).join('')).join('');
+  el.querySelectorAll('[data-b]').forEach(b=>b.addEventListener('click',()=>{ const k=b.dataset.b, h=state.settings.hide=state.settings.hide||[], i=h.indexOf(k); if(i>=0) h.splice(i,1); else h.push(k); save(); render(); sfx.tab(); }));
+}
+const uname=()=>(state.settings.userName||'').trim();
+function renderPersonal(){
+  const S=state.settings, g=document.getElementById('greet'), pc=document.getElementById('persCard'), n=uname();
+  if(n){ const h=new Date().getHours(); g.hidden=false; g.textContent=phrase('greet',{seed:TODAY()+':'+Math.floor(h/6)+':'+effTone('greet'),hello:helloWord(h)}); } else g.hidden=true;
+  pc.hidden=!!(n||S.persDismissed||!S.onboarded);
+  const ni=document.getElementById('nameIn'); if(ni&&document.activeElement!==ni) ni.value=S.userName||'';
+  document.querySelectorAll('#genderRow .chip').forEach(c=>{ const on=c.dataset.g===(S.gender||'n'); c.classList.toggle('sel',on); c.setAttribute('aria-pressed',on); });
+}
+function openPersonal(){
+  sfx.tab(); let g=state.settings.gender||'n';
+  openModal(`<h3 style="margin-top:0">Познакомимся?</h3><label class="fl" for="pmName">Как к тебе обращаться?</label><input type="text" id="pmName" maxlength="24" value="${esc(state.settings.userName||'')}" placeholder="Имя">
+    <div class="fl">Пол (для формулировок)</div><div class="chips" id="pmG" style="margin-top:0"><button class="chip" type="button" data-g="m">Мужской</button><button class="chip" type="button" data-g="f">Женский</button><button class="chip" type="button" data-g="n">Не указывать</button></div>
+    <div class="navbtns"><button class="btn ghost" data-close type="button">Позже</button><button class="btn" id="pmOk" type="button">Сохранить</button></div>`);
+  const mark=()=>document.querySelectorAll('#pmG .chip').forEach(c=>c.classList.toggle('sel',c.dataset.g===g)); mark();
+  document.querySelectorAll('#pmG .chip').forEach(c=>c.addEventListener('click',()=>{ g=c.dataset.g; mark(); }));
+  document.getElementById('pmOk').addEventListener('click',()=>{ state.settings.userName=fv('pmName').slice(0,24); state.settings.gender=g; save(); closeModal(); render(); sfx.check(); toast('Сохранено'); });
+}
+(function(){
+  document.querySelectorAll('#soundRow .chip').forEach(c=>c.addEventListener('click',()=>{ soundOn=(c.dataset.v==='on'); try{localStorage.setItem(SOUND_KEY,soundOn?'on':'off');}catch(e){} renderSound(); if(soundOn) sfx.check(); }));
+  document.getElementById('persGo').addEventListener('click',openPersonal);
+  document.getElementById('persNo').addEventListener('click',()=>{ state.settings.persDismissed=true; save(); render(); });
+  document.getElementById('nameSave').addEventListener('click',()=>{ state.settings.userName=fv('nameIn').slice(0,24); save(); render(); sfx.check(); toast('Имя сохранено'); });
+  document.getElementById('nameIn').addEventListener('keydown',e=>{ if(e.key==='Enter') document.getElementById('nameSave').click(); });
+  document.querySelectorAll('#genderRow .chip').forEach(c=>c.addEventListener('click',()=>{ state.settings.gender=c.dataset.g; save(); render(); sfx.tab(); }));
+})();
+
+const PH={
+ check:{
+  tender:["{n}, ещё одна галочка! Так приятно за тобой наблюдать","{Молодец/Умничка}! Маленький шажок, а на душе уже теплее","Галочка встала на своё место. Обнимаю","{Какой ты заботливый к себе/Какая ты заботливая к себе}, это так красиво","Ещё чуточку, и день станет по-настоящему хорошим","Вот так, по шажочку, по галочке. Всё получается","{n}, спасибо, что заботишься о себе. Продолжай, {мой хороший/моя хорошая}","Тёплый, спокойный шаг вперёд. Горжусь","Сделано мягко и без спешки. Какая красота","Ещё одна ниточка в твоём хорошем дне"],
+  direct:["Сделано. Дальше","Принято. Так и надо","{n}, зачтено","Галочка есть. Следующая","Ещё один шаг по плану","Хорошо. Держим темп","Выполнено. Не останавливайся","Отметка засчитана. Идёшь ровно","Есть. Следующий пункт","Порядок. Идём дальше"],
+  ironic:["Галочка поставлена, мир устоял. Скромно аплодирую","{n}, ты только что обыграл вчерашнего себя. Планка была низкой, но всё же","Подумать только: слова превратились в действия","Ещё одна галочка. Диван в шоке, оправдания безработные","Продуктивность замечена и внесена в протокол","Если так пойдёт, придётся признать, что ты взрослый человек","Вот это поворот сюжета: дело сделано","Леонардо да Винчи гордился бы. Возможно, но это неточно","Сенсация: прокрастинация взяла отгул","Галочка есть, а значит, твой внутренний адвокат остался без работы"],
+  hard:["Вот так, блядь, и надо. Галочка есть","{n}, {красавчик/красотка}. Охуенно идёшь","Ещё одна, и хуй тебя теперь остановишь","{Сделал/Сделала} и {не ныл/не ныла}. Это я понимаю","Заебись, галочка встала. Дальше, не расслабляйся","Хули тут думать, когда можно делать. Зачтено","Вот это дело. Пиздец как приятно смотреть","А кто там говорил, что не получится? Ну их нахуй","Галочка есть, отмазки в пролёте","Ебать, как ровно. Продолжай"]
+ },
+ weekly:{
+  tender:["Недельное дело закрыто! {Какой ты молодец/Какая ты умница}","{n}, целая неделька и ещё одно большое дело позади. Обнимаю","Это важное, тёплое дело. Так приятно видеть, как ты растёшь","Спасибо тебе за это. Ты заботишься о своей жизни, и это видно","Ещё одно недельное дело в копилку. Какая красота","Тихо, спокойно, по-настоящему. Горжусь тобой","Большое дело сделано мягко, как и надо"],
+  direct:["Недельное дело закрыто","Неделя собирается по плану","{n}, недельная цель отмечена","Закрыто. Следующее недельное ждёт","Хорошо. Неделя идёт по плану","Принято. Это важнее ежедневных мелочей","Недельный пункт выполнен"],
+  ironic:["Недельное дело закрыто. Вот это вам не диванные упражнения","{n}, целая неделя и целое дело. Календарь аплодирует стоя","Серьёзное достижение. Скромность тоже была в планах, но ладно","Недельная привычка сдалась без боя","Это уже не случайность, это почти система","Кто-то явно собрался стать человеком недели","Диван зафиксировал позор. Дело закрыто"],
+  hard:["Недельное дело закрыто, блядь, красота","{n}, это охуенно. Недельные дела так просто не даются","Вот это уже серьёзно. Ни хуя себе, дисциплина","{Закрыл/Закрыла} недельное. Красота, чёрт возьми","Заебись. Неделя собирается как надо","Недельная цель пала. Дальше следующая, не тормози","Ебать, какой темп. Так держать"]
+ },
+ bonus:{
+  tender:["Бонус недели! Как же приятно, {n}","Награда за терпение и заботу о себе. Обнимаю","Целая неделя усилий не прошла даром. Горжусь","Это тёплый, заслуженный бонус","Ты правда {постарался/постаралась}, и это видно","Сердечко радуется. Бонус твой"],
+  direct:["Бонус недели засчитан","{n}, бонус получен","Заработано. Забирай","Бонус за стабильность. Так и работает система","Неделя закрыта с бонусом","Зачтено сверх плана"],
+  ironic:["Бонус недели. Оказывается, дисциплина работает","{n}, система заметила, что ты старался. Редкий момент","Приз за настойчивость. Из соображений приличия не буду шутить","Бонусы достаются тем, кто не сдался. Ты, видимо, из них","Какая неожиданность: усилия оплачиваются","Фанфары вымышленные, а бонус настоящий"],
+  hard:["Бонус недели, блядь, красота","{n}, это охуенный результат. Забирай бонус","Ни хуя себе, дисциплина. Бонус твой","{Заслужил/Заслужила}, чёрт возьми. Бонус на месте","Вот так выглядит человек, который не слился","Заебись неделя. Бонус заработан честно"]
+ },
+ reward:{
+  tender:["Награда недели открыта, {n}! Побалуй себя","Ты {заслужил/заслужила} эту награду. Выбирай что-нибудь приятное","Пора подумать о чём-то вкусном и тёплом для себя","Награда ждёт. Сделай себе хорошо","Целая неделя заботы, теперь пусть будет сладко","Открыто! Напиши, чем порадуешь себя"],
+  direct:["Награда недели открыта. Впиши, что выбираешь","{n}, награда доступна","Все недельные дела закрыты. Выбирай награду","Награда открыта. Решай и записывай","Неделя закрыта. Награда твоя","Открыто. Что берёшь?"],
+  ironic:["Награда открыта. Дерзай, только не слишком скромно","{n}, ты закрыл все недельные дела. Награда на твоё усмотрение, мы не жмоты","Открылась награда. Самое время сделать вид, что так и {планировал/планировала}","Неделя закрыта. Теперь можно ленивую гордость","Награда ждёт героя недели","Выбирай награду, но без самообмана: нужно настоящее удовольствие"],
+  hard:["Награда открыта. Хули тянуть, выбирай","{n}, неделя в кармане, награда твоя","Закрыто всё нахуй. Награда твоя","Заебись, награда открыта. Выбери что-то нормальное","Неделя пройдена как надо. Забирай своё","Награда есть. Только не слей её на хуйню"]
+ },
+ levelup:{
+  tender:["{n}, ты растёшь! {Какой ты молодец/Какая ты умница}","Новый уровень, новая нежная победа. Горжусь","Каждый шажок привёл тебя сюда. Обнимаю","Так красиво смотреть, как ты поднимаешься","Ты {заслужил/заслужила} этот уровень","Новый этаж, ещё чуть выше, ещё чуть светлее","Спасибо, что не сдаёшься. Это правда ценно","Тёплый день для маленького праздника"],
+  direct:["Опыт засчитан. Продолжаем","Новый уровень. Так держать","{n}, уровень взят","Прогресс подтверждён","Растёшь. Дальше","Уровень повышен, правила прежние","Хорошо. Следующая цель ждёт","Рост идёт по плану"],
+  ironic:["Новый уровень. Скромность украшает, но фанфары уже заказаны","{n}, ты стал на уровень умнее. В теории","Уровень растёт, оправдания дешевеют","Если бы уровни выдавали за упрямство, ты был бы на максимуме","Поздравляем: вы переросли вчерашнего себя","Это называется прогресс. Выглядит почти подозрительно","Новый уровень, новый повод для ложной скромности","Чёрт, это даже красиво получилось"],
+  hard:["Новый уровень, охуеть. Не расслабляйся","{n}, {красавчик/красотка}. Дальше будет жарче","Вот это рост, блядь. Так держать","Пиздец как приятно. Уровень взят","Ни хуя себе, как ты {поднялся/поднялась}","Уровень выше, ответственность выше. Вперёд","Заебись, продолжаем в том же духе","Ещё один уровень в жопу сомнениям"]
+ },
+ ach:{
+  tender:["Новое достижение, {n}! Это очень красиво","Смотри, как много ты уже {сумел/сумела}","Обнимаю за это достижение. Заслуженно","Целый кусочек счастья в копилку","Горжусь тем, как ты идёшь","Ещё один тёплый знак, что ты на верном пути"],
+  direct:["Достижение открыто","{n}, достижение получено","Условие выполнено. Бонус применён","Записано в прогресс","Хорошо. Следующее достижение ждёт","Заработано. Идём дальше"],
+  ironic:["Достижение разблокировано. Видимо, ты умеешь доводить дела до конца","{n}, значок получен. Теперь можно скромно гордиться","Редкая птица: человек, который действует","Ачивка получена. Родственники не поверят","Скромный успех, но всё равно успех","Приз за настойчивость, выданный честно"],
+  hard:["Достижение открыто. Охуенно","{n}, ебать, получилось","{Не слился/Не слилась}, и вот тебе ачивка","Заслуженная ачивка, блядь. Бери","Ни хуя себе, сколько ты уже сделал","Заебись. Следующая ачивка уже смотрит на тебя"]
+ },
+ miss:{
+  tender:["Эти два дня выдались непростыми, {n}. Давай мягко вернёмся с одной маленькой привычки","Ничего страшного, бывает. Я рядом, давай начнём с самого лёгкого","HP чуточку просело, но это поправимо. Начнём с пятиминутки?","{Родной/Родная}, вернуться никогда не поздно","Милый шаг сегодня, и всё наладится","Не ругай себя. Давай просто сделаем одну маленькую вещь","Я не сержусь. Давай вернёмся к привычкам спокойно","Тебе нужно немного нежности и чуть-чуть действия. Начни с малого"],
+  direct:["Два дня без ключевой привычки. Это уже тенденция. Возвращайся сегодня","{n}, пропуск зафиксирован. Один шаг сегодня исправит курс","Два дня подряд. Правило не пропускать дважды нарушено","Верни хотя бы минимум сегодня","Курс сбился. Верни его сегодня","Пропуск записан. 15 минут, и всё снова ровно","Два дня без ключевой. Третий не нужен","Удар зафиксирован. Исправляй сегодня"],
+  ironic:["Диван оформил тебя в резиденты. Привычки тем временем начинают обижаться","{n}, поздравляю: два дня без ключевой привычки. Рекорд лени, но не тот, что хотелось","HP ушёл в отпуск, причём без тебя","Обещание сегодня сделано? Нет? Вот и привычки думают так же","Два пропуска: видимо, были дела поважнее. Например, диван","Привычка ждёт, но терпение у неё, в отличие от HP, не бесконечно","Кто-то сегодня явно решил отдохнуть от успеха","Вот это пропуск, достойный летописи"],
+  hard:["Два дня без привычки, да ну нахуй. Вернись сегодня","{n}, это что за хуйня? Два дня мимо. Вставай и делай","Обувайся и иди, блядь. Диван без тебя не пропадёт","{Потерял/Потеряла} HP за лень. Верни сегодня, нечего тянуть","Хватит отлёживаться. Привычка сама себя не сделает","Два дня мимо, какого хрена. Сегодня без вариантов","Не сахарный, не растаешь. Вперёд","Хули ты стоишь? Ключевая привычка ждёт"]
+ },
+ slip:{
+  tender:["{n}, так бывает. Записано без осуждения. Давай разберёмся, что случилось, и пойдём дальше","Я рядом. Срыв не отменяет пройденного пути","Тебе сейчас нелегко, и это нормально. Разберём вместе, когда будешь {готов/готова}","Никакого стыда. Сначала дыхание, потом разбор","Это не конец, а просто кочка на дороге. Идём дальше","Спасибо, что {записал/записала} честно. Это очень смело","Один срыв не определяет тебя. Давай посмотрим, что его запустило","Мягко, без упрёков. Что тебе сейчас нужно?"],
+  direct:["Срыв. Записано. Что запустило? Разбор, стимпак и по плану","{n}, фиксирую. Не прячь, разбирай","Срыв без драмы. Данные важнее вины","Записано. Теперь причина и замена","Срыв случился. Следующий шаг: разбор","Удар принят. Разбери и возвращайся в план","Факт записан. Причина нужна, чтобы повторять не пришлось","Это называется срыв. Назвали, разбираем"],
+  ironic:["Ну вот, сегодня без идеальной серии. Записано, давай искать настоящего виновника","{n}, срыв случился. Бывает даже у железных, пусть и ржавых. Разбираем","Идеальный день не состоялся, зато честный записан. Это тоже что-то","Сюжетный поворот. Герой не сдался, просто споткнулся. Разбираем причину","Серия прервалась, зато правда сохранилась. Что запустило?","Записано. Теперь без самобичевания и с нормальным анализом","Ничего, и это переживём. Но причину вычислим","Срыв зафиксирован. Станем детективами: кто и что запустил?"],
+  hard:["Срыв, {n}. Без оправданий. Теперь разбираем, какого хрена так вышло","Записано: срыв. Хватит с этим, давай разбор и в бой","Срыв случился. Хули прятать, разбираем и возвращаемся","{Сорвался/Сорвалась} так {сорвался/сорвалась}. Теперь без соплей: что запустило?","Это ошибка, а не приговор. Разбираем: что запустило?","Без самобичевания, но и без послаблений. Причина, замена, вперёд","Хорошо хоть {записал/записала}. Теперь думай, чтобы не повторилось","Срыв, чёрт возьми. Фиксируем и разбираем, ничего личного"]
+ },
+ slipSub:{
+  tender:["ничего, обнимаю","бывает, разберёмся вместе","всё поправимо","я рядом","без упрёков","мягко, шаг за шагом"],
+  direct:["критический урон","записано","разбор впереди","факт зафиксирован","возвращаемся в план","без драмы, с анализом"],
+  ironic:["ну вот, случилось","сюжет с поворотом","серия прервана, правда нет","идеал отменяется","детективы на старте","не сдаёмся, но споткнулись"],
+  hard:["без оправданий","теперь разбираем","чёрт, ну ладно","хватит, давай разбор","без соплей, с анализом","вперёд к причине"]
+ },
+ crave:{
+  tender:["Какой {ты молодец/ты умница}, {n}! Пять минут, и волна ушла","Ты {справился/справилась}. Обнимаю крепко","Волна прошла, а ты остался на ногах. Горжусь","Пять минут дыхания, и снова всё в порядке","Тихая победа, самая важная. Спасибо тебе за неё","Как же красиво: перетерпеть волну и остаться собой","Ты о себе {позаботился/позаботилась}","Тепло, спокойно, по-настоящему. Так держать"],
+  direct:["Пройдено. Волна спала","{n}, это и есть навык","Пять минут отработаны. Результат записан","Волна прошла. Продолжай в том же духе","Желание ослабло. Зафиксировано","Задача выполнена. Награда начислена","Так это и работает: пик пережит","Результат: ниже, чем был. Записано"],
+  ironic:["Волна ушла, а ты остался. Классический поворот сюжета","{n}, ты только что обыграл собственный мозг. Он сопротивлялся, но слабо","Пять минут дыхания и никакого апокалипсиса. Вот так сюрприз","Желание накатило и разочарованно отступило","Герой пережил пик. Скромно делаю вид, что не удивлён","Победа над собственной слабостью. Оказывается, такое бывает","Дыхание творит чудеса, а ты только что это доказал","Мозг проиграл, ты выиграл. Счёт 1:0"],
+  hard:["Вот так и надо. Пять минут, и эта хуйня отпустила","{n}, ебать, получилось. Волна ушла, а ты стоишь","Пик пережит. {Красавчик/Красотка}, чёрт возьми","Мозг орал, а ты не повёлся. Охуенно","Пять минут, и желание пошло на хуй. Так держать","Победа над собой, пиздец как красиво","Ни хуя себе, {справился/справилась}","Заебись. Это называется самоконтроль"]
+ },
+ craveEarly:{
+  tender:["Записано. В следующий раз попробуем дольше, без спешки","Даже эта попытка важна. Спасибо, что {остановился/остановилась}","Ничего, у каждого свой темп. Я рядом","Хорошо, что {попробовал/попробовала}","Записано: бывает. Дыши и отдыхай"],
+  direct:["Записано. Награда даётся за полные 5 минут","Сессия неполная. Данные сохранены","{n}, без награды, но с записью","В следующий раз досиди до конца","Принято. Но 5 минут решают"],
+  ironic:["Пять минут оказались длиннее, чем казалось","Записано. Терпение, видимо, в отпуске","{n}, досрочный выход. Мозг счёл это победой","Награда за пять минут, а не за четыре с половиной","Прервано, но попытка засчитана"],
+  hard:["Записано, но без награды. Пять минут, блядь, не космос","{n}, ушёл раньше? Ладно, в следующий раз досиди","Хуй с ним, записано. Но награда за полные пять","Награды нет. Попытка есть, дальше доводи до конца","{Недосидел/Недосидела}. Бывает, но в следующий раз до конца"]
+ },
+ idle:{
+  tender:["Как здорово, что ты занялся делом, {n}! Горжусь","Вместо скуки ты {выбрал/выбрала} заботу о себе","Тёплое дело сделано. Это очень приятно видеть","Отличный выбор. Скука отступила, как и должна","Ты о себе {подумал/подумала}. Это важно","Маленькое дело, а как согревает","Сделано. Теперь заслуженно отдохни","Живое вместо пустого. Горжусь тобой"],
+  direct:["Дело сделано. Скука закрыта","Дело засчитано. Хороший выбор","{n}, это лучше ленты","Выбор засчитан","Хорошо. Время потрачено с пользой","Скука побеждена делом","Принято. Так и надо","Зафиксировано: действие вместо пустоты"],
+  ironic:["Вместо скролла ты выбрал реальную жизнь. Дерзко","Скука в шоке. Она рассчитывала на ленту","{n}, ты только что отменил вечер на диване. Смело","Кто бы мог подумать: скуку можно лечить делом","Время потрачено без позора. Редкий случай","Скука побеждена, телефон обижен","Выбор сделан в пользу развития, а не залипания. Скромно удивлён","Дело сделано. Поздравляем, вы человек действия"],
+  hard:["{Сделал/Сделала} дело вместо хуйни. {Красавчик/Красотка}","{n}, это охуенный выбор. Скука нахуй","Заебись. Лента подождёт, ты занят жизнью","Скука проиграла. Так её","Вот это я понимаю: дело вместо дерьма","{Не залип/Не залипла}, а {сделал/сделала}. Уважение","Дело сделано, мозг доволен. Дальше","Пиздато. Так и живи"]
+ },
+ review:{
+  tender:["Выходные, {n}! Давай уютно разберём неделю, десять минуточек, и отдыхать","Присядем, выдохнем и спокойно посмотрим на неделю. Заметка для Obsidian будет готова","Это тёплый ритуал: десять минут для себя и своей недели","Заберись под плед, разберём неделю, и можно отдыхать","Неделя позади. Давай мягко подведём итоги","Разбор недели ждёт тебя. Это быстро и приятно"],
+  direct:["Выходные. Время разобрать неделю: 10 минут, заметка для Obsidian готова","{n}, пора подвести итоги недели","Разбор недели доступен. 10 минут","Неделя закончилась. Разбери и сохрани заметку","Итоги недели ждут. Начни","Короткий разбор, и заметка в Obsidian"],
+  ironic:["Выходные наступили, а неделя сама себя не разберёт. Увы","{n}, твоя неделя ждёт аудита. Всего десять минут","Прошла неделя. Давай выясним, что это было","Разбор недели: как отчёт, только без начальника","Кто-то должен подвести итоги. Назначаем тебя","Неделя завершена, анализ ждёт. Нет, отложить не получится"],
+  hard:["Хватит откладывать, разбери уже неделю. Десять минут, и {свободен/свободна} до понедельника","{n}, итоги недели сами не напишутся, блядь. Десять минут","Неделя закончилась. Подведи итоги, нахуй откладывать","Давай без отмазок: разбор недели, десять минут","Неделя кончилась, анализ остался. Вперёд","Десять минут на итоги, потом хоть залипай"]
+ },
+ hpOk:{
+  tender:["Всё хорошо, ты в порядке.","Ты в тёплой форме.","Тихо и спокойно, так держать.","HP полный, и у тебя всё получается.","Бережёшь себя, это видно."],
+  direct:["В норме.","Всё стабильно.","Состояние нормальное.","Без ударов.","HP в порядке."],
+  ironic:["Живой, здоровый, почти идеальный.","HP в норме, значит, жизнь пока не победила.","Никаких драм, подозрительно спокойно.","Выглядишь устойчиво. Подозрительно.","Всё в порядке, даже скучно."],
+  hard:["Всё заебись.","В норме, блядь, красота.","HP в порядке, так держать.","Живой и целый. Не расслабляйся.","Без ударов. Ни хуя не сломали."]
+ },
+ hpLow:{
+  tender:["Тебе чуточку нужно отдохнуть.","Ослаблен, но это поправимо. Я рядом.","Бережно возвращайся к привычкам.","Не торопись, выздоравливать нужно мягко.","HP ниже обычного, но мы это поправим вместе."],
+  direct:["Ослаблен.","HP низкий. Вернись к ключевым привычкам.","Нужны отметки без ударов.","Состояние слабое. Восстановление начинается с минимума.","Шкала ниже нормы. Работай по плану."],
+  ironic:["Ослаблен, но живой. Уже достижение.","HP просит сочувствия, а лучше привычек.","Ты потрёпан, но не сломлен. Красиво.","Шкала пониже. Самое время вернуться в строй.","Слабость заметна. Диван, конечно, не поможет."],
+  hard:["Ослаб, блядь. Вставай и возвращай HP.","HP низкий. Хватит тормозить, к привычкам.","Шкала просела. Ни хуя, поднимем.","Слабость есть, оправданий нет. Работаем.","Просел. Сегодня надо отметки, чёрт возьми."]
+ },
+ hpRec:{
+  tender:["Сейчас время восстановления. Всё лишнее отложим.","Ты в режиме бережного возвращения.","Никаких упрёков, только отдых и малые шаги.","Выздоравливаем вместе, мягко."],
+  direct:["Режим восстановления.","Нужны только две вещи, остальное не считается.","Пропуски не бьют, пока идёт восстановление.","Два дела в день возвращают HP."],
+  ironic:["Режим восстановления. Без шуток, ну почти.","Время подлечиться, герой.","Лишнее отменяется, остаётся главное.","Пока лечимся, пропуски не штрафуются."],
+  hard:["Режим восстановления. Без хуйни, только главное.","Сейчас лечимся, потом разберёмся.","Минимум на сегодня, остальное потом.","Пока восстановление, пропуски не бьют."]
+ },
+ greet:{
+  tender:["{hello}, {n}. Как ты сегодня, солнышко?","{hello}, {n}! Очень приятно тебя видеть","{hello}, {n}. Я рядом, давай сделаем день добрым","{n}, {hello}. Всё будет хорошо","{hello}, {n}. Один маленький шаг, и день уже лучше","Привет-привет, {n}. {hello}!","{hello}, {n}. Бережно к себе сегодня","{hello}, {n}. Чаю и вперёд маленькими шагами"],
+  direct:["{hello}, {n}","{hello}, {n}. План на сегодня ждёт","{n}, {hello}. Начнём","{hello}, {n}. Сначала ключевые привычки","{hello}, {n}. Работаем","{hello}, {n}. Всё под контролем","{n}, {hello}. По порядку","{hello}, {n}. Один шаг за раз"],
+  ironic:["{hello}, {n}. Мир всё ещё стоит, проверено","{hello}, {n}. Диван на месте, но ты сильнее","{n}, {hello}. Сегодня тоже будем притворяться продуктивными?","{hello}, {n}. Сегодня шанс быть лучше вчерашнего себя, который так себе","{hello}, {n}. Приключение называется «день»","{n}, {hello}. Надеюсь, сегодня по-взрослому","{hello}, {n}. Ну что, покажем, как это делается?","{hello}, {n}. Тут записано, что у тебя много планов"],
+  hard:["{hello}, {n}. Хватит валяться, работаем","{n}, {hello}, блядь. Сегодня будет охуенно","{hello}, {n}. Давай без хуйни, по делу","{n}, {hello}. Вставай и делай","{hello}, {n}. Сегодня ни хуя не пропустим","{hello}, {n}. Работаем, как положено","{n}, {hello}. Ебашим по плану","{hello}, {n}. Всё в твоих руках, не профукай"]
+ }
+};
+
+/* ================= v2.7: тон, пол, имя ================= */
+const gf=(m,f,n)=>{ const g=(state.settings&&state.settings.gender)||'n'; return g==='f'?f:g==='m'?m:(n!=null?n:m); };
+const helloWord=(h)=>h<5?'Доброй ночи':h<12?'Доброе утро':h<18?'Добрый день':'Добрый вечер';
+const hsh=(str)=>{ let h=0; for(let i=0;i<str.length;i++) h=((h<<5)-h+str.charCodeAt(i))|0; return Math.abs(h); };
+const isGendered=(s)=>/\{[^{}\/]*\/[^{}\/]*\}/.test(s);
+const SLIP_SITS=['slip','slipSub'];
+function effTone(sit){
+  const S=state.settings||{}; let t=S.tone||'direct';
+  if(t==='hard'&&!S.adult) t='direct';
+  if(SLIP_SITS.includes(sit)&&t==='hard'&&!S.toneSlips) t='ironic';
+  if(typeof HPS!=='undefined'&&HPS&&HPS.recovering&&(t==='hard'||t==='ironic')) t='direct';
+  return t;
+}
+const LASTP={};
+function renderPhrase(raw,g,name,hello){
+  let s=raw.replace(/\{([^{}\/]*)\/([^{}\/]*)\}/g,(m,x,y)=>g==='f'?y:x);
+  s=s.replace(/\{hello\}/g,(m,off,str)=>{ const h=hello||''; const pre=str.slice(0,off); return (!pre||/[.!?]\s*$/.test(pre))?h:h.charAt(0).toLowerCase()+h.slice(1); });
+  const n=(name||'').trim();
+  if(n) s=s.replace(/\{n\}/g,n); else s=s.replace(/\{n\},\s*/g,'').replace(/,\s*\{n\}/g,'').replace(/\{n\}/g,'');
+  s=s.replace(/\s+/g,' ').replace(/\s+([,.!?])/g,'$1').replace(/^[,\s]+/,'').trim();
+  return s.charAt(0).toUpperCase()+s.slice(1);
+}
+function phrase(sit,opt){
+  opt=opt||{}; const src=PH[sit]; if(!src) return '';
+  const pool=src[effTone(sit)]||src.direct||[]; if(!pool.length) return '';
+  const g=(state.settings&&state.settings.gender)||'n';
+  let list=g==='n'?pool.filter(p=>!isGendered(p)):pool; if(!list.length) list=pool;
+  let i;
+  if(opt.seed!=null) i=hsh(String(opt.seed))%list.length;
+  else { i=Math.floor(Math.random()*list.length); if(list.length>1&&LASTP[sit]===list[i]) i=(i+1)%list.length; }
+  const raw=list[i]; LASTP[sit]=raw;
+  return renderPhrase(raw,g,state.settings&&state.settings.userName,opt.hello);
+}
+function confirmAdult(){
+  sfx.tab();
+  openModal(`<h3 style="margin-top:0">Жёсткий режим 18+</h3><p class="fact">В этом режиме реплики содержат нецензурную лексику. Подтверди, что тебе есть 18 лет.</p><div class="navbtns"><button class="btn ghost" data-close type="button">Отмена</button><button class="btn" id="adultOk" type="button">Мне есть 18</button></div>`);
+  document.getElementById('adultOk').addEventListener('click',()=>{ const S=state.settings; S.adult=true; S.tone='hard'; save(); closeModal(); render(); sfx.check(); toast('Жёсткий режим включён'); });
+}
+function openTonePreview(){
+  const rows=[['Отметка','check'],['Пропуск привычек','miss'],['Пройденная тяга','crave'],['Срыв','slip']];
+  const mk=()=>rows.map(([t,k])=>`<li><small>${t}</small><br>${phrase(k)}</li>`).join('');
+  sfx.tab();
+  openModal(`<h3 style="margin-top:0">Пример тона</h3><ul class="rl" id="tpList" style="padding-left:16px">${mk()}</ul><div class="navbtns"><button class="btn ghost" id="tpMore" type="button">Ещё</button><button class="btn" data-close type="button">Закрыть</button></div>`);
+  document.getElementById('tpMore').addEventListener('click',()=>{ document.getElementById('tpList').innerHTML=mk(); sfx.tab(); });
+}
+function renderTone(){
+  const S=state.settings;
+  document.querySelectorAll('#toneRow .chip').forEach(c=>{ const on=c.dataset.t===(S.tone||'direct'); c.classList.toggle('sel',on); c.setAttribute('aria-pressed',on); });
+  document.getElementById('toneSlipBox').hidden=!(S.tone==='hard'&&S.adult);
+  document.querySelectorAll('#toneSlipRow .chip').forEach(c=>{ const on=(c.dataset.v==='on')===!!S.toneSlips; c.classList.toggle('sel',on); c.setAttribute('aria-pressed',on); });
+}
+(function(){
+  document.querySelectorAll('#toneRow .chip').forEach(c=>c.addEventListener('click',()=>{ const t=c.dataset.t, S=state.settings; if(t==='hard'&&!S.adult){ confirmAdult(); return; } S.tone=t; save(); render(); sfx.tab(); }));
+  document.querySelectorAll('#toneSlipRow .chip').forEach(c=>c.addEventListener('click',()=>{ state.settings.toneSlips=(c.dataset.v==='on'); save(); render(); sfx.tab(); }));
+  document.getElementById('tonePreview').addEventListener('click',openTonePreview);
+})();
+
 /* ================= TABS ================= */
 const TABS=['stat','log','perks','data'];
 function setTab(n,snd){
   if(!TABS.includes(n)) n='stat';
-  document.querySelectorAll('nav.tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===n));
+  document.querySelectorAll('nav.tabs button[data-tab]').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===n));
   document.querySelectorAll('section.tab').forEach(s=>s.classList.toggle('active',s.id==='tab-'+n));
+  document.getElementById('hdr').classList.toggle('compact',n!=='stat');
   if(snd) sfx.tab();
 }
-document.querySelectorAll('nav.tabs button').forEach(b=>b.addEventListener('click',()=>{ setTab(b.dataset.tab,true); try{history.replaceState(null,'','#'+b.dataset.tab);}catch(e){} }));
+document.querySelectorAll('nav.tabs button[data-tab]').forEach(b=>b.addEventListener('click',()=>{ setTab(b.dataset.tab,true); try{history.replaceState(null,'','#'+b.dataset.tab);}catch(e){} }));
 window.addEventListener('hashchange',()=>setTab(location.hash.slice(1)));
 
 /* ================= PERSISTENCE (на устройстве) ================= */
@@ -1870,6 +2421,7 @@ document.getElementById('importFile').addEventListener('change',e=>{
   r.onload=()=>{ try{ const p=JSON.parse(r.result); if(!p||!p.days) throw 0;
       if(firstDay() && !confirm('Загрузка заменит текущие данные на этом устройстве. Продолжить?')) return;
       state=normalize(p); if(p.avatar&&p.avatar.img){ avatar={img:p.avatar.img, tint:p.avatar.tint!==false}; saveAvatar(); }
+      rebuildHabits(); C=compute(); HPS=hpState(); ACHS=achStatus(); try{ localStorage.setItem(ACH_KEY,JSON.stringify(ACHS.filter(a=>a.done).map(a=>a.id))); localStorage.setItem(SEEN_KEY,JSON.stringify(HPS.log.filter(e=>e.amt<0&&!e.slip&&e.d<TODAY()).map(e=>e.d+'|'+e.why))); }catch(e){}
       save(); render(); toast('Данные загружены'); }
     catch(err){ toast('Файл не похож на копию трекера'); } };
   r.readAsText(f); e.target.value='';
@@ -1878,8 +2430,8 @@ document.getElementById('importFile').addEventListener('change',e=>{
 /* ================= BOOT ================= */
 function boot(){
   const el=document.getElementById('boot');
-  if(matchMedia('(prefers-reduced-motion: reduce)').matches){ el.remove(); return; }
-  const lines=['БАЛАНС-ОС  версия 2.3','Проверка памяти ............ ОК','Загрузка профиля игрока .... ОК','Перки: 40 записей .......... ОК','Чтение памяти устройства ... ОК','> запуск интерфейса'];
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||!['green','amber'].includes((state.settings||{}).skin||'green')){ el.remove(); return; }
+  const lines=['БАЛАНС-ОС  версия 2.7','Проверка памяти ............ ОК','Загрузка профиля игрока .... ОК','Перки: 40 записей .......... ОК','Чтение памяти устройства ... ОК','> запуск интерфейса'];
   const box=document.getElementById('bootTxt');
   box.innerHTML=lines.map(l=>`<div>${l}</div>`).join('')+'<span class="cursor"></span>';
   [...box.querySelectorAll('div')].forEach((r,i)=>setTimeout(()=>r.classList.add('v'),520+i*140));
@@ -1894,6 +2446,7 @@ setTab(location.hash.slice(1)||'stat');
 render();
 boot();
 setTimeout(checkNewHits, 2100);
+setTimeout(()=>maybeCoach(),2600);
 initStorage();
 checkBackup();
 maybeOnboard();
