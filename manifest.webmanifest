@@ -1,14 +1,14 @@
 {
   "name": "BalanceOS",
   "short_name": "BalanceOS",
-  "description": "Личный трекер привычек в стиле ретро-терминала",
+  "description": "Личный трекер привычек",
   "lang": "ru",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#17171b",
-  "theme_color": "#17171b",
+  "background_color": "#080b1c",
+  "theme_color": "#080b1c",
   "icons": [
     {
       "src": "icon-192.png",

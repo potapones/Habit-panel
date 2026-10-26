@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-skin="glass" data-layout="modern">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Терминал баланса</title>
-<meta name="description" content="BalanceOS: личный трекер привычек в стиле ретро-терминала">
+<meta name="description" content="BalanceOS: личный трекер привычек">
 <link rel="manifest" href="./manifest.webmanifest">
-<meta name="theme-color" content="#050a05">
+<meta name="theme-color" content="#080b1c">
 <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
 <link rel="apple-touch-icon" href="./icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Nunito:wght@400;600;700;800&family=PT+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Nunito:wght@400;600;700;800&family=Manrope:wght@500;700;800&family=Onest:wght@400;500;600;700&family=PT+Mono&display=swap" rel="stylesheet">
 <style>
 :root{
   box-sizing:border-box;
@@ -634,10 +634,331 @@ html[data-hide~="hp"] header.compact .bars{grid-template-columns:1fr;}
 .trow>span:nth-child(2){grid-row:1 / span 2; align-self:center;}
 .trow.hm>span:nth-child(2){grid-row:1; align-self:end;}
 .trow.hm .meta{align-self:start;}
+
+/* ===== v3.0: modern layout, Cards and Glass skins ===== */
+.cap{display:contents;}
+nav.tabs .cap>button:nth-child(1){order:1;} nav.tabs .cap>button:nth-child(2){order:2;} nav.tabs #fab{order:3;} nav.tabs .cap>button:nth-child(3){order:4;} nav.tabs .cap>button:nth-child(4){order:5;}
+.hero{display:none;}
+:root[data-skin="card"]{--bg:#f1effa;--panel:#ffffff;--ink:#4b45e6;--ink-bright:#14112e;--ink-dim:#cfcbea;--ink-dark:#e7e4f6;--text:#25213f;--text-dim:#615c88;--amber:#9a5700;--red:#c4264a;--glow:transparent;--display:'Manrope','Onest',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--mono:'Onest','Manrope',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--r1:#4b45e6;--r2:#7c4dff;--hero1:#4338ca;--hero2:#8b5cf6;color-scheme:light;}
+:root[data-skin="glass"]{--bg:#eaf0ff;--panel:rgba(255,255,255,.42);--ink:#3d48e8;--ink-bright:#10163a;--ink-dim:rgba(255,255,255,.75);--ink-dark:rgba(255,255,255,.4);--text:#10163a;--text-dim:#3f4778;--amber:#8f5200;--red:#c4264a;--glow:transparent;--display:'Manrope','Onest',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--mono:'Onest','Manrope',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--r1:#3d48e8;--r2:#7c4dff;--hero1:#3d63ff;--hero2:#b06bff;--gl1:rgba(255,255,255,.62);--gl2:rgba(255,255,255,.2);--edge:rgba(255,255,255,.85);--glsh:rgba(60,70,160,.2);--blobs:radial-gradient(40% 30% at 12% 8%,#7fb4ff 0%,transparent 70%),radial-gradient(38% 30% at 94% 24%,#ff9fd8 0%,transparent 70%),radial-gradient(46% 34% at 18% 62%,#8ff0d6 0%,transparent 70%),radial-gradient(40% 30% at 90% 92%,#ffe38a 0%,transparent 70%);color-scheme:light;}
+@media (prefers-color-scheme: dark){
+  :root[data-skin="card"]{--bg:#120f26;--panel:#1d1a38;--ink:#8fa8ff;--ink-bright:#f2f0ff;--ink-dim:#3b3866;--ink-dark:#2a2750;--text:#e8e6fa;--text-dim:#a9a5d2;--amber:#ffc46b;--red:#ff7b8f;--r1:#5663f0;--r2:#8a4dff;--hero1:#4f5cf0;--hero2:#9a5cff;color-scheme:dark;}
+  :root[data-skin="glass"]{--bg:#080b1c;--panel:rgba(255,255,255,.09);--ink:#9db6ff;--ink-bright:#f4f6ff;--ink-dim:rgba(255,255,255,.3);--ink-dark:rgba(255,255,255,.14);--text:#e9ecff;--text-dim:#b4bcea;--amber:#ffc46b;--red:#ff8aa0;--r1:#5663f0;--r2:#8a4dff;--hero1:#4f5cf0;--hero2:#9a5cff;--gl1:rgba(255,255,255,.2);--gl2:rgba(255,255,255,.05);--edge:rgba(255,255,255,.34);--glsh:rgba(0,0,0,.5);--blobs:radial-gradient(40% 30% at 12% 8%,#2b4bd6 0%,transparent 70%),radial-gradient(38% 30% at 94% 24%,#8a2fc9 0%,transparent 70%),radial-gradient(46% 34% at 18% 64%,#0f8f8a 0%,transparent 70%),radial-gradient(40% 30% at 90% 94%,#c45a2a 0%,transparent 70%);color-scheme:dark;}
+}
+html[data-layout="modern"]{--r1:var(--r1x,var(--ink));--hero1:var(--hero1x,var(--ink));}
+html[data-skin="std"]{--r1:#2563eb;--r2:#6d4aff;--hero1:#2563eb;--hero2:#7c5cff;}
+html[data-skin="cute"]{--r1:#d6307f;--r2:#8d52e0;--hero1:#e0559b;--hero2:#9b6cf0;}
+html[data-layout="modern"] body{background:var(--bg);font-size:15px;}
+html[data-layout="modern"] .scan{display:none;}
+html[data-layout="modern"] header{display:flex;align-items:center;gap:14px;background:none;border:0;box-shadow:none;border-radius:0;padding:10px 4px 6px;}
+html[data-layout="modern"] header::after{display:none;}
+html[data-layout="modern"] header .who{flex:1;order:1;min-width:0;}
+html[data-layout="modern"] header .avatar{order:2;width:48px;height:48px;border-radius:50%;font-size:28px;}
+html[data-layout="modern"] header .who h1{font-family:var(--display);font-weight:800;font-size:27px;letter-spacing:-.5px;line-height:1.1;text-shadow:none;}
+html[data-layout="modern"] header.compact .who h1{font-size:20px;}
+html[data-layout="modern"] header:not(.compact) .bars{display:none;}
+html[data-layout="modern"] header.compact{padding:8px 4px 4px;}
+html[data-layout="modern"] .panel, html[data-layout="modern"] details.panel{background:var(--panel);border:0;border-radius:28px;padding:18px;box-shadow:0 1px 2px rgba(0,0,0,.04),0 10px 28px color-mix(in srgb,var(--ink) 9%,transparent);}
+html[data-layout="modern"] .panel h2{font-family:var(--display);font-size:20px;font-weight:800;letter-spacing:-.2px;text-shadow:none;}
+html[data-layout="modern"] .hint,html[data-layout="modern"] .fl{font-family:var(--mono);}
+html[data-layout="modern"] .greet{font-size:14px;margin:2px 4px 12px;}
+/* hero */
+html[data-layout="modern"] .hero{display:flex;align-items:center;gap:18px;position:relative;overflow:hidden;border-radius:32px;padding:18px 20px;margin-bottom:12px;color:#fff;background:linear-gradient(135deg,var(--hero1),var(--hero2));box-shadow:0 16px 36px color-mix(in srgb,var(--hero1) 38%,transparent);}
+html[data-layout="modern"] .hero::before{content:"";position:absolute;right:-50px;top:-60px;width:210px;height:210px;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.36),transparent 66%);pointer-events:none;}
+html[data-layout="modern"] .hero::after{content:"";position:absolute;left:-40px;bottom:-70px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle at 60% 40%,rgba(255,255,255,.16),transparent 70%);pointer-events:none;}
+.hring{position:relative;width:124px;height:124px;flex:none;z-index:1;}
+.hring svg{display:block;}
+.hring .rg{transition:stroke-dasharray 1.1s cubic-bezier(.2,.85,.25,1);}
+.hc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.hc b{font-family:var(--display);font-size:30px;font-weight:800;line-height:1;}
+.hc small{font-size:12px;opacity:.85;}
+.hmet{position:relative;z-index:1;flex:1;min-width:0;display:grid;gap:12px;}
+.hm{display:grid;grid-template-columns:12px 1fr auto;align-items:center;gap:9px;font-size:13px;}
+.hm i{width:12px;height:12px;border-radius:50%;}
+.hm span{opacity:.92;}
+.hm b{font-family:var(--display);font-weight:800;font-size:15px;white-space:nowrap;}
+/* rows */
+html[data-layout="modern"] .trow{border:0;border-radius:22px;background:color-mix(in srgb,var(--text) 6%,transparent);padding:10px 12px;grid-template-columns:48px minmax(0,1fr) 36px;min-height:66px;box-shadow:none;}
+html[data-layout="modern"] .trow .hi{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:25px;color:var(--hue,var(--ink));background:color-mix(in srgb,var(--hue,var(--ink)) 20%,transparent);}
+html[data-layout="modern"] .trow>span:nth-child(2){font-family:var(--display);font-weight:700;font-size:16px;}
+html[data-layout="modern"] .trow .meta{font-family:var(--mono);font-size:12.5px;}
+html[data-layout="modern"] .trow .box{width:34px;height:34px;border-radius:50%;border:2px solid var(--ink-dim);background:transparent;color:transparent;font-size:18px;}
+html[data-layout="modern"] .trow.on .box{color:#fff;}
+html[data-layout="modern"] .trow.on{background:color-mix(in srgb,var(--ink) 14%,transparent);}
+html[data-layout="modern"] .trow.on .box{background:linear-gradient(135deg,var(--r1),var(--r2));border-color:transparent;box-shadow:0 6px 14px color-mix(in srgb,var(--r1) 45%,transparent);}
+html[data-layout="modern"] .list .trow:nth-child(6n+1){--hue:#5b8cff;} html[data-layout="modern"] .list .trow:nth-child(6n+2){--hue:#1fbf8a;} html[data-layout="modern"] .list .trow:nth-child(6n+3){--hue:#a77bff;} html[data-layout="modern"] .list .trow:nth-child(6n+4){--hue:#ff7a8a;} html[data-layout="modern"] .list .trow:nth-child(6n+5){--hue:#6a78ff;} html[data-layout="modern"] .list .trow:nth-child(6n+6){--hue:#ffae2b;}
+/* controls */
+html[data-layout="modern"] .btn{border-radius:999px;border:0;font-family:var(--display);font-weight:700;background:linear-gradient(135deg,var(--r1),var(--r2));color:#fff;box-shadow:0 8px 18px color-mix(in srgb,var(--r1) 38%,transparent);}
+html[data-layout="modern"] .btn.ghost{background:color-mix(in srgb,var(--text) 9%,transparent);color:var(--ink-bright);box-shadow:none;}
+html[data-layout="modern"] .btn.danger{background:linear-gradient(135deg,#d93a5c,#e8652f);color:#fff;}
+html[data-layout="modern"] .qbtn{border:0;border-radius:26px;background:color-mix(in srgb,var(--ink) 16%,var(--panel));color:var(--ink);font-family:var(--display);font-weight:800;box-shadow:none;}
+html[data-layout="modern"] .chip{border:0;border-radius:999px;background:color-mix(in srgb,var(--text) 9%,transparent);color:var(--ink-bright);font-family:var(--display);font-weight:600;}
+html[data-layout="modern"] .chip.sel{background:linear-gradient(135deg,var(--r1),var(--r2));color:#fff;}
+html[data-layout="modern"] input[type=text],html[data-layout="modern"] textarea{border:1.5px solid var(--ink-dim);border-radius:16px;background:color-mix(in srgb,var(--text) 5%,transparent);color:var(--ink-bright);}
+html[data-layout="modern"] .xpbar,html[data-layout="modern"] .hpbar,html[data-layout="modern"] .bar,html[data-layout="modern"] .tbar{border:0;border-radius:999px;background:color-mix(in srgb,var(--text) 12%,transparent);}
+html[data-layout="modern"] .xpbar i,html[data-layout="modern"] .bar i{background:linear-gradient(90deg,var(--r1),var(--r2));border-radius:999px;}
+html[data-layout="modern"] .hpbar i{background:linear-gradient(90deg,#1fbf8a,#4de0ff);border-radius:999px;}
+html[data-layout="modern"] .perk{border:0;border-radius:24px;background:color-mix(in srgb,var(--text) 6%,transparent);}
+html[data-layout="modern"] .perk .medal{background:linear-gradient(145deg,var(--r1),var(--r2));color:#fff;border:0;box-shadow:0 8px 18px color-mix(in srgb,var(--r1) 40%,transparent);}
+html[data-layout="modern"] .perk.locked .medal{background:color-mix(in srgb,var(--text) 14%,transparent);color:var(--text-dim);box-shadow:none;}
+html[data-layout="modern"] .stat,html[data-layout="modern"] .bonus{border-radius:18px;}
+html[data-layout="modern"] .skin{border-radius:20px;border:1.5px solid var(--ink-dim);}
+html[data-layout="modern"] .skin.sel{border-color:var(--ink);}
+html[data-layout="modern"] .skins{grid-template-columns:repeat(auto-fill,minmax(96px,1fr));}
+/* nav capsule + round crave button */
+html[data-layout="modern"] nav.tabs{background:none;border:0;box-shadow:none;padding:0 0 calc(10px + env(safe-area-inset-bottom,0px));pointer-events:none;}
+html[data-layout="modern"] nav.tabs::before{display:none;}
+html[data-layout="modern"] nav.tabs .in{display:flex;gap:10px;align-items:center;max-width:560px;margin:0 auto;padding:0 12px;}
+html[data-layout="modern"] nav.tabs .cap{display:flex;gap:2px;flex:1;min-width:0;padding:6px;border-radius:36px;pointer-events:auto;background:color-mix(in srgb,var(--panel) 94%,transparent);border:1px solid color-mix(in srgb,var(--text) 10%,transparent);box-shadow:0 12px 32px rgba(8,10,40,.22);-webkit-backdrop-filter:blur(22px) saturate(170%);backdrop-filter:blur(22px) saturate(170%);}
+html[data-layout="modern"] nav.tabs .cap>button{order:0;flex:1;min-width:0;height:54px;border-radius:30px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:0 2px;background:none;border:0;color:var(--text-dim);font-family:var(--display);font-weight:700;font-size:0;letter-spacing:0;text-transform:none;transition:flex .35s cubic-bezier(.2,.85,.25,1),background .25s,font-size .3s ease;position:relative;}
+html[data-layout="modern"] nav.tabs .cap>button .tic{font-size:25px;display:block;}
+html[data-layout="modern"] nav.tabs .cap>button[aria-selected="true"]{flex:2.1;font-size:12px;color:var(--ink-bright);background:color-mix(in srgb,var(--ink) 22%,transparent);}
+html[data-layout="modern"] nav.tabs .cap>button[aria-selected="true"]::after,html[data-layout="modern"] nav.tabs .cap>button[aria-selected="true"]::before{display:none;}
+html[data-layout="modern"] nav.tabs button.navcrave{order:0;pointer-events:auto;flex:none;width:64px;height:64px;margin:0;padding:0;border-radius:50%;border:0;color:#fff;background:linear-gradient(145deg,var(--r1),var(--r2));box-shadow:0 12px 26px color-mix(in srgb,var(--r1) 55%,transparent),inset 0 1.5px 0 rgba(255,255,255,.4);}
+html[data-layout="modern"] nav.tabs button.navcrave small{color:#fff;font-size:12px;}
+/* bottom sheets */
+html[data-layout="modern"] .modal{align-items:flex-end;padding:0;}
+html[data-layout="modern"] .modal .card{width:100%;max-width:560px;max-height:88vh;overflow:auto;border:0;border-radius:32px 32px 0 0;padding:22px 18px calc(18px + env(safe-area-inset-bottom,0px));background:var(--panel);box-shadow:0 -18px 50px rgba(8,10,40,.35);}
+html[data-layout="modern"] .modal .card::before{content:"";display:block;width:44px;height:5px;border-radius:3px;background:var(--ink-dim);margin:-8px auto 14px;}
+html[data-layout="modern"] .toast{border-radius:999px;font-family:var(--display);font-weight:700;border:0;box-shadow:0 12px 30px rgba(8,10,40,.3);}
+html[data-skin="card"][data-layout="modern"] .modal .card{background:var(--panel);}
+/* glass */
+html[data-skin="glass"] body::before{content:"";position:fixed;inset:-25%;z-index:-1;background:var(--blobs);pointer-events:none;will-change:transform;animation:drift 38s ease-in-out infinite alternate;}
+@keyframes drift{from{transform:translate3d(-3%,-2%,0) rotate(0deg) scale(1);}to{transform:translate3d(3%,2%,0) rotate(7deg) scale(1.1);}}
+html[data-skin="glass"] .panel,html[data-skin="glass"] details.panel,html[data-skin="glass"] .modal .card,html[data-skin="glass"] .toast,html[data-skin="glass"] nav.tabs .cap,html[data-skin="glass"] .qbtn{background:linear-gradient(135deg,var(--gl1),var(--gl2));border:1px solid var(--edge);-webkit-backdrop-filter:blur(26px) saturate(185%);backdrop-filter:blur(26px) saturate(185%);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.5),0 14px 36px var(--glsh);}
+html[data-skin="glass"] .modal .card{background:linear-gradient(135deg,var(--gl1),var(--gl2)),color-mix(in srgb,var(--bg) 55%,transparent);}
+html[data-skin="glass"] .trow{background:color-mix(in srgb,#fff 52%,transparent);box-shadow:inset 0 1px 0 rgba(255,255,255,.6);}
+@media (prefers-color-scheme: dark){ html[data-skin="glass"] .trow{background:color-mix(in srgb,#fff 11%,transparent);box-shadow:inset 0 1px 0 rgba(255,255,255,.3);} }
+html[data-skin="glass"] .trow.on{background:color-mix(in srgb,var(--ink) 18%,transparent);}
+html[data-glass="lite"][data-skin="glass"] .panel,html[data-glass="lite"][data-skin="glass"] details.panel,html[data-glass="lite"][data-skin="glass"] .modal .card,html[data-glass="lite"][data-skin="glass"] .toast,html[data-glass="lite"][data-skin="glass"] nav.tabs .cap,html[data-glass="lite"][data-skin="glass"] .qbtn{-webkit-backdrop-filter:none;backdrop-filter:none;background:color-mix(in srgb,var(--bg) 78%,#fff 6%);}
+html[data-glass="lite"][data-skin="glass"] body::before{animation:none;}
+/* motion */
+@keyframes rise{from{opacity:0;transform:translateY(16px) scale(.98);}to{opacity:1;transform:none;}}
+@keyframes sheet{from{transform:translateY(40px);opacity:.6;}to{transform:none;opacity:1;}}
+@keyframes springpop{0%{transform:scale(.6);}55%{transform:scale(1.18);}100%{transform:scale(1);}}
+html[data-layout="modern"][data-motion="full"] section.tab.enter>*{animation:rise .55s cubic-bezier(.2,.85,.25,1) both;animation-delay:calc(var(--i,0)*55ms);}
+html[data-layout="modern"][data-motion="full"] .modal.show .card{animation:sheet .4s cubic-bezier(.2,.9,.25,1);}
+html[data-layout="modern"][data-motion="full"] .trow.on .box{animation:springpop .45s cubic-bezier(.2,.9,.3,1.3);}
+html[data-layout="modern"][data-motion="full"] :is(.trow,.btn,.chip,.qbtn,.hrow,.perk,.skin){transition:transform .2s cubic-bezier(.2,.9,.3,1.4),background .25s,box-shadow .25s;}
+html[data-layout="modern"][data-motion="full"] :is(.trow,.btn,.chip,.qbtn,.hrow,.perk,.skin):active{transform:scale(.965);}
+@media (prefers-reduced-motion: reduce){ html[data-layout="modern"] section.tab.enter>*, html[data-layout="modern"] .modal.show .card, html[data-layout="modern"] .trow.on .box{animation:none !important;} html[data-skin="glass"] body::before{animation:none;} }
+details.prio>summary{min-height:44px;display:flex;align-items:center;cursor:pointer;}
+
+/* ===== v3.1: full modern pass ===== */
+html[data-layout="modern"]{scrollbar-width:none;}
+html[data-layout="modern"] ::-webkit-scrollbar{display:none;}
+html[data-layout="modern"] header .who h1{font-size:clamp(20px,6.2vw,27px);}
+html[data-skin="card"] body{background:radial-gradient(120% 55% at 50% -12%,color-mix(in srgb,var(--hero2) 30%,transparent),transparent 62%),var(--bg);}
+html[data-layout="modern"] header .avatar{position:relative;border:0;background:color-mix(in srgb,var(--ink) 14%,var(--panel));color:var(--ink);overflow:visible;}
+html[data-layout="modern"] header .avatar img{border-radius:50%;}
+html[data-layout="modern"] header .avatar::before{content:"";position:absolute;inset:-4px;border-radius:50%;background:conic-gradient(var(--r2) 0deg,var(--r1) calc(var(--xpf,0)*360deg),color-mix(in srgb,var(--text) 14%,transparent) calc(var(--xpf,0)*360deg));-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 3.5px));mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 3.5px));}
+html[data-layout="modern"] header .avatar .lv{background:linear-gradient(135deg,var(--r1),var(--r2));color:#fff;border:0;border-radius:999px;box-shadow:0 0 0 3px var(--bg);font-family:var(--display);font-weight:800;}
+html[data-layout="modern"] .shake{animation:none !important;}
+/* today tiles */
+.tiles{display:none;}
+html[data-layout="modern"] .tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+.tile{position:relative;overflow:hidden;text-align:left;border:0;border-radius:28px;min-height:150px;padding:16px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;gap:2px;font-family:var(--display);cursor:pointer;}
+.tile small{position:absolute;top:16px;left:16px;right:16px;font-size:14px;font-weight:700;opacity:.96;z-index:2;text-shadow:0 1px 6px rgba(0,0,0,.18);}
+.tile b{font-size:36px;font-weight:800;line-height:1;position:relative;z-index:1;}
+.tile span{font-size:13px;opacity:.92;position:relative;z-index:1;font-family:var(--mono);}
+.t-warm{background:linear-gradient(150deg,#ff9a3c,#ff5e62 60%,#d9407a);box-shadow:0 14px 30px rgba(255,94,98,.3);}
+.t-cool{background:radial-gradient(1.6px 1.6px at 18% 28%,rgba(255,255,255,.9),transparent 70%),radial-gradient(1.2px 1.2px at 62% 18%,rgba(255,255,255,.8),transparent 70%),radial-gradient(1.6px 1.6px at 38% 66%,rgba(255,255,255,.7),transparent 70%),radial-gradient(1.2px 1.2px at 84% 58%,rgba(255,255,255,.8),transparent 70%),radial-gradient(1px 1px at 52% 44%,rgba(255,255,255,.7),transparent 70%),linear-gradient(150deg,#3a2fb8,#5b3fd8 55%,#7b4dff);box-shadow:0 14px 30px rgba(91,63,216,.32);}
+.ill{position:absolute;pointer-events:none;}
+.ill.flame{right:-16px;top:40px;width:92px;height:100px;border-radius:50% 50% 46% 46%/62% 62% 38% 38%;background:radial-gradient(circle at 50% 72%,#fffbd0 0%,#ffd84d 26%,#ff8f3c 56%,rgba(255,94,98,0) 74%);}
+.ill.moon{right:14px;top:16px;width:60px;height:60px;border-radius:50%;box-shadow:inset -16px 8px 0 0 #cfc2ff;transform:rotate(-18deg);filter:drop-shadow(0 0 14px rgba(207,194,255,.65));}
+html[data-layout="modern"][data-motion="full"] .ill.flame{animation:flick 2.2s ease-in-out infinite alternate;transform-origin:50% 90%;}
+@keyframes flick{to{transform:scale(1.08,1.12) translateY(-3px);}}
+/* progress hero */
+html[data-layout="modern"] .phero{display:flex;}
+.phr{position:relative;width:112px;height:112px;flex:none;z-index:1;}
+.phr svg{width:112px;height:112px;display:block;}
+.phr .rg2{transition:stroke-dasharray 1.1s cubic-bezier(.2,.85,.25,1);}
+.phr div{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.phr small{font-size:12px;opacity:.85;}
+.phr b{font-family:var(--display);font-size:38px;font-weight:800;line-height:1;}
+.phm{position:relative;z-index:1;display:grid;gap:10px;flex:1;min-width:0;}
+.phm div{display:flex;flex-direction:column;}
+.phm b{font-family:var(--display);font-weight:800;font-size:18px;}
+.phm small{font-size:12.5px;opacity:.9;}
+html[data-layout="modern"][data-motion="full"] .hero::before{animation:shine 10s ease-in-out infinite alternate;}
+@keyframes shine{to{transform:translate(-40px,30px) scale(1.15);}}
+/* week bonus tiles */
+html[data-layout="modern"] .btiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px;}
+.btile{border-radius:22px;padding:12px 6px;text-align:center;background:color-mix(in srgb,var(--text) 6%,transparent);display:flex;flex-direction:column;align-items:center;gap:2px;min-width:0;}
+.bring{position:relative;width:64px;height:64px;margin-bottom:4px;}
+.bring>svg{width:64px;height:64px;transform:rotate(-90deg);display:block;}
+.bring .bi svg{width:1em;height:1em;transform:none;}
+.bring .tr{fill:none;stroke:color-mix(in srgb,var(--text) 12%,transparent);stroke-width:7;}
+.bring .fl{fill:none;stroke:var(--r2);stroke-width:7;stroke-linecap:round;transition:stroke-dasharray .9s cubic-bezier(.2,.85,.25,1);}
+.bring .bi{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--ink);}
+.btile b{font-family:var(--display);font-weight:800;font-size:17px;color:var(--ink-bright);}
+.btile small{font-size:12px;color:var(--text-dim);line-height:1.2;}
+.btile em{font-style:normal;font-size:12px;font-weight:800;color:var(--amber);font-family:var(--display);}
+.btile.done{background:linear-gradient(150deg,color-mix(in srgb,var(--r1) 30%,transparent),color-mix(in srgb,var(--r2) 30%,transparent));}
+.btile.done .fl{stroke:#2fe0b0;}
+html[data-layout="modern"] .reward{border-radius:24px;padding:16px;border:2px dashed color-mix(in srgb,var(--text) 22%,transparent);background:color-mix(in srgb,var(--text) 4%,transparent);}
+html[data-layout="modern"] .reward h3{font-family:var(--display);font-weight:800;}
+html[data-layout="modern"] .reward.open{border:0;color:#fff;background:linear-gradient(135deg,#ff9a3c,#ff5e9a 55%,#9a5cff);box-shadow:0 14px 30px rgba(255,94,154,.3);}
+html[data-layout="modern"] .reward.open h3,html[data-layout="modern"] .reward.open p{color:#fff;}
+html[data-layout="modern"] .reward.open input{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.55);color:#fff;}
+html[data-layout="modern"] .reward.open input::placeholder{color:rgba(255,255,255,.8);}
+html[data-layout="modern"] .reward.open .btn{background:#fff;color:#7a2dbd;box-shadow:none;}
+/* journal */
+html[data-layout="modern"] #table{border-collapse:separate;border-spacing:4px 6px;}
+html[data-layout="modern"] #table td.name{background:transparent;}
+html[data-layout="modern"] #table td.name .hi{color:var(--ink);}
+html[data-layout="modern"] #table th{font-family:var(--display);font-weight:700;color:var(--text-dim);}
+html[data-layout="modern"] #table th.today{color:var(--ink-bright);}
+html[data-layout="modern"] #table th.today::after{content:"";display:block;width:6px;height:6px;border-radius:50%;background:var(--r2);margin:4px auto 0;}
+html[data-layout="modern"] .chk{border:0;border-radius:14px;background:color-mix(in srgb,var(--text) 8%,transparent);color:transparent;transition:background .25s,transform .2s;}
+html[data-layout="modern"] .chk.on{background:linear-gradient(135deg,var(--r1),var(--r2));color:#fff;box-shadow:0 6px 14px color-mix(in srgb,var(--r1) 40%,transparent);}
+html[data-layout="modern"] .chk.slip{background:linear-gradient(135deg,#d93a5c,#e8652f);color:#fff;}
+html[data-layout="modern"] .chk:disabled{opacity:.35;}
+html[data-layout="modern"] .wk-item{border-radius:18px;padding:8px 10px;background:color-mix(in srgb,var(--text) 5%,transparent);min-height:54px;font-size:14px;margin-top:6px;}
+html[data-layout="modern"] .wk-item .hi{width:38px;height:38px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--ink) 16%,transparent);font-size:20px;}
+html[data-layout="modern"] .wk-item .chk{width:42px;height:42px;max-width:42px;border-radius:50%;}
+html[data-layout="modern"] .wk-item .st{font-family:var(--display);font-weight:700;}
+html[data-layout="modern"] .weeknav .btn{width:48px;height:48px;min-width:48px;border-radius:50%;padding:0;background:color-mix(in srgb,var(--text) 9%,transparent);color:var(--ink-bright);box-shadow:none;}
+html[data-layout="modern"] .weeknav .range{font-family:var(--display);font-weight:800;font-size:20px;color:var(--ink-bright);}
+html[data-layout="modern"] .legend{font-family:var(--mono);}
+html[data-layout="modern"] .legend i{border-radius:50%;}
+/* mood, switches, lists */
+html[data-layout="modern"] .moods{gap:8px;}
+html[data-layout="modern"] .mood{border:0;border-radius:20px;background:color-mix(in srgb,var(--text) 7%,transparent);padding:10px 2px 8px;opacity:1;filter:none;color:var(--text-dim);transition:transform .25s cubic-bezier(.2,.9,.3,1.3),background .25s,box-shadow .25s;}
+html[data-layout="modern"] .mood svg{width:30px;height:30px;}
+html[data-layout="modern"] .mood small{font-family:var(--display);font-weight:600;}
+html[data-layout="modern"] .mood.sel{background:linear-gradient(150deg,var(--r1),var(--r2));color:#fff;transform:translateY(-3px);box-shadow:0 10px 22px color-mix(in srgb,var(--r1) 40%,transparent);}
+html[data-layout="modern"] .sw{width:52px;height:32px;border:0;border-radius:16px;background:color-mix(in srgb,var(--text) 18%,transparent);transition:background .25s;}
+html[data-layout="modern"] .sw::after{top:3px;left:3px;width:26px;height:26px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.25);transition:transform .3s cubic-bezier(.2,.9,.3,1.3);}
+html[data-layout="modern"] .sw.on{background:linear-gradient(135deg,var(--r1),var(--r2));}
+html[data-layout="modern"] .sw.on::after{left:3px;transform:translateX(20px);background:#fff;}
+html[data-layout="modern"] .lrow{border:0;border-radius:18px;background:color-mix(in srgb,var(--text) 5%,transparent);padding:8px 10px;margin-bottom:6px;}
+html[data-layout="modern"] .lrow .hi{color:var(--ink);}
+html[data-layout="modern"] .grouph{font-family:var(--display);font-weight:800;color:var(--ink);text-transform:none;letter-spacing:0;}
+html[data-layout="modern"] .brow{border:0;border-radius:16px;padding:8px 12px;background:color-mix(in srgb,var(--text) 5%,transparent);margin-bottom:6px;}
+html[data-layout="modern"] .idea{border:0;border-radius:22px;background:color-mix(in srgb,var(--text) 6%,transparent);padding:14px;}
+html[data-layout="modern"] .hrow{border:0;border-radius:16px;padding:0 14px;background:color-mix(in srgb,var(--text) 5%,transparent);margin-bottom:6px;font-family:var(--display);font-weight:600;}
+html[data-layout="modern"] .skin{background:color-mix(in srgb,var(--text) 6%,transparent);color:var(--ink-bright);font-family:var(--display);font-weight:700;}
+html[data-layout="modern"] .skin.sel{background:color-mix(in srgb,var(--ink) 16%,transparent);border-color:transparent;box-shadow:inset 0 0 0 2px var(--r2);}
+html[data-layout="modern"] details.sg>summary::after,html[data-layout="modern"] details.sg:not([open])>summary::after{content:"›";font-size:24px;line-height:1;transition:transform .3s;}
+html[data-layout="modern"] details.sg[open]>summary::after{transform:rotate(90deg);}
+html[data-layout="modern"] #nextPerk{background:linear-gradient(135deg,color-mix(in srgb,var(--r1) 22%,var(--panel)),color-mix(in srgb,var(--r2) 22%,var(--panel)));}
+html[data-layout="modern"] .stat b{font-family:var(--display);font-weight:800;font-size:22px;}
+html[data-layout="modern"] input[type=text]:focus,html[data-layout="modern"] textarea:focus{outline:none;border-color:var(--r2);box-shadow:0 0 0 4px color-mix(in srgb,var(--r2) 22%,transparent);}
+/* craving and timers */
+html[data-layout="modern"] .breath{border:0;width:170px;height:170px;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.55),transparent 45%),linear-gradient(145deg,var(--r1),var(--r2));box-shadow:0 0 50px color-mix(in srgb,var(--r2) 55%,transparent),inset 0 -10px 30px rgba(0,0,0,.2);}
+html[data-layout="modern"] .breath i{background:#fff;opacity:.3;}
+html[data-layout="modern"] .timer .tt,html[data-layout="modern"] .tt{text-shadow:none;font-weight:800;}
+html[data-layout="modern"] .bignum{text-shadow:none;font-weight:800;background:linear-gradient(135deg,var(--r1),var(--r2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+html[data-layout="modern"] .tbar{border:0;border-radius:999px;height:10px;background:color-mix(in srgb,var(--text) 12%,transparent);}
+html[data-layout="modern"] .tbar i{background:linear-gradient(90deg,var(--r1),var(--r2));border-radius:999px;}
+html[data-layout="modern"] .stepn{display:table;margin:0 auto 8px;padding:4px 12px;border-radius:999px;background:color-mix(in srgb,var(--ink) 16%,transparent);color:var(--ink-bright);font-family:var(--display);font-weight:700;}
+/* overlays */
+html[data-layout="modern"] .lvlup{background:rgba(6,8,30,.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);}
+html[data-layout="modern"] .lvlup .card{position:relative;overflow:hidden;border:0;border-radius:32px;color:#fff;background:linear-gradient(150deg,var(--hero1),var(--hero2));box-shadow:0 24px 60px rgba(0,0,0,.45);font-family:var(--display);}
+html[data-layout="modern"] .lvlup .gt{color:#fff;text-shadow:none;font-family:var(--display);font-weight:800;letter-spacing:-.5px;animation:springpop .6s cubic-bezier(.2,.9,.3,1.3);}
+html[data-layout="modern"] .lvlup .gt::before,html[data-layout="modern"] .lvlup .gt::after{display:none;}
+html[data-layout="modern"] .lvlup .sub,html[data-layout="modern"] .lvlup .extra{color:rgba(255,255,255,.92);}
+html[data-layout="modern"] .lvlup .perknew{color:#fff;}
+html[data-layout="modern"] .lvlup .perknew small{color:rgba(255,255,255,.88) !important;}
+html[data-layout="modern"] .lvlup .perknew .medal{background:rgba(255,255,255,.22);color:#fff;box-shadow:none;border:0;}
+html[data-layout="modern"] .lvlup .ok{background:#fff;color:#4b2bd0;box-shadow:none;}
+.cfwrap{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:3;}
+.cfwrap i{position:absolute;top:-24px;border-radius:3px;animation:cf 2.1s cubic-bezier(.25,.6,.35,1) forwards;}
+@keyframes cf{to{transform:translate3d(var(--x),110vh,0) rotate(var(--r));opacity:.15;}}
+html[data-layout="modern"] #crit{background:radial-gradient(circle at 50% 45%,rgba(255,70,110,.45),rgba(20,0,20,.78) 70%) !important;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);}
+html[data-layout="modern"] #crit .gt{font-family:var(--display);font-weight:800;color:#fff;text-shadow:0 6px 30px rgba(255,60,100,.6);letter-spacing:-.5px;animation:springpop .5s cubic-bezier(.2,.9,.3,1.3);}
+html[data-layout="modern"] #crit .gt::before,html[data-layout="modern"] #crit .gt::after{display:none;}
+html[data-layout="modern"] #crit .sub{font-family:var(--display);color:#ffe3ea;}
+html[data-layout="modern"] .bk{border:0;border-radius:26px;padding:14px 16px;color:#fff;background:linear-gradient(135deg,#ff9a3c,#ff5e9a);box-shadow:0 12px 26px rgba(255,94,154,.28);}
+html[data-layout="modern"] .bk span{color:#fff;font-family:var(--display);font-weight:600;}
+html[data-layout="modern"] .bk .btn{background:#fff;color:#c2185b;box-shadow:none;}
+html[data-layout="modern"] .pers{border:1.5px dashed color-mix(in srgb,var(--ink) 40%,transparent);border-radius:24px;background:color-mix(in srgb,var(--ink) 8%,var(--panel));}
+html[data-layout="modern"] #coach{border:0;border-radius:24px;background:var(--panel);box-shadow:0 18px 44px rgba(8,10,40,.4);left:auto;right:12px;transform:none;}
+html[data-layout="modern"] #coach::after{border:0;background:var(--panel);left:auto;right:30px;transform:rotate(45deg);}
+html[data-skin="glass"] #coach{background:linear-gradient(135deg,var(--gl1),var(--gl2)),color-mix(in srgb,var(--bg) 65%,transparent);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);border:1px solid var(--edge);}
+html[data-layout="modern"] .toast{bottom:calc(96px + env(safe-area-inset-bottom,0px));background:var(--ink-bright);color:var(--bg);}
+html[data-skin="glass"] .toast{color:var(--ink-bright);}
+@keyframes slidein{from{opacity:0;transform:translate3d(calc(var(--dir,1)*28px),8px,0) scale(.985);}to{opacity:1;transform:none;}}
+html[data-layout="modern"][data-motion="full"] section.tab.enter>*{animation-name:slidein;}
+html[data-skin="glass"] .trow .box{border-color:color-mix(in srgb,var(--ink) 38%,transparent);}
+html[data-skin="glass"] .chk{background:color-mix(in srgb,var(--ink) 10%,rgba(255,255,255,.25));}
+
+/* ===== v3.2: fixes, configurable tiles, addiction, aurora ===== */
+html[data-layout="modern"] .toast{background:var(--ink-bright);color:var(--bg);}
+html[data-skin="glass"][data-layout="modern"] .toast{background:linear-gradient(135deg,var(--gl1),var(--gl2)),color-mix(in srgb,var(--bg) 72%,transparent);color:var(--ink-bright);border:1px solid var(--edge);-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);}
+.skin i{border:0;box-shadow:0 0 0 2px color-mix(in srgb,var(--text) 22%,transparent);}
+label.btn{display:inline-flex;align-items:center;justify-content:center;cursor:pointer;}
+.menu label.btn,.modal label.btn{display:flex !important;align-items:center;justify-content:center;}
+.wk-item>span:not(.hi):not(.st){flex:1;min-width:0;}
+.wk-item .hi,.wk-item .st,.wk-item .chk,.wk-item .btn{flex:none;}
+.lrow[data-id]{cursor:pointer;}
+html[data-layout="modern"] .lrow [data-ed]{display:none;}
+html[data-layout="modern"] #heroCard{padding:14px 16px;gap:14px;border-radius:28px;}
+html[data-layout="modern"] #heroCard .hring,html[data-layout="modern"] #heroCard .hring svg{width:104px;height:104px;}
+html[data-layout="modern"] #heroCard .hc b{font-size:26px;}
+html[data-layout="modern"] #heroCard .hmet{gap:9px;}
+html[data-layout="modern"] .greet{margin:0 4px 10px;}
+html[data-layout="modern"] .tiles{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -12px 12px;padding:2px 12px 12px;scrollbar-width:none;}
+html[data-layout="modern"] .tiles::-webkit-scrollbar{display:none;}
+html[data-layout="modern"] .tiles .tile{flex:0 0 42%;min-height:126px;scroll-snap-align:start;}
+html[data-layout="modern"] .tiles.few .tile{flex:1 1 0;}
+html[data-layout="modern"] .tile b{font-size:32px;}
+html[data-layout="modern"][data-idletile="1"] .quick{display:none !important;}
+.ill.big{right:-10px;top:34px;font-size:76px;color:rgba(255,255,255,.3);}
+.ill.big svg{width:1em;height:1em;display:block;}
+.t-teal{background:linear-gradient(150deg,#0b7f75,#2563eb);box-shadow:0 14px 30px rgba(37,99,235,.28);}
+.t-green{background:linear-gradient(150deg,#0f8a5f,#0e8fa7);box-shadow:0 14px 30px rgba(14,143,167,.28);}
+.t-violet{background:linear-gradient(150deg,#7c3aed,#db2777);box-shadow:0 14px 30px rgba(219,39,119,.28);}
+.t-hab{background:linear-gradient(150deg,color-mix(in srgb,var(--hue) 78%,#000),color-mix(in srgb,var(--hue) 50%,#4b2bd0));box-shadow:0 14px 30px color-mix(in srgb,var(--hue) 35%,transparent);}
+html[data-tod="morning"]{--a1:#ffcfae;--a2:#ffb9d4;--a3:#ffeeb0;}
+html[data-tod="day"]{--a1:#b6dbff;--a2:#c3f2e2;--a3:#d8d0ff;}
+html[data-tod="evening"]{--a1:#d6c2ff;--a2:#ffc0dc;--a3:#ffd7b5;}
+html[data-tod="night"]{--a1:#c4c7ff;--a2:#b4d2ff;--a3:#e0c6ff;}
+@media (prefers-color-scheme: light){
+  html[data-skin="glass"][data-tod]{--blobs:radial-gradient(40% 30% at 12% 8%,var(--a1) 0%,transparent 70%),radial-gradient(38% 30% at 94% 24%,var(--a2) 0%,transparent 70%),radial-gradient(46% 34% at 18% 62%,var(--a3) 0%,transparent 70%),radial-gradient(40% 30% at 90% 92%,var(--a1) 0%,transparent 70%);}
+  html[data-skin="card"] body::before,html[data-skin="std"] body::before,html[data-skin="cute"] body::before{content:"";position:fixed;inset:-25%;z-index:-1;pointer-events:none;will-change:transform;background:radial-gradient(36% 26% at 12% 6%,var(--a1),transparent 70%),radial-gradient(34% 26% at 92% 16%,var(--a2),transparent 70%),radial-gradient(42% 30% at 20% 70%,var(--a3),transparent 72%),radial-gradient(38% 28% at 88% 88%,var(--a1),transparent 72%);opacity:.8;}
+  html[data-skin="std"] body::before{opacity:.45;}
+  html[data-skin="cute"] body::before{opacity:.55;}
+  html[data-skin="card"] body{background:var(--bg);}
+}
+@media (prefers-color-scheme: dark){
+  html[data-skin="card"] body::before{content:"";position:fixed;inset:-25%;z-index:-1;pointer-events:none;background:radial-gradient(36% 26% at 12% 6%,var(--a1),transparent 70%),radial-gradient(34% 26% at 92% 16%,var(--a2),transparent 70%),radial-gradient(42% 30% at 20% 70%,var(--a3),transparent 72%);opacity:.12;}
+}
+html[data-layout="modern"][data-motion="full"] body::before{animation:drift 44s ease-in-out infinite alternate;}
+html[data-layout="modern"] .wk-item .chk{width:42px;height:42px;min-height:42px;max-width:42px;}
+
+/* ===== v3.3: centred raised crave button ===== */
+html[data-layout="modern"] nav.tabs .in{display:block;position:relative;}
+html[data-layout="modern"] nav.tabs .cap{width:100%;display:grid;grid-template-columns:1fr 1fr 78px 1fr 1fr;}
+html[data-layout="modern"] nav.tabs .cap>button{flex:none !important;min-width:0;}
+html[data-layout="modern"] nav.tabs .cap>button:nth-child(3){grid-column:4;}
+html[data-layout="modern"] nav.tabs .cap>button:nth-child(4){grid-column:5;}
+html[data-layout="modern"] nav.tabs button.navcrave{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);width:70px;height:70px;box-shadow:0 0 0 6px var(--bg),0 14px 28px color-mix(in srgb,var(--r1) 55%,transparent),inset 0 1.5px 0 rgba(255,255,255,.4);}
+html[data-layout="modern"][data-motion="full"] nav.tabs button.navcrave:active{transform:translateX(-50%) scale(.94);}
+html[data-layout="modern"] .wrap{padding-bottom:calc(138px + env(safe-area-inset-bottom,0px));}
+html[data-layout="modern"] #coach{left:50%;right:auto;transform:translateX(-50%);bottom:calc(112px + env(safe-area-inset-bottom,0px));}
+html[data-layout="modern"] #coach::after{left:50%;right:auto;transform:translateX(-50%) rotate(45deg);}
+html[data-layout="modern"] .toast{bottom:calc(118px + env(safe-area-inset-bottom,0px));}
+html[data-layout="modern"] nav.tabs .cap{padding:4px;grid-template-columns:1fr 1fr 74px 1fr 1fr;}
+html[data-layout="modern"] nav.tabs .cap>button[aria-selected="true"]{letter-spacing:-.3px;}
+html[data-motion="calm"] nav.tabs .cap>button{transition:none !important;}
+@media (max-width:359px){
+  html[data-layout="modern"] nav.tabs .cap>button[aria-selected="true"]{font-size:0;}
+  html[data-layout="modern"] #table{border-spacing:2px 5px;}
+  html[data-layout="modern"] .moods{gap:5px;}
+}
+html[data-layout="modern"] nav.tabs .cap{transition:grid-template-columns .35s cubic-bezier(.2,.85,.25,1);}
+html[data-layout="modern"] nav.tabs .cap[data-act="0"]{grid-template-columns:1.7fr .9fr 78px 1.3fr 1.3fr;}
+html[data-layout="modern"] nav.tabs .cap[data-act="1"]{grid-template-columns:.9fr 1.7fr 78px 1.3fr 1.3fr;}
+html[data-layout="modern"] nav.tabs .cap[data-act="2"]{grid-template-columns:1.3fr 1.3fr 78px 1.7fr .9fr;}
+html[data-layout="modern"] nav.tabs .cap[data-act="3"]{grid-template-columns:1.3fr 1.3fr 78px .9fr 1.7fr;}
+html[data-layout="modern"] nav.tabs .cap>button[aria-selected="true"]{letter-spacing:-.2px;white-space:nowrap;}
+html[data-layout="modern"] .wrap{overflow-x:clip;}
 </style>
 </head>
 <body>
-<div id="boot" aria-hidden="true"><div class="beam"></div><div class="txt" id="bootTxt"></div></div>
+<div id="boot" aria-hidden="true" style="display:none"><div class="beam"></div><div class="txt" id="bootTxt"></div></div>
 <div class="scan"></div>
 
 <div class="wrap" id="wrap">
@@ -657,6 +978,8 @@ html[data-hide~="hp"] header.compact .bars{grid-template-columns:1fr;}
     <div id="satBanner"></div>
     <div class="pers" id="persCard" hidden><span>Познакомимся? Укажи имя, чтобы приложение обращалось к тебе по-человечески.</span><button class="btn sm" id="persGo" type="button">Указать</button><button class="btn ghost sm" id="persNo" type="button" aria-label="Не сейчас">×</button></div>
     <div class="greet" id="greet" hidden></div>
+    <section class="hero" id="heroCard" aria-label="Итог дня"><div class="hring" id="heroRing"></div><div class="hmet" id="heroMet"></div></section>
+    <div class="tiles" id="todayTiles"></div>
     <div class="quick one"><button class="qbtn" id="qIdle" type="button"><span class="tic" data-i="compass"></span>Чем себя занять?</button></div>
     <div class="panel">
       <h2 id="todayTitle">Сегодня</h2>
@@ -699,6 +1022,7 @@ html[data-hide~="hp"] header.compact .bars{grid-template-columns:1fr;}
   </section>
 
   <section class="tab" id="tab-perks">
+    <section class="hero phero" id="progHero" aria-label="Прогресс"></section>
     <div class="panel" id="statsPanel">
       <h2>Характеристики<button class="qm" type="button" data-help="stats" aria-label="Справка: характеристики">?</button></h2>
       <div class="stats" id="stats"></div>
@@ -724,6 +1048,12 @@ html[data-hide~="hp"] header.compact .bars{grid-template-columns:1fr;}
       <div class="chips" id="wordRow" style="margin-top:0" data-nowrd="1"><button class="chip" type="button" data-w="тяга">Тяга</button><button class="chip" type="button" data-w="соблазн">Соблазн</button></div>
       <label class="fl">Звук</label>
       <div class="chips" id="soundRow" style="margin-top:0"><button class="chip" type="button" data-v="on">Включён</button><button class="chip" type="button" data-v="off">Выключен</button></div>
+      <label class="fl" id="motionLbl">Анимации</label>
+      <div class="chips" id="motionRow" style="margin-top:0"><button class="chip" type="button" data-v="full">Полные</button><button class="chip" type="button" data-v="calm">Спокойные</button></div>
+      <label class="fl">Вибрация при действиях</label>
+      <div class="chips" id="hapticRow" style="margin-top:0"><button class="chip" type="button" data-v="on">Включена</button><button class="chip" type="button" data-v="off">Выключена</button></div>
+      <label class="fl" id="glassLbl">Эффект стекла</label>
+      <div class="chips" id="glassRow" style="margin-top:0"><button class="chip" type="button" data-v="full">Полный</button><button class="chip" type="button" data-v="lite">Облегчённый</button></div>
       <label class="fl" for="volIn">Громкость звуков</label>
       <input type="range" class="slider" id="volIn" min="0" max="100" step="5" aria-label="Громкость звуков">
       <label class="fl" for="titleIn">Название трекера</label>
@@ -734,6 +1064,10 @@ html[data-hide~="hp"] header.compact .bars{grid-template-columns:1fr;}
       <div class="inrow" style="margin-top:0"><input type="text" id="nameIn" maxlength="24" placeholder="Имя"><button class="btn" id="nameSave" type="button">Сохранить</button></div>
       <label class="fl">Пол (для формулировок)</label>
       <div class="chips" id="genderRow" style="margin-top:0"><button class="chip" type="button" data-g="m">Мужской</button><button class="chip" type="button" data-g="f">Женский</button><button class="chip" type="button" data-g="n">Не указывать</button></div>
+      <label class="fl">От чего отказываешься</label>
+      <div class="chips" id="addRow" style="margin-top:0"><button class="chip" type="button" data-a="alcohol">Алкоголь</button><button class="chip" type="button" data-a="smoking">Курение</button><button class="chip" type="button" data-a="sugar">Сладкое</button><button class="chip" type="button" data-a="games">Игры</button><button class="chip" type="button" data-a="social">Соцсети</button><button class="chip" type="button" data-a="custom">Своё</button></div>
+      <div class="inrow" id="addCustomRow" hidden style="margin-top:8px"><input type="text" id="addCustomIn" maxlength="24" placeholder="Без чего? Например: энергетиков"><button class="btn" id="addCustomSave" type="button">ОК</button></div>
+      <p class="hint" style="margin:8px 0 0">Меняет привычку «Без …», срывы, бонус недели и тексты. История отметок сохраняется.</p>
       <p class="hint" style="margin:10px 0 0">Имя и пол нужны, чтобы приложение обращалось к тебе правильно. Хранятся только у тебя.</p>
       <label class="fl">Тон сообщений</label>
       <div class="chips" id="toneRow" style="margin-top:0"><button class="chip" type="button" data-t="tender">Нежный</button><button class="chip" type="button" data-t="direct">Прямой</button><button class="chip" type="button" data-t="ironic">Ироничный</button><button class="chip" type="button" data-t="hard">Жёсткий 18+</button></div>
@@ -743,6 +1077,9 @@ html[data-hide~="hp"] header.compact .bars{grid-template-columns:1fr;}
       <button class="btn ghost" id="tonePreview" type="button" style="margin-top:12px">Показать пример</button>
     </details>
     <details class="panel sg"><summary>Блоки экранов</summary>
+      <div class="grouph" style="margin-top:0">Плитки «Сегодня»</div>
+      <div class="chips" id="tileRow" style="margin-top:0"></div>
+      <p class="hint" style="margin:6px 0 12px">Плитки листаются вбок. Порядок как в этом списке.</p>
       <p class="hint" style="margin-top:0">Выключенный блок скрывается с экрана, данные остаются. «Тяга» всегда доступна.</p>
       <div id="blocksList"></div>
     </details>
@@ -791,12 +1128,12 @@ html[data-hide~="hp"] header.compact .bars{grid-template-columns:1fr;}
   </section>
 </div>
 
-<nav class="tabs" role="tablist" aria-label="Разделы"><div class="in">
-  <button role="tab" data-tab="stat" type="button"><span class="tic" data-i="sun"></span>Сегодня</button>
-  <button role="tab" data-tab="log" type="button"><span class="tic" data-i="calendar"></span>Неделя</button>
-  <button class="navcrave" id="fab" type="button" aria-label="Тяга: открыть помощь"><span class="tic" data-i="wave"></span><small>тяга</small></button>
-  <button role="tab" data-tab="perks" type="button"><span class="tic" data-i="crown"></span>Прогресс</button>
-  <button role="tab" data-tab="data" type="button"><span class="tic" data-i="gear"></span>Настройки</button>
+<nav class="tabs" role="tablist" aria-label="Разделы"><div class="in"><div class="cap">
+  <button role="tab" data-tab="stat" type="button" aria-label="Сегодня"><span class="tic" data-i="sun"></span>Сегодня</button>
+  <button role="tab" data-tab="log" type="button" aria-label="Неделя"><span class="tic" data-i="calendar"></span>Неделя</button>
+  <button role="tab" data-tab="perks" type="button" aria-label="Прогресс"><span class="tic" data-i="crown"></span>Прогресс</button>
+  <button role="tab" data-tab="data" type="button" aria-label="Настройки"><span class="tic" data-i="gear"></span>Настройки</button>
+</div><button class="navcrave" id="fab" type="button" aria-label="Тяга: открыть помощь"><span class="tic" data-i="wave"></span><small>тяга</small></button>
 </div></nav>
 <div id="crit" aria-hidden="true"><div class="gt" data-text="СРЫВ">СРЫВ</div><div class="sub">критический урон</div></div>
 <div id="hitfx"></div>
@@ -868,7 +1205,12 @@ I.bolt='<path d="M28 2L9 27h12l-3 19 21-27H27z"/>';
 I.clover='<circle cx="17" cy="17" r="9"/><circle cx="31" cy="17" r="9"/><circle cx="17" cy="31" r="9"/><circle cx="31" cy="31" r="9"/><circle class="cut" cx="24" cy="24" r="3.2"/><path d="M26 34c2 6 6 9 11 10l-1-3c-4-1-7-3-8-7z"/>';
 I.drop='<path d="M24 3C16 14 9 22 9 31a15 15 0 0 0 30 0c0-9-7-17-15-28z"/><path class="cut" d="M16 30c0 4 3 7 7 8v3c-6-1-10-5-10-11z"/>';
 I.gear='<rect x="20" y="2" width="8" height="44" rx="3"/><rect x="20" y="2" width="8" height="44" rx="3" transform="rotate(45 24 24)"/><rect x="20" y="2" width="8" height="44" rx="3" transform="rotate(90 24 24)"/><rect x="20" y="2" width="8" height="44" rx="3" transform="rotate(135 24 24)"/><circle cx="24" cy="24" r="14"/><circle class="cut" cx="24" cy="24" r="6"/>';
-const svg = (k) => `<svg class="ic" viewBox="0 0 48 48" aria-hidden="true">${I[k]||''}</svg>`;
+I.nosmoke='<rect x="4" y="27" width="28" height="8" rx="2"/><rect x="34" y="27" width="9" height="8" rx="2"/><circle cx="38" cy="18" r="3"/><circle cx="34" cy="11" r="2.5"/><rect class="cut" x="20.5" y="-6" width="7" height="60" transform="rotate(-45 24 24)"/><rect x="22" y="-2" width="4" height="52" rx="2" transform="rotate(-45 24 24)"/>';
+I.nosweet='<circle cx="24" cy="24" r="10"/><path d="M14 24L4 16v16zM34 24l10-8v16z"/><rect class="cut" x="20.5" y="-6" width="7" height="60" transform="rotate(-45 24 24)"/><rect x="22" y="-2" width="4" height="52" rx="2" transform="rotate(-45 24 24)"/>';
+I.nogame='<path d="M13 13h22c6 0 10 7 10 15s-3 12-7 12c-3 0-5-3-7-6H17c-2 3-4 6-7 6-4 0-7-4-7-12s4-15 10-15z"/><rect class="cut" x="9" y="22" width="10" height="3"/><rect class="cut" x="12.5" y="18.5" width="3" height="10"/><circle class="cut" cx="32" cy="21" r="2"/><circle class="cut" cx="37" cy="26" r="2"/><rect class="cut" x="20.5" y="-6" width="7" height="60" transform="rotate(-45 24 24)"/><rect x="22" y="-2" width="4" height="52" rx="2" transform="rotate(-45 24 24)"/>';
+I.nophone='<rect x="13" y="3" width="22" height="42" rx="5"/><rect class="cut" x="16.5" y="8" width="15" height="28" rx="1.5"/><circle class="cut" cx="24" cy="40.5" r="2"/><rect class="cut" x="20.5" y="-6" width="7" height="60" transform="rotate(-45 24 24)"/><rect x="22" y="-2" width="4" height="52" rx="2" transform="rotate(-45 24 24)"/>';
+let __mid=0;
+const svg = (k) => { const b=I[k]||''; if(b.indexOf('class="cut"')<0) return `<svg class="ic" viewBox="0 0 48 48" aria-hidden="true">${b}</svg>`; const id='mk'+(++__mid); return `<svg class="ic" viewBox="0 0 48 48" aria-hidden="true"><mask id="${id}" maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48"><g fill="#fff">${b.replace(/class="cut"/g,'fill="#000"')}</g></mask><rect width="48" height="48" fill="currentColor" mask="url(#${id})"/></svg>`; };
 
 /* ================= CONFIG ================= */
 const BASE_DAILY = [
@@ -895,7 +1237,7 @@ const DAILY=[], WEEKLY=[], ALLH=[], HMAP={};
 BASE_DAILY.forEach(h=>h.base=h.name); BASE_WEEKLY.forEach(h=>h.base=h.name);
 function rebuildHabits(){
   const names=state.names||{}, custom=state.custom||[];
-  const mk=(h)=>({...h, name:names[h.id]||h.base, archived:!!(state.deleted&&state.deleted[h.id])});
+  const mk=(h)=>({...h, name:names[h.id]||(h.id==='sober'?ADDF().no:h.base), icon:(h.id==='sober'?ADDF().icon:h.icon), archived:!!(state.deleted&&state.deleted[h.id])});
   const od=(arr,k)=>{ const o=(state.order&&state.order[k])||[]; return arr.map((h,i)=>[h,i]).sort((x,y)=>{ const a=o.indexOf(x[0].id), b=o.indexOf(y[0].id); return ((a<0?999:a)-(b<0?999:b))||(x[1]-y[1]); }).map(x=>x[0]); };
   const cu=(c)=>({id:c.id, icon:(c.icon==='wave'?(/бан|саун|парил/i.test(c.name)?'bath':'spark'):c.icon), name:c.name, stats:c.stats, def:true, custom:true, archived:!!c.archived});
   const d=od([...BASE_DAILY.map(mk), ...custom.filter(c=>c.type==='d').map(cu)],'d'), w=od([...BASE_WEEKLY.map(mk), ...custom.filter(c=>c.type==='w').map(cu)],'w');
@@ -909,46 +1251,46 @@ const TAGS = ['усталость','тревога','раздражение','с
 const XP_D=15, XP_W=50, XP_MOOD=5, CAP=50;
 
 const PERKS = [
- ['Новичок','boot','Правило двух минут: любую привычку начинай с версии на две минуты. Две страницы, один подход, пять минут пешком. Главное начать, объём придёт сам.',{walk:3}],
- ['Первая искра','spark','В исследовании Лалли (2009) привычка становилась автоматической в среднем за 66 дней, с разбросом от 18 до 254. Пропуск одного дня на результат почти не влиял.',{note:3}],
- ['Тихий вечер','moon','Яркий свет и экран вечером сдвигают засыпание. Идея: за час до сна приглуши свет и унеси телефон в другую комнату.',{sleep:5}],
- ['Железные лёгкие','steps','Даже 10–15 минут ходьбы после еды сглаживают скачок сахара в крови. Короткая прогулка после ужина работает лучше, чем кажется.',{walk:5}],
- ['Ясный ум','bulb','Выгрузка мыслей: выпиши всё, что крутится в голове, без порядка и оценок. Когда мысли на бумаге, голова перестаёт держать их в фоне.',{note:5}],
- ['Если-то','target','Планы вида «если X, то Y» (Гольвитцер) заметно повышают шанс довести дело до конца. Пример: «Если в пятницу вечером захочется выпить, иду гулять или звоню другу».',{sober:5}],
- ['Волна тяги','wave','Тяга приходит волной: нарастает, достигает пика и спадает, обычно за считанные минуты. Навык «сёрфинг по тяге»: заметь её, назови и пережди пик за делом.',{sober:5}],
- ['Смена среды','broom','Окружение сильнее силы воли. Убери триггер с глаз, а нужное положи на видное место: гантели у дивана, книгу на подушку.',{sober:3}],
- ['Кузнец тела','dumbbell','Мышцы растут не во время тренировки, а в восстановлении. Сон и достаточно белка важны так же, как сами подходы.',{train:5}],
- ['Мастер дыхания','lungs','Физиологический вздох: два коротких вдоха носом и долгий выдох ртом. В исследовании Стэнфорда (2023) пять минут такого дыхания в день улучшали настроение.',{note:3}],
- ['Живой контакт','phone','Исследования показывают: люди систематически недооценивают, как приятно другим, когда им пишут первыми. Идея: напиши сегодня одному человеку без повода.',{call:5, meet:3}],
- ['Книжный червь','book','20 минут чтения в день дают около 120 часов в год. Это полтора десятка книг среднего объёма.',{read:5}],
- ['Названо — приручено','notebook','Ошибки мышления теряют силу, когда их называешь: катастрофизация, чтение мыслей, «всё или ничего». Поймал такую мысль, дай ей имя.',{note:3}],
- ['Гурман','pot','Заготовка до начала готовки: всё нарезано, отмерено и стоит под рукой. Так работают профессиональные повара, и так готовить спокойнее.',{cook:5}],
- ['Искатель','compass','По идее Джоша Кауфмана, около 20 часов сосредоточенной практики хватает, чтобы стать «достаточно хорошим» в новом деле. Это примерно 45 минут в день на месяц.',{hobby:5, skill:3}],
- ['Ближайший шаг','target','Проект не делается, делается следующий шаг. Дроби задачу, пока первое действие не займёт 10–15 минут.',{project:5}],
- ['Закрытый гештальт','hourglass','Незавершённые дела крутятся в голове. В исследовании Масикампо и Баумайстера (2011) конкретный план «когда и где» снимал это навязчивое кручение.',{project:3}],
- ['Зелёная пауза','tree','20–30 минут на природе заметно снижают уровень кортизола, гормона стресса (Хантер и соавторы, 2019).',{walk:3, nature:5}],
- ['Ходячие идеи','bulb','В экспериментах Стэнфорда (2014) во время ходьбы люди генерировали заметно больше творческих идей, чем сидя. Застрял, иди гулять.',{hobby:3}],
- ['Прогрессия','dumbbell','Прогресс идёт от постепенного роста нагрузки: чуть больше повторов, веса или времени под нагрузкой. Техника важнее цифр. Всё, что касается спины, сверяй с врачом или тренером.',{train:5}],
- ['Железный график','calendar','Тренировка в календаре как встреча с человеком: её не отменяют из-за настроения, только переносят.',{train:3}],
- ['Корка Майяра','pan','Румяная корочка это реакция Майяра, она идёт активно примерно от 140 °C. Подсуши продукт и не перегружай сковороду, иначе всё потушится.',{cook:5}],
- ['Три хороших','sun','Упражнение Селигмана: каждый вечер записывай три хорошие вещи и почему они случились. В исследовании эффект на самочувствие держался до полугода.',{note:3}],
- ['Письмо благодарности','mail','Напиши человеку конкретное «спасибо» за то, что он сделал. В исследовании Селигмана такой визит благодарности поднимал настроение примерно на месяц.',{call:5, meet:3}],
- ['Активный отдых','palette','Отдых с занятием (прогулка, хобби, готовка) обычно восстанавливает лучше, чем лента. После ленты чаще остаётся пустота, после дела остаётся результат.',{hobby:5}],
- ['Мастер баланса','scales','Колесо баланса: оцени от 1 до 10 здоровье, работу, отношения, отдых, развитие и финансы. Подтягивай одну сферу за раз, самую низкую.',{review:5, skill:3}],
- ['Скука как ресурс','eye','Мозг рождает идеи, когда ему ничего не подсовывают. Оставляй в дне окна без экрана: в очереди, в дороге, перед сном.',{hobby:3}],
- ['Три главных','notebook','Три главных дела на день, остальное бонус. Если три сделаны, день удался, даже если список не закрыт.',{project:3}],
- ['Якорь','anchor','Привязывай новую привычку к существующей: «после душа растяжка», «после ужина 20 минут чтения». Старая привычка становится триггером для новой.',{read:3, sleep:3}],
- ['Ритуал старта','boot','Одни и те же 2–3 действия перед тренировкой или делом: вода, плейлист, форма. Ритуал снимает вопрос «начинать или нет».',{train:3}],
- ['Голос со стороны','figure','В трудный момент обращайся к себе по имени или на «ты»: «Ты справишься». Исследования Итана Кросса показывают, что такая дистанция снижает накал эмоций.',{sober:3}],
- ['Слушатель','people','Активное слушание: открытые вопросы и короткий пересказ услышанного. Собеседник чувствует, что его поняли, и разговор становится глубже.',{meet:5}],
- ['Правило паузы','hourglass','Перед импульсивным решением (покупка, выпивка, бесконечный скролл) возьми 10 минут паузы. Часто за это время желание теряет остроту.',{sober:5}],
- ['Сеть поддержки','heart','Гарвардское исследование взрослого развития идёт больше 80 лет. Один из главных выводов: качество близких отношений сильно связано со здоровьем и счастьем. Один глубокий разговор в неделю это вклад в себя.',{meet:5, call:3}],
- ['Мозг-тренер','bulb','Мозг сохраняет пластичность всю жизнь: новые навыки перестраивают связи в любом возрасте. Выбери один навык на месяц и учи понемногу.',{skill:5}],
- ['Несгибаемый','shield','Срыв не отменяет пройденного пути. Правило: не пропускать дважды подряд. Вернись в план в течение суток.',{sober:5}],
- ['Мелочи копятся','chart','Математически 1% улучшения в день даёт рост в 37 раз за год. В жизни так ровно не бывает, но идея верна: маленькие шаги складываются.',{skill:5}],
- ['Письмо себе','mail','Напиши письмо себе через три месяца: каким хочешь быть, что изменить, от чего отказаться. Потом открой и сравни.',{review:3}],
- ['Свой темп','stretch','Сравнивай себя только с собой прежним. Твой журнал это лучшая мерка: открой неделю месячной давности и посмотри, что изменилось.',{stretch:5, sleep:3}],
- ['Легенда','crown','Итог пути: оцени от 1 до 10 тонус в теле, свободу мыслей и тягу к алкоголю, и сравни со стартом. Путь уже изменил тебя.',{'*':5}],
+ ['Две минуты славы','boot','Правило двух минут: начинай любую привычку с версии на две минуты. Две страницы, один подход, пять минут пешком. Мозг плохо торгуется, когда торговаться не о чем.',{walk:3}],
+ ['Не за 21 день','spark','В исследовании Лалли (2009) привычка становилась автоматической в среднем за 66 дней, с разбросом от 18 до 254. Один пропуск почти ничего не портит. Сдаться из-за него портит всё.',{note:3}],
+ ['Телефон спит отдельно','moon','Яркий экран вечером сдвигает засыпание. За час до сна приглуши свет и отправь телефон ночевать в другую комнату. Он переживёт.',{sleep:5}],
+ ['Ноги против сахара','steps','10–15 минут ходьбы после еды сглаживают скачок сахара в крови. Прогулка после ужина работает лучше, чем выглядит, и намного лучше дивана.',{walk:5}],
+ ['Свалка мыслей','bulb','Выгрузка мыслей: выпиши всё, что крутится в голове, без порядка и оценок. Бумага хранит мысли бесплатно, а голова берёт за это нервами.',{note:5}],
+ ['Если-то-программист','target','Планы вида «если X, то Y» (Гольвитцер) заметно повышают шанс довести дело до конца. Например: «Если в пятницу вечером захочется сорваться, иду гулять или звоню другу». По сути, ты пишешь себе код.',{sober:5}],
+ ['Волна и доска','wave','Тяга приходит волной: нарастает, достигает пика и спадает, обычно за считанные минуты. Навык «сёрфинг по тяге»: заметь её, назови и пережди пик за делом. С доски падать можно, тонуть необязательно.',{sober:5}],
+ ['Дизайнер окружения','broom','Окружение сильнее силы воли, и это даже немного обидно. Убери триггер с глаз, а нужное положи на видное место: гантели у дивана, книгу на подушку.',{sober:3}],
+ ['Растём во сне','dumbbell','Мышцы растут не на тренировке, а в восстановлении. Сон и белок важны так же, как подходы. Считай это официальным разрешением поспать.',{train:5}],
+ ['Вздох по науке','lungs','Физиологический вздох: два коротких вдоха носом и долгий выдох ртом. В исследовании Стэнфорда (2023) пять минут такого дыхания в день улучшали настроение. Самый дешёвый антистресс на планете.',{note:3}],
+ ['Напиши первым','phone','Люди систематически недооценивают, как приятно другим, когда им пишут первыми. Напиши сегодня одному человеку без повода. Повод найдётся по ходу.',{call:5, meet:3}],
+ ['120 часов в год','book','20 минут чтения в день дают около 120 часов в год, это полтора десятка книг. Или полтора сезона сериала, выбор очевиден. Почти.',{read:5}],
+ ['Ярлык на тараканов','notebook','Ошибки мышления теряют силу, когда их называешь: катастрофизация, чтение мыслей, «всё или ничего». Поймай такую мысль, дай ей имя и посмотри, как она теряет уверенность.',{note:3}],
+ ['Мизанплас','pot','Заготовка до готовки: всё нарезано, отмерено и стоит под рукой. Так работают повара, и так не приходится искать лук, пока горит масло.',{cook:5}],
+ ['20 часов до «могу»','compass','По идее Джоша Кауфмана, около 20 часов сосредоточенной практики хватает, чтобы стать «достаточно хорошим» в новом деле. Это 45 минут в день в течение месяца. Гением не станешь, но стыдно уже не будет.',{hobby:5, skill:3}],
+ ['Слона по кусочку','target','Проект не делается, делается следующий шаг. Дроби задачу, пока первое действие не займёт 10–15 минут. Слонов едят только так.',{project:5}],
+ ['Гештальт под ключ','hourglass','Незавершённые дела крутятся в голове, как песня из рекламы. У Масикампо и Баумайстера (2011) конкретный план «когда и где» выключал это радио.',{project:3}],
+ ['Лес вместо кортизола','tree','20–30 минут на природе заметно снижают уровень кортизола, гормона стресса (Хантер и соавторы, 2019). Деревья не берут денег за сеанс.',{walk:3, nature:5}],
+ ['Идеи на ходу','bulb','В экспериментах Стэнфорда (2014) во время ходьбы люди выдавали заметно больше творческих идей, чем сидя. Застрял, иди гулять. Это не прокрастинация, это метод.',{hobby:3}],
+ ['Чуть больше, чем вчера','dumbbell','Прогресс идёт от постепенного роста нагрузки: чуть больше повторов, веса или времени. Техника важнее цифр. Всё, что касается спины, сверяй с врачом, а не с самолюбием.',{train:5}],
+ ['Встреча с собой','calendar','Тренировка в календаре как встреча с человеком: её не отменяют из-за настроения, только переносят. Особенно если этот человек ты.',{train:3}],
+ ['Химия на сковороде','pan','Румяная корочка это реакция Майяра, она идёт активно примерно от 140 °C. Подсуши продукт и не перегружай сковороду, иначе вместо жарки выйдет грустное тушение.',{cook:5}],
+ ['Три хорошие штуки','sun','Упражнение Селигмана: вечером записывай три хорошие вещи и почему они случились. Эффект на самочувствие держался до полугода. Да, «нашлась парковка» тоже считается.',{note:3}],
+ ['Спасибо с адресом','mail','Скажи человеку конкретное «спасибо» за то, что он сделал. В исследовании Селигмана такой визит благодарности поднимал настроение примерно на месяц. Причём обоим.',{call:5, meet:3}],
+ ['Лента не отдых','palette','Отдых с занятием (прогулка, хобби, готовка) восстанавливает лучше ленты. После ленты остаётся пустота, после дела остаётся результат. И меньше рекламы.',{hobby:5}],
+ ['Колесо, а не квадрат','scales','Колесо баланса: оцени от 1 до 10 здоровье, работу, отношения, отдых, развитие и финансы. Подтягивай одну сферу за раз, самую низкую. Колесо с ямой катится плохо.',{review:5, skill:3}],
+ ['Скука-муза','eye','Мозг рождает идеи, когда ему ничего не подсовывают. Оставляй в дне окна без экрана: в очереди, в дороге, перед сном. Скучно? Отлично, процесс пошёл.',{hobby:3}],
+ ['Правило трёх','notebook','Три главных дела на день, остальное бонус. Три сделаны, значит день удался, даже если список дел всё ещё длиннее терпения.',{project:3}],
+ ['Прицеп к привычке','anchor','Привязывай новую привычку к старой: «после душа растяжка», «после ужина 20 минут чтения». Старая привычка работает тягачом, новая едет следом.',{read:3, sleep:3}],
+ ['Ритуал разгона','boot','Одни и те же 2–3 действия перед делом: вода, плейлист, форма. Ритуал снимает вопрос «начинать или нет», потому что старт уже случился.',{train:3}],
+ ['Тренер в третьем лице','figure','В трудный момент обращайся к себе по имени или на «ты»: «Ты справишься». Исследования Итана Кросса показывают, что такая дистанция снижает накал эмоций. Звучит странно, работает отлично.',{sober:3}],
+ ['Уши на максимум','people','Активное слушание: открытые вопросы и короткий пересказ услышанного. Собеседник чувствует, что его поняли, и разговор внезапно становится лучшим за неделю.',{meet:5}],
+ ['Десять минут тишины','hourglass','Перед импульсивным решением (покупка, срыв, бесконечный скролл) возьми 10 минут паузы. Часто за это время желание теряет остроту, а деньги и самоуважение остаются при тебе.',{sober:5}],
+ ['80 лет науки о дружбе','heart','Гарвардское исследование взрослого развития идёт больше 80 лет. Один из главных выводов: качество близких отношений сильно связано со здоровьем и счастьем. Друзья буквально лечат.',{meet:5, call:3}],
+ ['Пластилиновый мозг','bulb','Мозг сохраняет пластичность всю жизнь: новые навыки перестраивают связи в любом возрасте. «Поздно учиться» это просто удобная отмазка.',{skill:5}],
+ ['Не дважды','shield','Срыв не отменяет пройденного пути. Правило: не пропускать дважды подряд. Один раз это случайность, два это уже новая привычка, которую никто не заказывал.',{sober:5}],
+ ['Сложный процент','chart','Математически 1% улучшения в день даёт рост в 37 раз за год. В жизни так ровно не бывает, но банк бы позавидовал.',{skill:5}],
+ ['Почта в будущее','mail','Напиши письмо себе через три месяца: каким хочешь быть, что изменить, от чего отказаться. Потом открой и сравни. Твоё будущее «я» оценит. Или посмеётся, это тоже полезно.',{review:3}],
+ ['Соревнование с собой','stretch','Сравнивай себя только с собой прежним. Открой неделю месячной давности в журнале и посмотри, что изменилось. Чужие соцсети в зачёт не идут.',{stretch:5, sleep:3}],
+ ['Живая легенда','crown','Итог пути: оцени от 1 до 10 тонус в теле, свободу мыслей и силу тяги, и сравни со стартом. Путь уже изменил тебя. Можно ненадолго загордиться.',{'*':5}],
 ].map(([name,icon,fact,b],i)=>({name,icon,fact,b,lvl:i+2}));
 
 const ENERGY=[{v:1,l:'мало'},{v:2,l:'средне'},{v:3,l:'много'}];
@@ -968,26 +1310,26 @@ const SEED_IDEAS=[
 let HP_FLAGS={ironSkin:false, phoenix:false, maxNoHit:0};
 let ACH_LAST=[];
 const ACH=[
- {id:'a1',name:'Сёрфер',icon:'wave',key:'rew',target:1,cond:'Пройди первую полную «Тягу»',b:{sober:5},fact:'Тяга устроена как волна: нарастает, достигает пика и спадает, если её не «кормить». Каждый раз, когда ты пережидаешь пик, мозг получает доказательство: можно и без этого.'},
- {id:'a2',name:'Укротитель волн',icon:'bolt',key:'rew',target:10,cond:'Пройди 10 полных «Тяг»',hpfx:'«Тяга» даёт 8 HP вместо 5',fact:'Когда тяга раз за разом проходит без выпивки, связь «триггер → бокал» ослабевает. В психологии это называют угасанием: реакция без подкрепления теряет силу.'},
- {id:'a3',name:'Штиль',icon:'drop',key:'calm',target:5,cond:'5 сессий «Тяги», где сила упала на 4 пункта и больше',b:{note:5},fact:'Назвать чувство словами и оценить его по шкале уже снижает накал. В исследованиях Мэттью Либермана называние эмоции снижало активность миндалевидного тела, центра тревоги.'},
- {id:'a4',name:'Честный счёт',icon:'notebook',key:'slipsDone',target:3,cond:'Разбери 3 срыва',hpfx:'Стимпак даёт 15 HP вместо 10',fact:'В исследовании Брайнс и Чен (2012) люди, которые отнеслись к своей ошибке с пониманием, а не с самобичеванием, потом больше старались её исправить.'},
- {id:'a5',name:'Трезвая неделя',icon:'sun',key:'soberW',target:1,cond:'Неделя 7 из 7 без алкоголя',b:{sober:5},fact:'Пятничный вечер без алкоголя это навык, а не запрет. Спланируй его заранее: встреча, кино, вкусный ужин, тренировка. Пустой вечер тянет к старому сценарию.'},
- {id:'a6',name:'Трезвый месяц',icon:'moon',key:'soberW',target:4,cond:'4 трезвые недели, не обязательно подряд',hpfx:'Восстановление +15 HP в день вместо 10',fact:'Алкоголь помогает быстрее уснуть, но ухудшает сон во второй половине ночи. Без него сон обычно становится глубже, а утро бодрее.'},
- {id:'a7',name:'Антискука',icon:'compass',key:'ideasDone',target:1,cond:'Сделай первое дело из «Чем себя занять?»',b:{hobby:3},fact:'Скука это сигнал «нужно что-то новое и значимое», а не «срочно нужен дофамин». Если ответить на неё делом, а не лентой, она становится топливом.'},
- {id:'a8',name:'Человек дела',icon:'target',key:'ideasDone',target:10,cond:'Сделай 10 дел из «Чем себя занять?»',b:{hobby:5,cook:5},fact:'В исследованиях Сабины Зоннентаг занятия, где ты осваиваешь новое, восстанавливают после работы лучше пассивного отдыха: мозг переключается, а не просто отключается.'},
- {id:'a9',name:'Душа компании',icon:'people',key:'socDone',target:5,cond:'5 дел «с людьми»',b:{meet:5},fact:'Конкретное приглашение («в четверг в 19:00, кофе на набережной?») принять легче, чем «надо как-нибудь увидеться». Чем меньше решений нужно собеседнику, тем выше шанс встречи.'},
- {id:'a10',name:'Коллекционер',icon:'palette',key:'myIdeas',target:5,cond:'Добавь 5 своих идей в банк',b:{skill:3},fact:'Решения, принятые заранее, снимают усталость от выбора в моменте. Банк идей это готовые ответы на «чем заняться» для вечера, когда голова пустая.'},
- {id:'a11',name:'Аналитик',icon:'calendar',key:'revs',target:1,cond:'Пройди первый субботний разбор',b:{review:5},fact:'В исследовании Гарвардской школы бизнеса (Ди Стефано и соавторы) сотрудники, которые тратили 15 минут в конце дня на рефлексию, работали заметно лучше коллег.'},
- {id:'a12',name:'Стратег',icon:'scales',key:'revs',target:4,cond:'Пройди 4 субботних разбора',b:{project:5},fact:'Планируй неделю от приоритетов, а не от списка дел: сначала в календарь ставятся главные вещи, а мелкие заполняют промежутки.'},
- {id:'a13',name:'Держу курс',icon:'anchor',key:'course',target:1,cond:'Выполни все приоритеты недели',b:{skill:5},fact:'Три приоритета работают лучше десяти: когда важного мало, его видно, и оно не тонет в мелочах.'},
- {id:'a14',name:'Железная шкура',icon:'heart',key:'noHit',target:14,cond:'14 дней подряд без ударов',hpfx:'Первый удар за пропуски в каждой неделе прощается',fact:'Правило «не пропускать дважды»: один пропуск это случайность, два подряд это начало новой привычки. Щит прощает первую оплошность недели, второй раз уже на тебе.'},
- {id:'a15',name:'Феникс',icon:'clover',key:'phoenix',target:1,cond:'Выберись из нуля HP до 50 и выше',hpfx:'В режиме восстановления +20 HP вместо 15',fact:'Эффект нового старта (Дай, Милкман и Риис, 2014): люди чаще берутся за цели после «временных отметок», вроде понедельника или нового месяца. Возвращение из нуля тоже такая отметка.'},
- {id:'a16',name:'Ранний отбой',icon:'moon',key:'sleep',target:14,cond:'14 отбоев до 23:00',b:{sleep:5},fact:'Регулярное время отхода ко сну связано с лучшим самочувствием и настроением, иногда даже сильнее, чем общая длительность сна.'},
- {id:'a17',name:'Ходок',icon:'steps',key:'walk',target:30,cond:'30 прогулок',b:{walk:5},fact:'Регулярная ходьба связана с более низким риском депрессии. В крупном обзоре 2022 года заметный эффект появлялся уже при половине рекомендованной нормы активности.'},
- {id:'a18',name:'Летописец',icon:'mail',key:'note',target:30,cond:'30 вечерних заметок',b:{note:5},fact:'В экспериментах Джеймса Пеннебейкера 15–20 минут письма о переживаниях несколько дней подряд улучшали самочувствие и даже снижали число визитов к врачу.'},
- {id:'a19',name:'Мастер недели',icon:'chart',key:'fullW',target:4,cond:'4 недели со всеми недельными привычками',b:{'*W':5},fact:'Неделя это удобный ритм для жизни: достаточно длинная, чтобы успеть важное, и достаточно короткая, чтобы быстро вернуться в колею после сбоя.'},
- {id:'a20',name:'Свой путь',icon:'figure',key:'customMax',target:7,cond:'Создай свою привычку и отметь её 7 раз',b:{custom:5},fact:'По теории самодетерминации Деси и Райана цели, выбранные самим, держатся дольше навязанных: в них есть чувство автономии.'},
+ {id:'a1',name:'Первая волна',icon:'wave',key:'rew',target:1,cond:'Пройди первую полную «Тягу»',b:{sober:5},fact:'Тяга устроена как волна: нарастает, достигает пика и спадает, если её не «кормить». Каждый пережитый пик это доказательство для мозга: можно и без этого.'},
+ {id:'a2',name:'Повелитель волн',icon:'bolt',key:'rew',target:10,cond:'Пройди 10 полных «Тяг»',hpfx:'«Тяга» даёт 8 HP вместо 5',fact:'Когда тяга раз за разом проходит без выпивки, связь «триггер → бокал» ослабевает. В психологии это называют угасанием. Звучит грустно, а новость отличная.'},
+ {id:'a3',name:'Дзен по шкале',icon:'drop',key:'calm',target:5,cond:'5 сессий «Тяги», где сила упала на 4 пункта и больше',b:{note:5},fact:'Назвать чувство словами и оценить по шкале уже снижает накал. У Мэттью Либермана называние эмоции успокаивало миндалевидное тело, центр тревоги. Слова работают как огнетушитель.'},
+ {id:'a4',name:'Бухгалтер срывов',icon:'notebook',key:'slipsDone',target:3,cond:'Разбери 3 срыва',hpfx:'Стимпак даёт 15 HP вместо 10',fact:'В исследовании Брайнс и Чен (2012) люди, которые отнеслись к своей ошибке с пониманием, а не с самобичеванием, потом больше старались её исправить. Плеть мотивирует хуже, чем чай.'},
+ {id:'a5',name:'Неделя без драмы',icon:'sun',key:'soberW',target:1,cond:'Неделя 7 из 7 без алкоголя',b:{sober:5},fact:'Пятничный вечер без срыва это навык, а не запрет. Спланируй его заранее: встреча, кино, вкусный ужин. Пустой вечер сам себя не заполнит, а заполнит, так не тем.'},
+ {id:'a6',name:'Месяц без драмы',icon:'moon',key:'soberW',target:4,cond:'4 трезвые недели, не обязательно подряд',hpfx:'Восстановление +15 HP в день вместо 10',fact:'Месяц это уже не случайность, а характер. Чистые недели копятся, даже если идут не подряд, и мозг постепенно перестаёт ждать «награду» по расписанию.'},
+ {id:'a7',name:'Скука, минус один',icon:'compass',key:'ideasDone',target:1,cond:'Сделай первое дело из «Чем себя занять?»',b:{hobby:3},fact:'Первое дело вместо пустой ленты. Скука на самом деле сигнал «займи меня», а не приговор «лежи».'},
+ {id:'a8',name:'Профессионал досуга',icon:'target',key:'ideasDone',target:10,cond:'Сделай 10 дел из «Чем себя занять?»',b:{hobby:5,cook:5},fact:'Десять дел вместо скуки. Это уже не случайность, это квалификация: свободное время проводится профессионально.'},
+ {id:'a9',name:'Социальная бабочка',icon:'people',key:'socDone',target:5,cond:'5 дел «с людьми»',b:{meet:5},fact:'Пять дел с людьми. Живое общение заряжает лучше любой ленты, и лайки там настоящие, с лицами.'},
+ {id:'a10',name:'Банкир идей',icon:'palette',key:'myIdeas',target:5,cond:'Добавь 5 своих идей в банк',b:{skill:3},fact:'Пять своих идей в банке. Лучшее время придумать, чем заняться, это когда ещё не скучно.'},
+ {id:'a11',name:'Аудитор недели',icon:'calendar',key:'revs',target:1,cond:'Пройди первый субботний разбор',b:{review:5},fact:'Первый разбор недели. Неделя, которую разобрали, учит. Неделя, которую забыли, повторяется.'},
+ {id:'a12',name:'Генштаб',icon:'scales',key:'revs',target:4,cond:'Пройди 4 субботних разбора',b:{project:5},fact:'Четыре разбора. Месяц под наблюдением: паттерны теперь видны раньше, чем они успевают сработать.'},
+ {id:'a13',name:'Капитан приоритетов',icon:'anchor',key:'course',target:1,cond:'Выполни все приоритеты недели',b:{skill:5},fact:'Все приоритеты недели закрыты. Редкий случай, когда план и реальность встретились и пожали друг другу руки.'},
+ {id:'a14',name:'Броня',icon:'heart',key:'noHit',target:14,cond:'14 дней подряд без ударов',hpfx:'Первый удар за пропуски в каждой неделе прощается',fact:'Правило «не пропускать дважды»: один пропуск это случайность, два подряд это начало новой привычки. Щит прощает первую ошибку, а 14 дней без ударов это уже броня.'},
+ {id:'a15',name:'Феникс из пепла',icon:'clover',key:'phoenix',target:1,cond:'Выберись из нуля HP до 50 и выше',hpfx:'В режиме восстановления +20 HP вместо 15',fact:'Эффект нового старта (Дай, Милкман и Риис, 2014): люди чаще берутся за цели после «временных отметок», вроде понедельника или дня рождения. Ноль HP тоже отличная точка старта.'},
+ {id:'a16',name:'Сова в отставке',icon:'moon',key:'sleep',target:14,cond:'14 отбоев до 23:00',b:{sleep:5},fact:'Две недели отбоев до 23:00. Сон это не потерянное время, а техобслуживание всего остального.'},
+ {id:'a17',name:'Марафон по чуть-чуть',icon:'steps',key:'walk',target:30,cond:'30 прогулок',b:{walk:5},fact:'Тридцать прогулок. Ноги уже знают маршрут, а голова успевает проветриться.'},
+ {id:'a18',name:'Летописец',icon:'mail',key:'note',target:30,cond:'30 вечерних заметок',b:{note:5},fact:'Тридцать вечерних заметок. Через год это будет самый честный дневник. Местами смешной.'},
+ {id:'a19',name:'Четыре идеальные недели',icon:'chart',key:'fullW',target:4,cond:'4 недели со всеми недельными привычками',b:{'*W':5},fact:'Четыре недели со всеми недельными делами. Это уже не мотивация, это система, а система не устаёт.'},
+ {id:'a20',name:'Автор привычки',icon:'figure',key:'customMax',target:7,cond:'Создай свою привычку и отметь её 7 раз',b:{custom:5},fact:'Своя привычка, отмеченная семь раз. Чужие советы хороши, но своя привычка держится крепче, потому что она твоя.'},
 ];
 function achCounts(){
   const cr=state.cravings||[];
@@ -1024,7 +1366,7 @@ let weekStart = monday(ds());
 /* ================= STATE ================= */
 function normalize(s){
   s = (s && typeof s==='object') ? s : {};
-  return {version:5, days:s.days||{}, weeks:s.weeks||{}, active:s.active||{}, slips:s.slips||{}, hpStart:s.hpStart||ds(), ideas:Array.isArray(s.ideas)?s.ideas:SEED_IDEAS.map(x=>({...x})), ideaLog:s.ideaLog||{}, cravings:Array.isArray(s.cravings)?s.cravings:[], reviews:s.reviews||{}, names:s.names||{}, deleted:s.deleted||{}, order:(s.order&&typeof s.order==='object')?{d:s.order.d||[],w:s.order.w||[]}:{d:[],w:[]}, custom:Array.isArray(s.custom)?s.custom:[], keyHabits:Array.isArray(s.keyHabits)?s.keyHabits:null, settings:{skin:(s.settings&&s.settings.skin)||'green', title:(s.settings&&s.settings.title)||'Терминал баланса', onboarded:(s.settings&&s.settings.onboarded!=null)?!!s.settings.onboarded:!!(s.days&&Object.keys(s.days).length), accent:(s.settings&&s.settings.accent)||((s.settings&&s.settings.skin==='amber')?'amber':'green'), statStyle:(s.settings&&s.settings.statStyle)||'text', fx:!(s.settings&&s.settings.fx===false), volume:(s.settings&&typeof s.settings.volume==='number')?s.settings.volume:.8, word:(s.settings&&s.settings.word)||'тяга', coachSeen:!!(s.settings&&s.settings.coachSeen), hide:Array.isArray(s.settings&&s.settings.hide)?s.settings.hide:[], userName:(s.settings&&s.settings.userName)||'', gender:(s.settings&&s.settings.gender)||'n', persDismissed:!!(s.settings&&s.settings.persDismissed), tone:(s.settings&&s.settings.tone)||'direct', adult:!!(s.settings&&s.settings.adult), toneSlips:!!(s.settings&&s.settings.toneSlips), tc:(s.settings&&s.settings.tc)||0}};
+  return {version:5, days:s.days||{}, weeks:s.weeks||{}, active:s.active||{}, slips:s.slips||{}, hpStart:s.hpStart||ds(), ideas:Array.isArray(s.ideas)?s.ideas:SEED_IDEAS.map(x=>({...x})), ideaLog:s.ideaLog||{}, cravings:Array.isArray(s.cravings)?s.cravings:[], reviews:s.reviews||{}, names:s.names||{}, deleted:s.deleted||{}, order:(s.order&&typeof s.order==='object')?{d:s.order.d||[],w:s.order.w||[]}:{d:[],w:[]}, custom:Array.isArray(s.custom)?s.custom:[], keyHabits:Array.isArray(s.keyHabits)?s.keyHabits:null, settings:{skin:((x)=>(!x||x==='green'||x==='amber')?'glass':x)(s.settings&&s.settings.skin), title:(s.settings&&s.settings.title)||'Терминал баланса', onboarded:(s.settings&&s.settings.onboarded!=null)?!!s.settings.onboarded:!!(s.days&&Object.keys(s.days).length), accent:(s.settings&&s.settings.accent)||((s.settings&&s.settings.skin==='amber')?'amber':'green'), statStyle:(s.settings&&s.settings.statStyle)||'text', fx:!(s.settings&&s.settings.fx===false), volume:(s.settings&&typeof s.settings.volume==='number')?s.settings.volume:.8, word:(s.settings&&s.settings.word)||'тяга', coachSeen:!!(s.settings&&s.settings.coachSeen), hide:Array.isArray(s.settings&&s.settings.hide)?s.settings.hide:[], userName:(s.settings&&s.settings.userName)||'', gender:(s.settings&&s.settings.gender)||'n', persDismissed:!!(s.settings&&s.settings.persDismissed), tone:(s.settings&&s.settings.tone)||'direct', adult:!!(s.settings&&s.settings.adult), toneSlips:!!(s.settings&&s.settings.toneSlips), tc:(s.settings&&s.settings.tc)||0, motion:(s.settings&&s.settings.motion)==='calm'?'calm':'full', haptics:!(s.settings&&s.settings.haptics===false), glassLite:!!(s.settings&&s.settings.glassLite), addict:(s.settings&&s.settings.addict)||'alcohol', addCustom:(s.settings&&s.settings.addCustom)||'', tiles:Array.isArray(s.settings&&s.settings.tiles)?s.settings.tiles:['idle','addict','week']}};
 }
 let state = normalize(null);
 try{ const raw=localStorage.getItem(LOCAL_KEY); if(raw) state=normalize(JSON.parse(raw)); }catch(e){}
@@ -1158,7 +1500,7 @@ function render(){
   document.getElementById('xpFill').style.width=Math.min(100,C.into/C.need*100)+'%';
   document.getElementById('xpNum').innerHTML=`<span class="full">${svg('spark')}XP ${C.into} / ${C.need} · до ур. ${C.l+1}</span><span class="short">${svg('spark')}XP ${C.into}/${C.need}</span>`;
   renderAvatar(); renderStats(); renderHP(); renderToday(); renderWeekPanel(); renderMoods(); renderLog();
-  renderJournal(); renderPerks(); renderLibrary(); renderSat(); renderPrio(); renderIdeasAdmin(); renderAppearance(); renderAch(); renderBlocks(); renderPersonal(); renderTone(); renderSound(); checkAch();
+  renderJournal(); renderPerks(); renderLibrary(); renderSat(); renderPrio(); renderIdeasAdmin(); renderAppearance(); renderAch(); renderBlocks(); renderPersonal(); renderTone(); renderSound(); renderHero(); renderTodayTiles(); renderTileRow(); renderAddict(); renderProgHero(); dedupeRev(); checkAch();
   applyWord(document.body);
   if(state.settings.coachSeen){ const c=document.getElementById('coach'); if(c&&!c.hidden){ c.hidden=true; document.getElementById('fab').classList.remove('hl'); } }
 }
@@ -1182,7 +1524,7 @@ function habitRow(h, on, meta, hot, attr){
 }
 function renderToday(){
   const s=TODAY(), d=peek(s);
-  document.getElementById('todayTitle').textContent='Сегодня, '+new Date().toLocaleDateString('ru-RU',{weekday:'long',day:'numeric',month:'long'});
+  { const _ds=new Date().toLocaleDateString('ru-RU',{weekday:'long',day:'numeric',month:'long'}); document.getElementById('todayTitle').textContent=isModern()?_ds.charAt(0).toUpperCase()+_ds.slice(1):'Сегодня, '+_ds; }
   const el=document.getElementById('todayList');
   el.innerHTML=DAILY.filter(h=>isActive(h,C.l)).map(h=>{
     const st=streak(h.id), b=C.bm[h.id];
@@ -1199,13 +1541,13 @@ function renderWeekPanel(){
     let row=habitRow(h, !!t, [t?`отмечено ${fmt(t)}`:'', b?`+${b}%`:''].filter(Boolean).join(' · '), false, `data-w="${w}" data-h="${h.id}"`);
     if(h.id==='skill') row+=`<div class="sub-in"><input type="text" id="skillInput" maxlength="80" placeholder="Что осваиваешь на этой неделе?" value="${esc(wo.skill||'')}"></div>`;
     return row;
-  }).join('') : '<div class="hint" style="margin:0">Недельные привычки выключены. Включить можно во вкладке «Данные».</div>';
+  }).join('') : '<div class="hint" style="margin:0">Недельные привычки выключены. Включить можно в «Настройках».</div>';
   el.querySelectorAll('.trow').forEach(b=>b.addEventListener('click',()=>{ toggleWeek(b.dataset.w,b.dataset.h); const nb=el.querySelector(`[data-h="${b.dataset.h}"]`); nb&&nb.classList.add('pop'); }));
   const si=document.getElementById('skillInput');
   if(si) si.addEventListener('change',()=>{ week(w).skill=si.value.trim(); save(); toast('Навык записан'); });
 
   const line=(label,val,max,done,xp)=>`<div class="pline ${done?'done':''}"><span>${label}</span><span class="val">${done?`+${xp} XP получено`:`${val} / ${max} · +${xp} XP`}</span><div class="bar"><i style="width:${Math.min(100,val/max*100)}%"></i></div></div>`;
-  document.getElementById('weekProg').innerHTML =
+  document.getElementById('weekProg').innerHTML = isModern() ? WTILES(st) :
     line('Неделя без алкоголя', st.sober, 7, st.soberDone, 100) +
     line('Две тренировки', st.train, 2, st.trainDone, 30) +
     (st.wTotal ? line('Все недельные привычки', st.wDone, st.wTotal, st.weeklyDone, 50) : '');
@@ -1262,7 +1604,7 @@ function renderJournal(){
 
   const wo=wpeek(weekStart), st=weekStatus(weekStart), future=weekStart>today;
   const wh=WEEKLY.filter(x=>!x.archived && (rawActive(x)||wo.habits[x.id]));
-  document.getElementById('wkLog').innerHTML = wh.map(x=>{ const v=wo.habits[x.id];
+  document.getElementById('wkLog').innerHTML = (isModern()&&weekStart===monday(today)?[]:wh).map(x=>{ const v=wo.habits[x.id];
     return `<div class="wk-item ${v?'on':''}"><span class="hi">${svg(x.icon)}</span><span>${x.name}${x.id==='skill'&&wo.skill?`: ${esc(wo.skill)}`:''}</span><span class="st">${v?'выполнено':'—'}</span>
       ${future?'':`<button class="chk ${v?'on':''}" data-w="${weekStart}" data-h="${x.id}" aria-label="${x.name}" aria-pressed="${!!v}">✓</button>`}</div>`; }).join('')
     + `<div class="wk-item"><span class="hi">${svg('crown')}</span><span>Бонусы: ${[st.soberDone&&'без алкоголя',st.trainDone&&'тренировки',st.weeklyDone&&'все недельные'].filter(Boolean).join(', ')||'пока нет'}</span></div>`
@@ -1272,6 +1614,7 @@ function renderJournal(){
   renderChart(days,names,shown.filter(x=>isActive(x,C.l)).length||1);
 }
 function renderChart(days,names,max){
+  if(isModern()) return renderChartM(days,names,max);
   const W=340,H=120,pad=22,bw=26,gap=(W-pad*2-bw*7)/6, seg=(H-34)/max;
   let bars='',pts=[];
   days.forEach((d,i)=>{
@@ -1335,6 +1678,7 @@ function renderLibrary(){
   el.querySelectorAll('[data-key]').forEach(b=>b.addEventListener('click',()=>{ if(toggleKey(b.dataset.key)){ save(); render(); sfx.tab(); } }));
   el.querySelectorAll('[data-un]').forEach(b=>b.addEventListener('click',()=>{ const id=b.dataset.un, c=(state.custom||[]).find(x=>x.id===id); if(c) c.archived=false; else delete state.deleted[id]; save(); render(); toast('Привычка вернулась'); }));
   initDrag(document.getElementById('libD'),'d'); initDrag(document.getElementById('libW'),'w');
+  el.querySelectorAll('.lrow[data-id]').forEach(r=>r.addEventListener('click',e=>{ if(e.target.closest('.sw,.dh,[data-ed]')) return; openHabitEditor(r.dataset.id); }));
 }
 function setOrder(key,ids){ state.order[key]=ids; save(); render(); sfx.tab(); }
 function initDrag(box,key){
@@ -1410,7 +1754,7 @@ function showLevelUp(from,to){
   document.getElementById('lvlPerk').innerHTML=gained.map(p=>`<div class="medal">${svg(p.icon)}</div><span>Новый перк: «${p.name}»<br><small style="color:#bdf7cf">${bonusText(p)}</small></span>`).join('');
   const newH=DAILY.filter(h=>h.unlock&&h.unlock>from&&h.unlock<=to);
   document.getElementById('lvlExtra').textContent = (newH.length?`Открыта привычка: «${newH.map(h=>h.name).join('», «')}». `:'') + (gained.length?'Факт перка ждёт во вкладке «Перки».':'');
-  applyWord(box); box.classList.remove('show'); void box.offsetWidth; box.classList.add('show');
+  applyWord(box); box.classList.remove('show'); void box.offsetWidth; box.classList.add('show'); confetti(box);
   const w=document.getElementById('wrap'); w.classList.remove('shake'); void w.offsetWidth; w.classList.add('shake');
   sfx.levelup(); document.getElementById('lvlOk').focus();
 }
@@ -1669,7 +2013,7 @@ function openIdle(){
   };
   const list=()=>{
     const picks=pickIdeas(e,m);
-    if(!picks.length){ openModal(`<h3 style="margin-top:0">Банк идей пуст</h3><p class="hint" style="text-align:center">Добавь свои идеи во вкладке «Данные».</p><button class="btn close" data-close type="button">Понятно</button>`); return; }
+    if(!picks.length){ openModal(`<h3 style="margin-top:0">Банк идей пуст</h3><p class="hint" style="text-align:center">Добавь свои идеи в «Настройках».</p><button class="btn close" data-close type="button">Понятно</button>`); return; }
     openModal(`<h3 style="margin-top:0">Вот что можно</h3>${picks.map((x,i)=>`<div class="idea"><b>${esc(x.t)}</b>${x.soc?'<span class="badge">с людьми</span>':''}<p>Первый шаг: ${esc(x.s)}</p><button class="btn" type="button" data-pick="${i}">Начать</button></div>`).join('')}
       <div class="navbtns"><button class="btn ghost" id="iBack" type="button">Назад</button><button class="btn ghost" id="iMore" type="button">Другие варианты</button></div>`);
     document.querySelectorAll('#modalCard [data-pick]').forEach(b=>b.addEventListener('click',()=>startIdea(picks[+b.dataset.pick])));
@@ -1913,11 +2257,11 @@ function renderIdeasAdmin(){
 
 /* ================= v2.3: темы, название, свои привычки, знакомство ================= */
 const isCute=()=>state.settings&&state.settings.skin==='cute';
-const SKINS=[{k:'green',l:'Терминал',bg:'#050a05',fg:'#3ef07a'},{k:'cute',l:'Милая',bg:'#fff5fa',fg:'#e8619d'},{k:'std',l:'Стандартная',bg:'#f3f4f6',fg:'#2563eb'}];
+const SKINS=[{k:'card',l:'Карточки',bg:'#f1effa',fg:'#4b45e6'},{k:'glass',l:'Стекло',bg:'#8ab4ff',fg:'#b06bff'},{k:'cute',l:'Милая',bg:'#fff5fa',fg:'#e8619d'},{k:'std',l:'Стандартная',bg:'#f3f4f6',fg:'#2563eb'}];
 const DEFAULT_TITLE='Терминал баланса';
 function applySkin(){
   const s=state.settings||{};
-  document.documentElement.dataset.skin=s.skin||'green'; document.documentElement.dataset.fx=(s.fx===false)?'off':'on'; document.documentElement.dataset.hide=(s.hide||[]).join(' ');
+  document.documentElement.dataset.skin=s.skin||'glass'; document.documentElement.dataset.fx=(s.fx===false)?'off':'on'; document.documentElement.dataset.hide=(s.hide||[]).join(' '); document.documentElement.dataset.layout=(s.skin==='green'||s.skin==='amber'||!s.skin)?'terminal':'modern'; document.documentElement.dataset.tod=todKey(); document.documentElement.dataset.motion=(s.motion==='calm')?'calm':'full'; document.documentElement.dataset.glass=s.glassLite?'lite':'full';
   const t=s.title||DEFAULT_TITLE, h=document.getElementById('ttl');
   if(h && h.textContent!==t) h.textContent=t;
   document.title=t;
@@ -1926,11 +2270,11 @@ function applySkin(){
 const skinsHtml=(sel)=>SKINS.map(s=>{ const acc=(state.settings&&state.settings.accent)||'green', term=s.k==='green', key=term?acc:s.k, on=term?(sel==='green'||sel==='amber'):sel===s.k, bg=term&&acc==='amber'?'#0b0702':s.bg, fg=term&&acc==='amber'?'#ffb642':s.fg; return `<button class="skin ${on?'sel':''}" type="button" data-skin="${key}" aria-pressed="${on}"><i style="background:linear-gradient(135deg,${bg} 50%,${fg} 50%)"></i>${s.l}</button>`; }).join('');
 function renderAppearance(){
   const S=state.settings, el=document.getElementById('skins'); el.innerHTML=skinsHtml(S.skin);
-  el.querySelectorAll('.skin').forEach(b=>b.addEventListener('click',()=>{ S.skin=b.dataset.skin; if(S.skin==='green'||S.skin==='amber') S.accent=S.skin; save(); render(); sfx.check(); toast('Тема: '+(b.dataset.skin==='cute'?'Милая':b.dataset.skin==='std'?'Стандартная':'Терминал')); }));
+  el.querySelectorAll('.skin').forEach(b=>b.addEventListener('click',()=>{ S.skin=b.dataset.skin; if(S.skin==='green'||S.skin==='amber') S.accent=S.skin; save(); render(); sfx.check(); toast('Тема: '+((SKINS.find(x=>x.k===b.dataset.skin)||SKINS[0]).l)); }));
   const term=(S.skin==='green'||S.skin==='amber');
   ['accentRow','fxRow','accLbl','fxLbl'].forEach(id=>{ document.getElementById(id).hidden=!term; });
   const mark=(sel,attr,val)=>document.querySelectorAll(sel).forEach(c=>{ const on=c.dataset[attr]===val; c.classList.toggle('sel',on); c.setAttribute('aria-pressed',on); });
-  mark('#accentRow .chip','acc',S.accent); mark('#statStyle .chip','v',S.statStyle); mark('#fxRow .chip','v',S.fx===false?'off':'on'); mark('#wordRow .chip','w',S.word);
+  mark('#accentRow .chip','acc',S.accent); mark('#motionRow .chip','v',S.motion||'full'); mark('#hapticRow .chip','v',S.haptics===false?'off':'on'); mark('#glassRow .chip','v',S.glassLite?'lite':'full'); ['glassRow','glassLbl'].forEach(id=>{ document.getElementById(id).hidden=(S.skin!=='glass'); }); mark('#statStyle .chip','v',S.statStyle); mark('#fxRow .chip','v',S.fx===false?'off':'on'); mark('#wordRow .chip','w',S.word);
   const ti=document.getElementById('titleIn'); if(document.activeElement!==ti) ti.value=S.title||DEFAULT_TITLE;
   const vi=document.getElementById('volIn'); if(document.activeElement!==vi) vi.value=Math.round((typeof S.volume==='number'?S.volume:.8)*100);
 }
@@ -1977,7 +2321,7 @@ const MEOW={
   bonus:()=>{ meow(1.15,.22,.05); meow(1.3,.26,.05,.24); }, hit:()=>meow(.78,.55,.055),
   levelup:()=>{ meow(1,.34,.06); meow(1.25,.32,.06,.36); purr(.8,.045,.72); },
 };
-{ const base={...sfx}; Object.keys(base).forEach(k=>{ sfx[k]=(...a)=>{ const sk=(state.settings&&state.settings.skin)||'green'; const pk=sk==='cute'?MEOW:sk==='std'?NEUTRAL:null; return pk?(pk[k]?pk[k](...a):null):base[k](...a); }; }); }
+{ const base={...sfx}; Object.keys(base).forEach(k=>{ sfx[k]=(...a)=>{ const sk=(state.settings&&state.settings.skin)||'green'; const pk=sk==='cute'?MEOW:(sk==='std'||sk==='card'||sk==='glass')?NEUTRAL:null; if(HAPT[k]) vib(HAPT[k]); return pk?(pk[k]?pk[k](...a):null):base[k](...a); }; }); }
 
 /* ---- свои привычки ---- */
 const ICONS=['dumbbell','steps','notebook','book','moon','pan','pot','palette','people','target','spark','tree','broom','phone','stretch','heart','compass','bulb','calendar','chart','mail','anchor','lungs','sun','shield','scales','bath','eye','bolt','clover','drop','figure'];
@@ -2040,17 +2384,19 @@ function openOnboard(){
   const weeklyChips=()=>WEEKLY.filter(h=>!h.archived).map(h=>`<button class="chip ${rawActive(h)?'sel':''}" type="button" data-h="${h.id}">${esc(h.name)}</button>`).join('');
   const keyChips=()=>DAILY.filter(h=>rawActive(h)&&!h.unlock).map(h=>`<button class="chip ${(state.keyHabits||KEY_HABITS).includes(h.id)?'sel':''}" type="button" data-k="${h.id}">${esc(h.name)}</button>`).join('');
   const steps=[
-    ()=>`<div class="stepn">Знакомство · 1 из 5</div><h3 style="margin-top:0">Привет!</h3><p class="fact" style="text-align:center;margin-top:6px">Это трекер привычек в духе ретро-игры: отмечаешь дела, копишь опыт, открываешь перки. Срывы бьют только по HP, опыт никогда не отнимается.</p><label class="fl" for="obT">Как назовём трекер?</label><input type="text" id="obT" maxlength="24" value="${esc(S.title||DEFAULT_TITLE)}"><label class="fl" for="obName">Как к тебе обращаться?</label><input type="text" id="obName" maxlength="24" value="${esc(S.userName||'')}" placeholder="Имя"><div class="chips" id="obG" style="margin-top:8px"><button class="chip ${S.gender==='m'?'sel':''}" type="button" data-g="m">Мужской</button><button class="chip ${S.gender==='f'?'sel':''}" type="button" data-g="f">Женский</button><button class="chip ${(S.gender||'n')==='n'?'sel':''}" type="button" data-g="n">Не указывать</button></div>`,
-    ()=>`<div class="stepn">Знакомство · 2 из 5</div><h3 style="margin-top:0">Выбери вид</h3><div class="skins" id="obS">${skinsHtml(S.skin)}</div><p class="hint" style="text-align:center;margin:10px 0 0">Поменять можно в любой момент во вкладке «Данные».</p>`,
-    ()=>`<div class="stepn">Знакомство · 3 из 5</div><h3 style="margin-top:0">Как назовём кнопку помощи?</h3><p class="hint" style="margin:0 0 8px">Это кнопка на случай, когда сильно хочется сорваться. Выбери слово, которое тебе ближе.</p><div class="chips" id="obWord" data-nowrd="1" style="margin-top:0"><button class="chip ${(S.word||'тяга')==='тяга'?'sel':''}" type="button" data-w="тяга">Тяга</button><button class="chip ${S.word==='соблазн'?'sel':''}" type="button" data-w="соблазн">Соблазн</button></div><p class="hint" style="margin:10px 0 0">Поменять можно в «Данных».</p>`,
-    ()=>`<div class="stepn">Знакомство · 4 из 5</div><h3 style="margin-top:0">Привычки</h3><p class="hint" style="margin:0 0 6px">Начни с трёх-пяти ежедневных. Остальные можно включить позже, а свои добавить во вкладке «Данные».</p><div class="fl">Каждый день</div><div class="chips" id="obD" style="margin-top:0">${dailyChips()}</div><div class="fl">Раз в неделю</div><div class="chips" id="obW" style="margin-top:0">${weeklyChips()}</div>`,
-    ()=>`<div class="stepn">Знакомство · 5 из 5</div><h3 style="margin-top:0">Ключевые привычки</h3><p class="hint" style="margin:0 0 6px">Две-три самые важные. Если пропустить такую два дня подряд, уходит немного HP. Это мягкая страховка, а не штраф за жизнь.</p><div class="chips" id="obK" style="margin-top:0">${keyChips()}</div>`,
+    ()=>`<div class="stepn">Знакомство · 1 из 6</div><h3 style="margin-top:0">Привет!</h3><p class="fact" style="text-align:center;margin-top:6px">Это трекер привычек в духе ретро-игры: отмечаешь дела, копишь опыт, открываешь перки. Срывы бьют только по HP, опыт никогда не отнимается.</p><label class="fl" for="obT">Как назовём трекер?</label><input type="text" id="obT" maxlength="24" value="${esc(S.title||DEFAULT_TITLE)}"><label class="fl" for="obName">Как к тебе обращаться?</label><input type="text" id="obName" maxlength="24" value="${esc(S.userName||'')}" placeholder="Имя"><div class="chips" id="obG" style="margin-top:8px"><button class="chip ${S.gender==='m'?'sel':''}" type="button" data-g="m">Мужской</button><button class="chip ${S.gender==='f'?'sel':''}" type="button" data-g="f">Женский</button><button class="chip ${(S.gender||'n')==='n'?'sel':''}" type="button" data-g="n">Не указывать</button></div>`,
+    ()=>`<div class="stepn">Знакомство · 2 из 6</div><h3 style="margin-top:0">От чего отказываешься?</h3><p class="hint" style="margin:0 0 8px">Под это настроятся привычка «Без …», срывы и бонус недели. Поменять можно в любой момент в «Настройках».</p><div class="chips" id="obA" style="margin-top:0">${[['alcohol','Алкоголь'],['smoking','Курение'],['sugar','Сладкое'],['games','Игры'],['social','Соцсети'],['custom','Своё']].map(([k,l])=>`<button class="chip ${(S.addict||'alcohol')===k?'sel':''}" type="button" data-a="${k}">${l}</button>`).join('')}</div><div id="obAC" ${S.addict==='custom'?'':'hidden'} style="margin-top:8px"><input type="text" id="obACin" maxlength="24" placeholder="Без чего? Например: энергетиков" value="${esc(S.addCustom||'')}"></div>`,
+    ()=>`<div class="stepn">Знакомство · 3 из 6</div><h3 style="margin-top:0">Выбери вид</h3><div class="skins" id="obS">${skinsHtml(S.skin)}</div><p class="hint" style="text-align:center;margin:10px 0 0">Поменять можно в любой момент в «Настройках».</p>`,
+    ()=>`<div class="stepn">Знакомство · 4 из 6</div><h3 style="margin-top:0">Как назовём кнопку помощи?</h3><p class="hint" style="margin:0 0 8px">Это кнопка на случай, когда сильно хочется сорваться. Выбери слово, которое тебе ближе.</p><div class="chips" id="obWord" data-nowrd="1" style="margin-top:0"><button class="chip ${(S.word||'тяга')==='тяга'?'sel':''}" type="button" data-w="тяга">Тяга</button><button class="chip ${S.word==='соблазн'?'sel':''}" type="button" data-w="соблазн">Соблазн</button></div><p class="hint" style="margin:10px 0 0">Поменять можно в «Настройках».</p>`,
+    ()=>`<div class="stepn">Знакомство · 5 из 6</div><h3 style="margin-top:0">Привычки</h3><p class="hint" style="margin:0 0 6px">Начни с трёх-пяти ежедневных. Остальные можно включить позже, а свои добавить в «Настройках».</p><div class="fl">Каждый день</div><div class="chips" id="obD" style="margin-top:0">${dailyChips()}</div><div class="fl">Раз в неделю</div><div class="chips" id="obW" style="margin-top:0">${weeklyChips()}</div>`,
+    ()=>`<div class="stepn">Знакомство · 6 из 6</div><h3 style="margin-top:0">Ключевые привычки</h3><p class="hint" style="margin:0 0 6px">Две-три самые важные. Если пропустить такую два дня подряд, уходит немного HP. Это мягкая страховка, а не штраф за жизнь.</p><div class="chips" id="obK" style="margin-top:0">${keyChips()}</div>`,
   ];
-  const read=()=>{ if(i===0){ const t=fv('obT'); S.title=(t||DEFAULT_TITLE).slice(0,24); S.userName=fv('obName').slice(0,24); } };
+  const read=()=>{ if(i===0){ const t=fv('obT'); S.title=(t||DEFAULT_TITLE).slice(0,24); S.userName=fv('obName').slice(0,24); } if(i===1){ S.addCustom=fv('obACin').slice(0,24); rebuildHabits(); } };
   const show=()=>{
     openModal(steps[i]()+`<div class="navbtns"><button class="btn ghost" id="obB" type="button">${i?'Назад':'Пропустить'}</button><button class="btn" id="obN" type="button">${i<steps.length-1?'Далее':'Начать'}</button></div>`);
     lockModal();
     document.querySelectorAll('#obS .skin').forEach(b=>b.addEventListener('click',()=>{ S.skin=b.dataset.skin; applySkin(); document.querySelectorAll('#obS .skin').forEach(x=>x.classList.toggle('sel',x===b)); sfx.check(); }));
+    document.querySelectorAll('#obA .chip').forEach(b=>b.addEventListener('click',()=>{ S.addict=b.dataset.a; document.querySelectorAll('#obA .chip').forEach(x=>x.classList.toggle('sel',x===b)); document.getElementById('obAC').hidden=(S.addict!=='custom'); rebuildHabits(); sfx.tab(); }));
     document.querySelectorAll('#obG .chip').forEach(b=>b.addEventListener('click',()=>{ S.gender=b.dataset.g; document.querySelectorAll('#obG .chip').forEach(x=>x.classList.toggle('sel',x===b)); sfx.tab(); }));
     document.querySelectorAll('#obWord .chip').forEach(b=>b.addEventListener('click',()=>{ S.word=b.dataset.w; document.querySelectorAll('#obWord .chip').forEach(x=>x.classList.toggle('sel',x===b)); sfx.tab(); }));
     document.querySelectorAll('#obD .chip,#obW .chip').forEach(b=>b.addEventListener('click',()=>{ const h=HMAP[b.dataset.h]; state.active[h.id]=!rawActive(h); b.classList.toggle('sel',rawActive(h)); sfx.tab(); }));
@@ -2094,7 +2440,7 @@ function showAch(list){
   if(box.classList.contains('show')){ pk.insertAdjacentHTML('beforeend',html); return; }
   txt.textContent='ДОСТИЖЕНИЕ'; txt.dataset.text='ДОСТИЖЕНИЕ'; document.querySelector('#lvlup .sub').textContent=phrase('ach');
   pk.innerHTML=html; document.getElementById('lvlExtra').textContent='Факт ждёт во вкладке «Перки».';
-  applyWord(box); box.classList.remove('show'); void box.offsetWidth; box.classList.add('show');
+  applyWord(box); box.classList.remove('show'); void box.offsetWidth; box.classList.add('show'); confetti(box);
   sfx.levelup(); document.getElementById('lvlOk').focus();
 }
 
@@ -2107,12 +2453,12 @@ function showAch(list){
 /* ================= v2.4: справка, слово, подсказка, звук ================= */
 function empty(text,icon){ return `<div class="empty">${svg(icon||'spark')}<span>${text}</span></div>`; }
 const HELP={
-  hp:{t:'Как работает HP',h:'<ul class="rl"><li>Срыв с алкоголем: −25 HP. Разбор срыва (стимпак) возвращает +10 HP.</li><li>Два дня подряд без ключевой привычки: −10 HP за день. Первые три дня после старта без этого. Ключевые привычки выбираешь в «Данных».</li><li>День с отметками и без ударов: +10 HP.</li><li>Пройденная «Тяга»: +5 HP. Дело из «Чем себя занять?»: +5 HP раз в день.</li><li>При 0 HP включается режим восстановления на три дня: нужны только две первые ключевые привычки, они дают +15 HP за день.</li><li>Опыт и уровни HP не затрагивает.</li></ul>'},
+  hp:{t:'Как работает HP',h:'<ul class="rl"><li>Срыв с алкоголем: −25 HP. Разбор срыва (стимпак) возвращает +10 HP.</li><li>Два дня подряд без ключевой привычки: −10 HP за день. Первые три дня после старта без этого. Ключевые привычки выбираешь в «Настройках».</li><li>День с отметками и без ударов: +10 HP.</li><li>Пройденная «Тяга»: +5 HP. Дело из «Чем себя занять?»: +5 HP раз в день.</li><li>При 0 HP включается режим восстановления на три дня: нужны только две первые ключевые привычки, они дают +15 HP за день.</li><li>Опыт и уровни HP не затрагивает.</li></ul>'},
   xp:{t:'Как начисляется опыт',h:'<ul class="rl"><li>Ежедневная привычка: +15 XP. Недельная: +50 XP. Настроение: +5 XP.</li><li>Бонусы недели: семь дней без алкоголя +100 XP, две тренировки +30 XP, все недельные привычки +50 XP.</li><li>«Тяга», пройденная до конца: +10 XP, до трёх раз в день.</li><li>Перки и достижения добавляют проценты к XP за свои привычки, до +50% на привычку.</li><li>Это игровые бонусы: реальный результат дают сами привычки.</li></ul>'},
   crave:{t:'Как работает «Тяга»',h:'<p class="fact">Кнопка на случай, когда сильно хочется того, от чего ты решил отказаться. Шесть коротких шагов: оценить силу, понять, что случилось и чего хочется, выбрать замену, пять минут дыхания, оценить снова.</p><ul class="rl"><li>Желание идёт волной и обычно спадает.</li><li>За полные пять минут: +5 HP и +10 XP.</li><li>Закрыть можно в любой момент, ничего не теряется.</li><li>Если всё-таки случится срыв, это тоже нормально: запишем без унижения и разберём, что запустило.</li></ul>'},
-  idle:{t:'Как работает «Чем себя занять?»',h:'<p class="fact">Отвечаешь на два вопроса (сколько энергии и какое настроение), и приложение подбирает два-три дела с первым шагом на 15 минут. Дела берутся из банка идей: пополняй его во вкладке «Данные». Сделанное даёт +5 HP раз в день, если шкала не полная.</p>'},
+  idle:{t:'Как работает «Чем себя занять?»',h:'<p class="fact">Отвечаешь на два вопроса (сколько энергии и какое настроение), и приложение подбирает два-три дела с первым шагом на 15 минут. Дела берутся из банка идей: пополняй его в «Настройках». Сделанное даёт +5 HP раз в день, если шкала не полная.</p>'},
   week:{t:'Недельные привычки и награда',h:'<ul class="rl"><li>Недельные привычки отмечаются один раз в любой день недели, +50 XP за каждую.</li><li>Когда выполнены все, открывается награда недели: ты сам вписываешь, чем порадуешь себя.</li><li>В субботу и воскресенье доступен разбор недели с заметкой для Obsidian.</li></ul>'},
-  stats:{t:'Характеристики и бонусы',h:'<p class="fact">Каждая отметка привычки качает одну-две характеристики: например, тренировка силу и выносливость, заметка интеллект. Это счётчики прогресса, на механику они не влияют. Подписи можно заменить значками в «Данных».</p><p class="fact">Ниже показаны бонусы перков и достижений: проценты к опыту за конкретные привычки.</p>'},
+  stats:{t:'Характеристики и бонусы',h:'<p class="fact">Каждая отметка привычки качает одну-две характеристики: например, тренировка силу и выносливость, заметка интеллект. Это счётчики прогресса, на механику они не влияют. Подписи можно заменить значками в «Настройках».</p><p class="fact">Ниже показаны бонусы перков и достижений: проценты к опыту за конкретные привычки.</p>'},
 };
 function openHelp(k){ const x=HELP[k]; if(!x) return; sfx.tab(); openModal(`<h3 style="margin-top:0">${x.t}</h3>${x.h}<button class="btn close" data-close type="button">Понятно</button>`); }
 document.addEventListener('click',e=>{ const b=e.target.closest&&e.target.closest('[data-help]'); if(b){ e.preventDefault(); openHelp(b.dataset.help); } });
@@ -2123,15 +2469,15 @@ const wordOf=()=>(state.settings&&state.settings.word)||'тяга';
 const SW_PH=[[/«Тяга» всегда доступна/g,'«Соблазн» всегда доступен'],[/заметь её, назови/g,'заметь его, назови'],[/Пройди первую полную «Тягу»/g,'Пройди первый полный «Соблазн»'],[/Пройди 10 полных «Тяг»/g,'Пройди 10 полных «Соблазнов»'],[/Пройденная «Тяга»/g,'Пройденный «Соблазн»'],[/«Тяга», пройденная до конца/g,'«Соблазн», пройденный до конца'],[/сёрфинг по тяге/g,'сёрфинг по соблазну'],[/тягу к алкоголю/g,'соблазн выпить'],[/Насколько сильная тяга/g,'Насколько сильный соблазн'],[/очень сильная\./g,'очень сильный.'],[/Тяга пройдена/g,'Соблазн пройден'],[/Тяга устроена/g,'Соблазн устроен']];
 const SW_RE=/(?<![А-Яа-яЁё])([Тт])яг(ой|а|и|у|е)(?![А-Яа-яЁё])/g;
 function tw(str){
-  if(wordOf()!=='соблазн') return str;
+  if(wordOf()!=='соблазн') return addSwap(String(str));
   let r=String(str); SW_PH.forEach(([a,b])=>{ r=r.replace(a,b); });
-  return r.replace(SW_RE,(m,c,suf)=>(c==='Т'?'С':'с')+'облазн'+({'а':'','у':'','и':'а','ой':'ом','е':'е'}[suf]));
+  r=r.replace(SW_RE,(m,c,suf)=>(c==='Т'?'С':'с')+'облазн'+({'а':'','у':'','и':'а','ой':'ом','е':'е'}[suf])); return addSwap(r);
 }
 function applyWord(root){
-  root=root||document.body; const sw=wordOf()==='соблазн';
+  root=root||document.body; const sw=wordOf()==='соблазн'||addKey()!=='alcohol';
   const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>{ const p=n.parentElement; if(!p) return NodeFilter.FILTER_REJECT; if(/^(SCRIPT|STYLE|TEXTAREA)$/.test(p.nodeName)||p.closest('[data-nowrd]')) return NodeFilter.FILTER_REJECT; return NodeFilter.FILTER_ACCEPT; }});
-  let n; while((n=w.nextNode())){ if(!ORIG.has(n)){ if(!/[Тт]яг|[Сс]облазн/.test(n.data)) continue; ORIG.set(n,n.data); } const o=ORIG.get(n), nv=sw?tw(o):o; if(n.data!==nv) n.data=nv; }
-  root.querySelectorAll('[aria-label],[title],[placeholder]').forEach(el=>{ if(el.closest('[data-nowrd]')) return; ['aria-label','title','placeholder'].forEach(a=>{ const v=el.getAttribute(a); if(v==null) return; el._o=el._o||{}; if(el._o[a]==null){ if(!/[Тт]яг/.test(v)) return; el._o[a]=v; } const nv=sw?tw(el._o[a]):el._o[a]; if(v!==nv) el.setAttribute(a,nv); }); });
+  let n; while((n=w.nextNode())){ if(!ORIG.has(n)){ if(!/[Тт]яг|[Сс]облазн|лкогол|выпи|бокал|градус|[Тт]резв/.test(n.data)) continue; ORIG.set(n,n.data); } const o=ORIG.get(n), nv=sw?tw(o):o; if(n.data!==nv) n.data=nv; }
+  root.querySelectorAll('[aria-label],[title],[placeholder]').forEach(el=>{ if(el.closest('[data-nowrd]')) return; ['aria-label','title','placeholder'].forEach(a=>{ const v=el.getAttribute(a); if(v==null) return; el._o=el._o||{}; if(el._o[a]==null){ if(!/[Тт]яг|лкогол|выпи|[Тт]резв/.test(v)) return; el._o[a]=v; } const nv=sw?tw(el._o[a]):el._o[a]; if(v!==nv) el.setAttribute(a,nv); }); });
 }
 
 /* нейтральный набор звуков, общая громкость */
@@ -2144,7 +2490,9 @@ const NEUTRAL={
   hit:()=>{ tone(150,.28,'sine',.09); tone(95,.34,'sine',.08,.1); },
   levelup:()=>{ [523,659,784,1046].forEach((f,i)=>tone(f,.2,'sine',.06,i*.11)); },
 };
-const PACK_GAIN={green:1,amber:1,cute:1.35,std:1.25};
+const PACK_GAIN={green:1,amber:1,cute:1.35,std:1.25,card:1.25,glass:1.25};
+const HAPT={check:14,uncheck:8,mood:10,bonus:[18,28,18],hit:[50,40,90],levelup:[30,40,30,40,90]};
+function vib(p){ try{ if(state.settings&&state.settings.haptics===false) return; if(navigator.vibrate) navigator.vibrate(p); }catch(e){} }
 function MST(a){ if(!a._m){ a._m=a.createGain(); a._m.connect(a.destination); } const st=state.settings||{}; const v=(typeof st.volume==='number'?st.volume:.8); a._m.gain.value=Math.max(0,Math.min(1.5,v*(PACK_GAIN[st.skin]||1))); return a._m; }
 
 /* подсказка про кнопку помощи */
@@ -2367,13 +2715,135 @@ function renderTone(){
   document.getElementById('tonePreview').addEventListener('click',openTonePreview);
 })();
 
+/* ================= v3.0: hero rings, motion settings ================= */
+function renderHero(){
+  const el=document.getElementById('heroRing'), m=document.getElementById('heroMet'); if(!el) return;
+  const act=DAILY.filter(h=>!h.archived&&isActive(h,C.l)), dd=(peek(TODAY()).habits)||{}; const done=act.filter(h=>dd[h.id]).length, total=Math.max(1,act.length);
+  const f=[done/total, Math.min(1,C.into/Math.max(1,C.need)), Math.max(0,Math.min(1,HPS.hp/HP_MAX))], col=['#c6ff6b','#52e3ff','#ff9fd8'];
+  if(!el.firstChild){
+    const ring=(r,c)=>`<circle cx="62" cy="62" r="${r}" fill="none" stroke="rgba(255,255,255,.24)" stroke-width="9"/><circle class="rg" cx="62" cy="62" r="${r}" fill="none" stroke="${c}" stroke-width="9" stroke-linecap="round" pathLength="100" style="stroke-dasharray:0 100" transform="rotate(-90 62 62)"/>`;
+    el.innerHTML=`<svg viewBox="0 0 124 124" width="124" height="124" aria-hidden="true">${ring(55,col[0])}${ring(43,col[1])}${ring(31,col[2])}</svg><div class="hc"><b id="hcN">0</b><small id="hcT"></small></div>`;
+  }
+  const rg=el.querySelectorAll('.rg');
+  requestAnimationFrame(()=>rg.forEach((c,i)=>{ c.style.strokeDasharray=`${(f[i]*100).toFixed(1)} 100`; }));
+  countTo(document.getElementById('hcN'),done); document.documentElement.style.setProperty('--xpf',f[1].toFixed(3)); document.getElementById('hcT').textContent=`из ${total}`;
+  m.innerHTML=`<div class="hm"><i style="background:${col[0]}"></i><span>Сегодня</span><b>${done} / ${total}</b></div><div class="hm"><i style="background:${col[1]}"></i><span>XP до ур. ${C.l+1}</span><b>${C.into} / ${C.need}</b></div><div class="hm"><i style="background:${col[2]}"></i><span>HP</span><b>${HPS.hp} / ${HP_MAX}</b></div>`;
+}
+(function(){
+  document.querySelectorAll('#motionRow .chip').forEach(c=>c.addEventListener('click',()=>{ state.settings.motion=c.dataset.v; save(); render(); sfx.tab(); setTab(location.hash.slice(1)||'data'); }));
+  document.querySelectorAll('#hapticRow .chip').forEach(c=>c.addEventListener('click',()=>{ state.settings.haptics=(c.dataset.v==='on'); save(); render(); if(state.settings.haptics) vib(30); }));
+  document.querySelectorAll('#glassRow .chip').forEach(c=>c.addEventListener('click',()=>{ state.settings.glassLite=(c.dataset.v==='lite'); save(); render(); sfx.tab(); }));
+})();
+
+/* ================= v3.1: modern extras ================= */
+function isModern(){ return document.documentElement.dataset.layout==='modern'; }
+const plural=(n,f)=>{ const a=Math.abs(n)%100, b=a%10; return (a>10&&a<20)?f[2]:b===1?f[0]:(b>=2&&b<=4)?f[1]:f[2]; };
+function countTo(el,to){
+  if(!el) return; const from=parseInt(el.textContent,10);
+  if(isNaN(from)||from===to||!isModern()||state.settings.motion==='calm'){ el.textContent=to; return; }
+  const t0=performance.now(); const step=(t)=>{ const k=Math.min(1,(t-t0)/650), e=1-Math.pow(1-k,3); el.textContent=Math.round(from+(to-from)*e); if(k<1) requestAnimationFrame(step); }; requestAnimationFrame(step);
+}
+function WTILES(st){
+  const tile=(label,val,max,done,xp,icon)=>{ const f=Math.max(0,Math.min(1,max?val/max:0)); return `<div class="btile ${done?'done':''}"><div class="bring"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="26" class="tr"/><circle cx="32" cy="32" r="26" class="fl" pathLength="100" style="stroke-dasharray:${(f*100).toFixed(1)} 100"/></svg><span class="bi">${svg(icon)}</span></div><b>${done?'Готово':`${val}/${max}`}</b><small>${label}</small><em>+${xp} XP</em></div>`; };
+  return `<div class="btiles">${tile(ADDF().no,st.sober,7,st.soberDone,100,ADDF().icon)}${tile('Тренировки',st.train,2,st.trainDone,30,'dumbbell')}${st.wTotal?tile('Недельные',st.wDone,st.wTotal,st.weeklyDone,50,'calendar'):''}</div>`;
+}
+function renderChartM(days,names,max){
+  const W=340,H=150,pad=14,bw=28,gap=(W-pad*2-bw*7)/6, top=30, base=H-24, hh=base-top, today=TODAY();
+  const mc=['#ff7a8a','#ffae2b','#cfd3e6','#52e3ff','#c6ff6b']; let bars='';
+  days.forEach((d,i)=>{ const p=peek(d), n=Math.min(max,DAILY.filter(h=>p.habits[h.id]).length), x=pad+i*(bw+gap), h=n?Math.max(14,hh*n/max):0, isT=d===today;
+    bars+=`<rect x="${x}" y="${top}" width="${bw}" height="${hh}" rx="14" style="fill:var(--text);opacity:.08"/>`;
+    if(n) bars+=`<rect class="cbar" x="${x}" y="${base-h}" width="${bw}" height="${h}" rx="14" style="fill:url(#cgr)"/>`;
+    if(p.mood) bars+=`<circle cx="${x+bw/2}" cy="${top-11}" r="5.5" style="fill:${mc[p.mood-1]}"/>`;
+    bars+=`<text x="${x+bw/2}" y="${H-5}" text-anchor="middle" font-size="12" style="fill:${isT?'var(--ink-bright)':'var(--text-dim)'};font-family:var(--display);font-weight:${isT?800:600}">${names[i]}</text>`;
+  });
+  const total=days.reduce((a,d)=>a+DAILY.filter(h=>peek(d).habits[h.id]).length,0);
+  document.getElementById('chart').innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="За неделю ${total} отметок"><defs><linearGradient id="cgr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--r2)"/><stop offset="1" style="stop-color:var(--r1)"/></linearGradient></defs>${bars}<text x="${W-pad}" y="12" text-anchor="end" font-size="13" style="fill:var(--ink-bright);font-family:var(--display);font-weight:800">${total} ${plural(total,['отметка','отметки','отметок'])} за неделю</text></svg>`;
+}
+function renderProgHero(){
+  const el=document.getElementById('progHero'); if(!el) return;
+  const opened=PERKS.filter(p=>p.lvl<=C.l).length, ach=ACHS.filter(a=>a.done).length, f=Math.min(1,C.into/Math.max(1,C.need));
+  if(!el.firstChild){ el.innerHTML=`<div class="phr"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,.24)" stroke-width="10"/><circle class="rg2" cx="60" cy="60" r="52" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" pathLength="100" style="stroke-dasharray:0 100" transform="rotate(-90 60 60)"/></svg><div><small>уровень</small><b id="phL"></b></div></div><div class="phm" id="phM"></div>`; }
+  requestAnimationFrame(()=>{ const c=el.querySelector('.rg2'); if(c) c.style.strokeDasharray=`${(f*100).toFixed(1)} 100`; });
+  document.getElementById('phL').textContent=C.l;
+  document.getElementById('phM').innerHTML=`<div><b>${C.into} / ${C.need}</b><small>XP до уровня ${C.l+1}</small></div><div><b>${opened} / ${PERKS.length}</b><small>перков открыто</small></div><div><b>${ach} / ${ACH.length}</b><small>достижений</small></div>`;
+}
+function confetti(box){
+  if(!isModern()||state.settings.motion==='calm'||matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const host=box.querySelector('.card')||box, c=document.createElement('div'); c.className='cfwrap';
+  const cols=['#c6ff6b','#52e3ff','#ff9fd8','#ffd36b','#a78bff','#ffffff'];
+  for(let i=0;i<40;i++){ const s=document.createElement('i'); s.style.cssText=`left:${Math.random()*100}%;background:${cols[i%cols.length]};animation-delay:${(Math.random()*.4).toFixed(2)}s;--x:${Math.round((Math.random()*2-1)*120)}px;--r:${Math.round(Math.random()*720-360)}deg;width:${(6+Math.random()*6).toFixed(1)}px;height:${(9+Math.random()*9).toFixed(1)}px`; c.appendChild(s); }
+  host.appendChild(c); setTimeout(()=>c.remove(),2700);
+}
+function dedupeRev(){ const rb=document.getElementById('revBtn'); if(rb&&rb.parentElement) rb.parentElement.hidden=isModern()&&!!document.querySelector('#wkLog [data-rv]'); }
+
+/* ================= v3.2: addiction, tiles, time of day ================= */
+function addKey(){ return (state.settings&&state.settings.addict)||'alcohol'; }
+function ADDF(){
+  const T={
+    alcohol:{l:'Алкоголь',no:'Без алкоголя',nom:'алкоголь',insP:'с алкоголем',dat:'алкоголю',act:'выпить',icon:'nobottle'},
+    smoking:{l:'Курение',no:'Без сигарет',nom:'сигареты',insP:'с сигаретой',dat:'курению',act:'закурить',icon:'nosmoke'},
+    sugar:{l:'Сладкое',no:'Без сладкого',nom:'сладкое',insP:'со сладким',dat:'сладкому',act:'съесть сладкое',icon:'nosweet'},
+    games:{l:'Игры',no:'Без игр',nom:'игры',insP:'с играми',dat:'играм',act:'сесть за игру',icon:'nogame'},
+    social:{l:'Соцсети',no:'Без соцсетей',nom:'соцсети',insP:'с соцсетями',dat:'соцсетям',act:'открыть ленту',icon:'nophone'}
+  };
+  const k=addKey();
+  if(k==='custom'){ const g=((state.settings&&state.settings.addCustom)||'').trim()||'срывов'; return {l:'Своё',no:'Без '+g,nom:g,insP:'',dat:'',act:'сорваться',icon:'shield'}; }
+  return T[k]||T.alcohol;
+}
+function addSwap(r){
+  if(addKey()==='alcohol') return r; const A=ADDF(), low=A.no.charAt(0).toLowerCase()+A.no.slice(1);
+  [[/Срыв с алкоголем/g,'Срыв'+(A.insP?' '+A.insP:'')],[/срывы с алкоголем/g,'срывы'+(A.insP?' '+A.insP:'')],[/Срыв: алкоголь/g,'Срыв: '+A.nom],[/тягу к алкоголю/g,A.dat?'тягу к '+A.dat:'тягу'],[/соблазн выпить/g,'соблазн '+A.act],[/захочется выпить/g,'захочется '+A.act],[/без выпивки/g,'без срыва'],[/выпивка/g,A.nom],[/«триггер → бокал»/g,'«триггер → срыв»'],[/без градусов/g,'без срывов'],[/Трезвая неделя/g,'Чистая неделя'],[/Трезвый месяц/g,'Чистый месяц'],[/4 трезвые/g,'4 чистые'],[/трезвые недели/g,'чистые недели'],[/Без алкоголя/g,A.no],[/без алкоголя/g,low]].forEach(([a,b])=>{ r=r.replace(a,b); });
+  return r;
+}
+function todKey(){ const h=new Date().getHours(); return h<5?'night':h<11?'morning':h<17?'day':h<22?'evening':'night'; }
+setInterval(()=>{ document.documentElement.dataset.tod=todKey(); },600000);
+const TILE_KEYS=['idle','addict','week','hp','best'];
+const HUES=['#5b8cff','#1fbf8a','#a77bff','#ff7a8a','#6a78ff','#ffae2b'];
+const hueOf=(id)=>HUES[Math.max(0,DAILY.findIndex(h=>h.id===id))%HUES.length];
+function tileList(){ const t=(state.settings.tiles||['idle','addict','week']); return t.filter(k=>k.startsWith('h:')?(HMAP[k.slice(2)]&&!HMAP[k.slice(2)].archived):TILE_KEYS.includes(k)); }
+function renderTodayTiles(){
+  const el=document.getElementById('todayTiles'); if(!el) return;
+  const list=tileList(); document.documentElement.dataset.idletile=list.includes('idle')?'1':'0';
+  const st=weekStatus(monday(TODAY())), days=(n)=>plural(n,['день','дня','дней']);
+  el.innerHTML=list.map(k=>{
+    if(k==='idle') return `<button class="tile t-teal" type="button" data-act="idle"><small>Чем себя занять?</small><i class="ill big">${svg('compass')}</i><b>15</b><span>минут на дело</span></button>`;
+    if(k==='addict'){ const ok=HMAP.sober&&!HMAP.sober.archived, n=ok?streak('sober'):0; return `<button class="tile t-warm" type="button" data-act="log"><small>${esc(ADDF().no)}</small><i class="ill flame"></i><b>${n}</b><span>${days(n)} подряд</span></button>`; }
+    if(k==='week') return `<button class="tile t-cool" type="button" data-act="log"><small>Эта неделя</small><i class="ill moon"></i><b>${st.wDone}/${st.wTotal||0}</b><span>недельных дел</span></button>`;
+    if(k==='hp') return `<button class="tile t-green" type="button" data-act="hp"><small>Здоровье</small><i class="ill big">${svg('heart')}</i><b>${HPS.hp}</b><span>HP из ${HP_MAX}</span></button>`;
+    if(k==='best'){ const best=DAILY.filter(h=>!h.archived&&isActive(h,C.l)).map(h=>[h,streak(h.id)]).sort((a,b)=>b[1]-a[1])[0], n=best?best[1]:0; return `<button class="tile t-violet" type="button" data-act="log"><small>Лучшая серия</small><i class="ill big">${svg('spark')}</i><b>${n}</b><span>${best&&n?esc(best[0].name):'пока нет'}</span></button>`; }
+    const h=HMAP[k.slice(2)], n=streak(h.id); return `<button class="tile t-hab" type="button" data-act="log" style="--hue:${hueOf(h.id)}"><small>${esc(h.name)}</small><i class="ill big">${svg(h.icon)}</i><b>${n}</b><span>${days(n)} подряд</span></button>`;
+  }).join('');
+  el.classList.toggle('few',list.length<=2); el.hidden=!list.length;
+  el.querySelectorAll('[data-act]').forEach(b=>b.addEventListener('click',()=>{ const a=b.dataset.act; if(a==='idle') openIdle(); else if(a==='hp'){ const p=document.getElementById('hpPanel'); p&&p.scrollIntoView({behavior:'smooth',block:'start'}); } else { setTab('log',true); try{history.replaceState(null,'','#log');}catch(e){} } }));
+}
+function renderTileRow(){
+  const el=document.getElementById('tileRow'); if(!el) return; const sel=state.settings.tiles||['idle','addict','week'];
+  const opts=[['idle','Чем себя занять?'],['addict',ADDF().no],['week','Эта неделя'],['hp','Здоровье'],['best','Лучшая серия'],...DAILY.filter(h=>!h.archived&&isActive(h,C.l)&&h.id!=='sober').map(h=>['h:'+h.id,'Серия: '+h.name])];
+  el.innerHTML=opts.map(([k,l])=>`<button class="chip ${sel.includes(k)?'sel':''}" type="button" data-tile="${k}" aria-pressed="${sel.includes(k)}">${esc(l)}</button>`).join('');
+  el.querySelectorAll('[data-tile]').forEach(b=>b.addEventListener('click',()=>{ const k=b.dataset.tile; let t=(state.settings.tiles||['idle','addict','week']).slice(); t=t.includes(k)?t.filter(x=>x!==k):[...t,k]; state.settings.tiles=opts.map(o=>o[0]).filter(x=>t.includes(x)); save(); render(); sfx.tab(); }));
+}
+function renderAddict(){
+  const S=state.settings;
+  document.querySelectorAll('#addRow .chip').forEach(c=>{ const on=c.dataset.a===addKey(); c.classList.toggle('sel',on); c.setAttribute('aria-pressed',on); });
+  const row=document.getElementById('addCustomRow'); if(row) row.hidden=addKey()!=='custom';
+  const inp=document.getElementById('addCustomIn'); if(inp&&document.activeElement!==inp) inp.value=S.addCustom||'';
+}
+(function(){
+  document.querySelectorAll('#addRow .chip').forEach(c=>c.addEventListener('click',()=>{ state.settings.addict=c.dataset.a; save(); render(); sfx.tab(); if(c.dataset.a==='custom') document.getElementById('addCustomIn').focus(); else toast('Отслеживаем: '+ADDF().no.toLowerCase()); }));
+  const sv=()=>{ state.settings.addCustom=fv('addCustomIn').slice(0,24); state.settings.addict='custom'; save(); render(); sfx.check(); toast('Отслеживаем: '+ADDF().no.toLowerCase()); };
+  document.getElementById('addCustomSave').addEventListener('click',sv);
+  document.getElementById('addCustomIn').addEventListener('keydown',e=>{ if(e.key==='Enter') sv(); });
+})();
+
 /* ================= TABS ================= */
 const TABS=['stat','log','perks','data'];
 function setTab(n,snd){
   if(!TABS.includes(n)) n='stat';
-  document.querySelectorAll('nav.tabs button[data-tab]').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===n));
+  document.querySelectorAll('nav.tabs button[data-tab]').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===n)); { const _cap=document.querySelector('nav.tabs .cap'); if(_cap) _cap.dataset.act=['stat','log','perks','data'].indexOf(n); }
   document.querySelectorAll('section.tab').forEach(s=>s.classList.toggle('active',s.id==='tab-'+n));
   document.getElementById('hdr').classList.toggle('compact',n!=='stat');
+  const _ord=['stat','log','perks','data'], _dir=(_ord.indexOf(n)>=_ord.indexOf(window.__lastTab||'stat'))?1:-1; window.__lastTab=n;
+  const _sec=document.getElementById('tab-'+n); if(_sec){ _sec.style.setProperty('--dir',_dir); [..._sec.children].forEach((c,i)=>c.style.setProperty('--i',Math.min(i,8))); _sec.classList.remove('enter'); void _sec.offsetWidth; _sec.classList.add('enter'); }
   if(snd) sfx.tab();
 }
 document.querySelectorAll('nav.tabs button[data-tab]').forEach(b=>b.addEventListener('click',()=>{ setTab(b.dataset.tab,true); try{history.replaceState(null,'','#'+b.dataset.tab);}catch(e){} }));
@@ -2431,7 +2901,7 @@ document.getElementById('importFile').addEventListener('change',e=>{
 function boot(){
   const el=document.getElementById('boot');
   if(matchMedia('(prefers-reduced-motion: reduce)').matches||!['green','amber'].includes((state.settings||{}).skin||'green')){ el.remove(); return; }
-  const lines=['БАЛАНС-ОС  версия 2.7','Проверка памяти ............ ОК','Загрузка профиля игрока .... ОК','Перки: 40 записей .......... ОК','Чтение памяти устройства ... ОК','> запуск интерфейса'];
+  const lines=['БАЛАНС-ОС  версия 3.3','Проверка памяти ............ ОК','Загрузка профиля игрока .... ОК','Перки: 40 записей .......... ОК','Чтение памяти устройства ... ОК','> запуск интерфейса'];
   const box=document.getElementById('bootTxt');
   box.innerHTML=lines.map(l=>`<div>${l}</div>`).join('')+'<span class="cursor"></span>';
   [...box.querySelectorAll('div')].forEach((r,i)=>setTimeout(()=>r.classList.add('v'),520+i*140));
