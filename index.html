@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Терминал баланса</title>
+<title>BalanceOS</title>
 <meta name="description" content="BalanceOS: личный трекер привычек">
 <link rel="manifest" href="./manifest.webmanifest">
 <meta name="theme-color" content="#080b1c">
@@ -1054,7 +1054,7 @@ html[data-layout="modern"] #deN{height:96px;min-height:72px;max-height:180px;}
   <header id="hdr">
     <button class="avatar" id="avatar" aria-label="Персонаж: сменить фото"><span id="avIn"></span><span class="lv" id="lvl">1</span></button>
     <div class="who">
-      <h1 id="ttl" title="Нажми, чтобы переименовать">Терминал баланса</h1>
+      <h1 id="ttl" title="Нажми, чтобы переименовать">BalanceOS</h1>
       <div class="bars">
         <div class="bx"><div class="xpbar"><i id="xpFill"></i></div><div class="xpnum" id="xpNum"></div></div>
         <div class="bx hp"><div class="hpbar" id="hpBarHdr"><i id="hpFillHdr"></i></div><div class="xpnum" id="hpNum"></div></div>
@@ -1508,7 +1508,7 @@ let weekStart = monday(ds());
 /* ================= STATE ================= */
 function normalize(s){
   s = (s && typeof s==='object') ? s : {};
-  return {version:5, days:s.days||{}, weeks:s.weeks||{}, active:s.active||{}, slips:s.slips||{}, hpStart:s.hpStart||ds(), ideas:Array.isArray(s.ideas)?s.ideas:SEED_IDEAS.map(x=>({...x})), ideaLog:s.ideaLog||{}, cravings:Array.isArray(s.cravings)?s.cravings:[], reviews:s.reviews||{}, names:s.names||{}, qty:(s.qty&&typeof s.qty==='object')?s.qty:{}, deleted:s.deleted||{}, order:(s.order&&typeof s.order==='object')?{d:s.order.d||[],w:s.order.w||[]}:{d:[],w:[]}, custom:Array.isArray(s.custom)?s.custom:[], keyHabits:Array.isArray(s.keyHabits)?s.keyHabits:null, settings:{skin:((x)=>(!x||x==='green'||x==='amber')?'glass':x)(s.settings&&s.settings.skin), title:(s.settings&&s.settings.title)||'Терминал баланса', onboarded:(s.settings&&s.settings.onboarded!=null)?!!s.settings.onboarded:!!(s.days&&Object.keys(s.days).length), accent:(s.settings&&s.settings.accent)||((s.settings&&s.settings.skin==='amber')?'amber':'green'), statStyle:(s.settings&&s.settings.statStyle)||'text', fx:!(s.settings&&s.settings.fx===false), volume:(s.settings&&typeof s.settings.volume==='number')?s.settings.volume:.8, word:(s.settings&&s.settings.word)||'тяга', coachSeen:!!(s.settings&&s.settings.coachSeen), hide:Array.isArray(s.settings&&s.settings.hide)?s.settings.hide:[], userName:(s.settings&&s.settings.userName)||'', gender:(s.settings&&s.settings.gender)||'n', persDismissed:!!(s.settings&&s.settings.persDismissed), tone:(s.settings&&s.settings.tone)||'direct', adult:!!(s.settings&&s.settings.adult), toneSlips:!!(s.settings&&s.settings.toneSlips), tc:(s.settings&&s.settings.tc)||0, motion:(s.settings&&s.settings.motion)==='calm'?'calm':'full', haptics:!(s.settings&&s.settings.haptics===false), glassLite:!!(s.settings&&s.settings.glassLite), addict:(s.settings&&s.settings.addict)||'alcohol', addCustom:(s.settings&&s.settings.addCustom)||'', tiles:Array.isArray(s.settings&&s.settings.tiles)?s.settings.tiles:['idle','addict','week'], scheme:(s.settings&&s.settings.scheme)||'auto', firstSeen:!!(s.settings&&s.settings.firstSeen)}};
+  return {version:5, days:s.days||{}, weeks:s.weeks||{}, active:s.active||{}, slips:s.slips||{}, hpStart:s.hpStart||ds(), ideas:Array.isArray(s.ideas)?s.ideas:SEED_IDEAS.map(x=>({...x})), ideaLog:s.ideaLog||{}, cravings:Array.isArray(s.cravings)?s.cravings:[], reviews:s.reviews||{}, names:s.names||{}, qty:(s.qty&&typeof s.qty==='object')?s.qty:{}, deleted:s.deleted||{}, order:(s.order&&typeof s.order==='object')?{d:s.order.d||[],w:s.order.w||[]}:{d:[],w:[]}, custom:Array.isArray(s.custom)?s.custom:[], keyHabits:Array.isArray(s.keyHabits)?s.keyHabits:null, settings:{skin:((x)=>(!x||x==='green'||x==='amber')?'glass':x)(s.settings&&s.settings.skin), title:((t)=>(!t||t==='Терминал баланса')?'BalanceOS':t)(s.settings&&s.settings.title), onboarded:(s.settings&&s.settings.onboarded!=null)?!!s.settings.onboarded:!!(s.days&&Object.keys(s.days).length), accent:(s.settings&&s.settings.accent)||((s.settings&&s.settings.skin==='amber')?'amber':'green'), statStyle:(s.settings&&s.settings.statStyle)||'text', fx:!(s.settings&&s.settings.fx===false), volume:(s.settings&&typeof s.settings.volume==='number')?s.settings.volume:.8, word:(s.settings&&s.settings.word)||'тяга', coachSeen:!!(s.settings&&s.settings.coachSeen), hide:Array.isArray(s.settings&&s.settings.hide)?s.settings.hide:[], userName:(s.settings&&s.settings.userName)||'', gender:(s.settings&&s.settings.gender)||'n', persDismissed:!!(s.settings&&s.settings.persDismissed), tone:(s.settings&&s.settings.tone)||'direct', adult:!!(s.settings&&s.settings.adult), toneSlips:!!(s.settings&&s.settings.toneSlips), tc:(s.settings&&s.settings.tc)||0, motion:(s.settings&&s.settings.motion)==='calm'?'calm':'full', haptics:!(s.settings&&s.settings.haptics===false), glassLite:!!(s.settings&&s.settings.glassLite), addict:(s.settings&&s.settings.addict)||'alcohol', addCustom:(s.settings&&s.settings.addCustom)||'', tiles:Array.isArray(s.settings&&s.settings.tiles)?s.settings.tiles:['idle','addict','week'], scheme:(s.settings&&s.settings.scheme)||'auto', firstSeen:!!(s.settings&&s.settings.firstSeen)}};
 }
 let state = normalize(null);
 try{ const raw=localStorage.getItem(LOCAL_KEY); if(raw) state=normalize(JSON.parse(raw)); }catch(e){}
@@ -2402,7 +2402,7 @@ function renderIdeasAdmin(){
 /* ================= v2.3: темы, название, свои привычки, знакомство ================= */
 const isCute=()=>state.settings&&state.settings.skin==='cute';
 const SKINS=[{k:'card',l:'Карточки',bg:'#f1effa',fg:'#4b45e6'},{k:'glass',l:'Стекло',bg:'#8ab4ff',fg:'#b06bff'},{k:'cute',l:'Милая',bg:'#fff5fa',fg:'#e8619d'},{k:'std',l:'Стандартная',bg:'#f3f4f6',fg:'#2563eb'}];
-const DEFAULT_TITLE='Терминал баланса';
+const DEFAULT_TITLE='BalanceOS';
 function applySkin(){
   const s=state.settings||{};
   document.documentElement.dataset.skin=s.skin||'glass'; document.documentElement.dataset.fx=(s.fx===false)?'off':'on'; document.documentElement.dataset.hide=(s.hide||[]).join(' '); document.documentElement.dataset.layout=(s.skin==='green'||s.skin==='amber'||!s.skin)?'terminal':'modern'; document.documentElement.dataset.tod=todKey(); document.documentElement.dataset.motion=(s.motion==='calm')?'calm':'full'; document.documentElement.dataset.glass=s.glassLite?'lite':'full';
