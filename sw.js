@@ -1,6 +1,6 @@
 // Терминал баланса: офлайн-режим.
 // После изменения файлов в репозитории увеличь номер версии, чтобы телефон забрал обновление.
-const VERSION = 'v9';
+const VERSION = 'v10';
 const CACHE = 'balance-terminal-' + VERSION;
 const SHELL = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './icon-maskable-512.png'];
 
